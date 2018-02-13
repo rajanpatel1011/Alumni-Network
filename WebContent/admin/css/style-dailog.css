@@ -1,0 +1,18 @@
+@charset "utf-8";
+/* CSS Document */
+
+.published,.create,.publish-no,.publish-yes{
+	background-color:#565453;
+	font-family:Segoe UI Light;
+	color:#FFF;
+	height:100px;
+	width:300px;
+}
+.ok{
+	background-color:#432113;
+	height:30px;
+	width:60px;
+	margin-left:100px;
+	margin-top:10px;
+	text-align:center;
+}

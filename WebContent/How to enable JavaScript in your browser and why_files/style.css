@@ -1,0 +1,66 @@
+﻿body { padding: 0; margin: 0; border: 0; outline: 0; font: 12px Verdana, Geneva, sans-serif; color: #444; line-height: 1.4em; background: #FFF url(../images/bgrtop3.gif) repeat-x; }
+:focus { outline: 0 ;}
+a { color: #666; }
+h1, h2, h3, h4, h5, h6, ul, li, em, strong, pre, code { padding: 0; margin: 0; font-size: 100%; font-weight: normal; font-style: normal; }
+h1 { font: 3.0em Georgia, "Times New Roman", Times, serif; line-height: 1.2em; color: #555; margin: 40px 0 50px 0; text-shadow: 1px 1px 0 #ccc; }
+h2 { font-size: 1.2em; line-height: 1.3em; font-style: italic; color: #4E6B66; padding-bottom: 10px; }
+h3 { font: 1.7em Georgia, "Times New Roman", Times, serif; line-height: 1em; color: #6B5E32; margin-top: 40px; }
+h4 { font: 1.7em Georgia, "Times New Roman", Times, serif; line-height: 1em; color: #6B2322; margin-top: 40px; }
+h5 { font: 1.3em Georgia, "Times New Roman", Times, serif; line-height: 1em; color: #6B5E32; margin: 30px 0 0 0; }
+h6 { font: 2.5em Georgia, "Times New Roman", Times, serif; line-height: 1.2em; color: #555; margin: 50px 0 30px 0; text-shadow: 1px 1px 0 #ccc; }
+ul { list-style: none }
+img { border: 0 }
+p { margin: 1em 0 }
+.italic { font-style: italic }
+#omot { width: 750px; margin: 0 auto; }
+#hat { padding-top: 10px; float: right; }
+#hat a { text-decoration: none; font-size: 11px; color:#444; }
+.flag:hover { border-bottom: solid 1px #FCC; }
+.selectedflag { border-bottom: solid 1px #444; }
+.clear { clear: both; }
+.browser img { border: solid 1px #FFF; margin: 30px 22px 20px 22px; }
+.browser a.current img { border-bottom: solid 1px #ccc; }
+.browser a:hover img { border: solid 1px #FCC; }
+#devinfo { color: #333; }
+.liplace li { padding: 10px 0 0 20px; }
+#developer { background: url(../images/devtop.gif) repeat-x; margin-top: 40px; border-top: solid 1px #4E6B66; text-decoration: none; border-bottom: 1px solid #444; padding-bottom: 20px; }
+#developer p { padding-top: 20px; }
+.enabled, .disabled { margin: 20px 0; width: 738px; padding: 10px; text-align: center; }
+.enabled img, .disabled img { vertical-align: bottom; }
+.enabled { border: solid 1px #2FB73F; background: #FFFCDF; }
+.disabled { border: solid 1px #A21111; background: #FFFCDF; }
+.borderscript { border: solid 1px #EBCC6E; margin: 20px 0; padding: 3px; }
+.script { font: 1.2em "Courier New", Courier, monospace; line-height: 1.5em; color: #000; padding: 10px 20px; background-color: #EBCC6E; }
+#legs { font-size: 0.9em; margin-top: 40px; border-top: solid 1px #595643; }
+#legs a, #legs a:link, #legs a:visited { color: #666; }
+.leftfloat { float: left; }
+.rightfloat { float: right; }
+.centered { text-align: center; }
+.marginleft { margin-left: 20px; }
+.marginrights { margin-right: 5px; }
+.flickrimagewrap { margin: 10px 0 20px; height: 90px; background: url('../images/images.gif') 30px 30px no-repeat; }
+.flickrimagelarge li { margin: 0 0 10px 0; }
+.flickrimagelarge img { display: block; }
+.thumbs { margin-left: 15px; padding: 0; overflow: hidden; }
+.thumbs li { list-style: none; float: left; margin: 5px; padding: 3px; width: 75px; height: 90px; }
+.thumbs li img { display: block; }
+.thumbs li a img { border: none; }
+.thumbs li a:hover img { border: solid 1px #FFF; }
+.imgprofile { padding-right: 10px; }
+.smallfont { font-size: 9px; }
+.devbox { padding-right: 10px; width: 230px; height: 50px; margin-right: 10px; }
+.devbox a { display: block; height: 100%; width: 100%; text-decoration: none; padding-right: 5px; }
+.devbox a:hover { border: solid 1px #FCC; }
+.paddtop { padding-top: 40px; }
+.paddtopm { padding-top: 10px; }
+.thanksto, .checked { padding-left:20px;  }
+.checked { padding-bottom:20px; }
+.thanksto li, .checked li { padding-top: 10px; }
+.thanksto li { list-style: disc url('../images/star.png'); }
+.checked li { list-style: disc url('../images/kvaka.png'); }
+.browimgmiddle { vertical-align: middle; }
+.nodecorat { text-decoration: none; }
+.strong { font-weight: bold; }
+.upper { text-transform: uppercase; }
+#sharetab a { top:20px; height: 102px !important; width:35px !important; background-color:#FFF; z-index: 99999; overflow: hidden; position: fixed; right: 0 !important; left: auto !important; margin-right: 0 !important; margin-left: auto !important; }
+#sharetab a:hover { width:38px !important; }

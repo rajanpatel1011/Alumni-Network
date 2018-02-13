@@ -1,0 +1,117 @@
+@charset "utf-8";
+/* CSS Document */
+
+.ma td,.ma th{
+	text-align:center;
+	text-decoration:none;
+	color:#000;
+}
+
+textarea{
+	resize:none;
+}
+nput.upload{
+
+	background: #432113;
+border-radius: 5px;
+color: #fff;
+font-family: "Marmellata", sans-serif;
+padding: 6px 10px 14px 17px;
+font-size: 20px;
+margin-bottom: 20px;
+width: 240px
+vertical-align: top;
+margin-top: 0px;
+}
+
+body{
+	background-color:#241B1C;
+	margin:0px;
+	padding:0px;
+	height:100%;
+	width:100%;
+}
+
+.fbody{
+	background-color:#241B1C;
+	margin:0px;
+	height:100%;
+	width:100%;
+}
+
+.header{
+	position:fixed;
+	background-color:#F25C27;
+	height:100px;
+	width:100%;
+	margin:0px;
+
+}
+
+.logo{
+	margin:10px;
+	height:70px;
+	width:70px;
+	float:left;
+	background-color:#241B1C;
+
+}
+
+.title{
+	
+margin-top: 20px;
+margin-left: 50px;
+font-weight: bold;
+float: left;
+color: #FFF;
+font-size: 40px;
+font-family: Cooper Black;
+
+}
+
+.adminId{
+	float:right;
+	font-family:Brush Script Std;
+	font-size:36px;
+	color:#FFF;
+	margin:30px;
+}
+
+.btn{
+	float:right;
+}
+
+hr{
+	margin:0px;
+	padding:0px;
+}
+
+.logout{
+		background-color:#432113;
+		opacity:0.8;
+		font-size:16px;
+		font-family:Verdana, Geneva, sans-serif;
+		color:#FFF;
+		font-weight:bolder;
+		margin-right:20px;
+		border:0px;
+		height:100px;
+}
+
+
+.logout:hover{
+	background-color:#241B1C;
+	opacity:1;	
+}
+
+
+.ap{
+	position:fixed;	
+	font-family:Segoe UI Light;
+	font-size:36px;
+	color:#FFF;
+	margin:100px;
+	margin-left:45%;
+	margin-right:50%;
+	width:100%;
+}

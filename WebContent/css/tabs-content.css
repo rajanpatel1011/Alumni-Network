@@ -1,0 +1,94 @@
+.edit{
+}
+.newpost-btn{
+	background-color:#F4ECDD;
+	background-image:url(../images/slide-down.png);
+	background-repeat:no-repeat;
+	background-size:200px 35px;
+	color:#F0BD69;
+	width:200px;
+	margin-left:40%;
+	font-size:18px;
+	font-weight:bold;
+	height:35px;
+	position:absolute;
+	border-width:0px;
+	border-color:#F25C27;
+	text-shadow:4px 2px 1px #000;
+
+}
+
+.newpost-btn_up{
+	background-color:#EA8C2D;
+	background-image:url(../images/slide-up.png);
+	background-repeat:no-repeat;
+	background-size:200px 35px;
+	color:#EA8C2D;
+	width:200px;
+	margin-left:40%;
+	margin-bottom:0px;
+	font-size:18px;
+	font-weight:bold;
+	height:35px;
+	position:absolute;
+	border-width:0px;
+	border-color:#F25C27;
+	text-shadow:4px 2px 1px #000;
+}
+.togglecss{
+	background-color:#F0BD69;
+
+}
+.newpost-content{
+	background-color:#F4ECDD;
+	width:100%;
+	height:260px;
+	float:left;
+}
+
+#post-btn{
+	width:223px;
+	background-color:#F25C27;
+	color:#FFF;
+	margin-top:5px;
+	height:40px;
+	border:0px;
+}
+
+
+.forum{
+	padding-top:40px;
+	background-color:#F4ECDD;
+	color:#000;
+	padding-left:3%;
+	height:100%;
+}
+
+.form-search{	
+	padding-left:40px;
+}
+
+
+
+/* Tab 2 my Profile .....  */
+.tab2_content{
+	padding-top:50px;
+	padding-left:50px;
+	padding-right:50px;
+}
+
+.tab2_content{
+	padding-top:50px;
+	padding-left:50px;
+	padding-right:50px;
+}
+.tab3_content{
+	padding-top:50px;
+	padding-left:50px;
+	padding-right:50px;
+}
+.tab6_content{
+	padding-top:50px;
+	padding-left:50px;
+	padding-right:50px;
+}

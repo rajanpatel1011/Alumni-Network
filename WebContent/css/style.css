@@ -1,0 +1,618 @@
+@charset "utf-8";
+/* CSS Document */
+
+body{
+	margin:0px;
+	padding:0px;
+}
+
+.header{
+	background-color:#F25C27;
+	height:84px;
+	width:100%;
+	position:absolute;
+	display:inline;
+	padding: 0px;
+	margin: 0px;
+}
+
+.title{
+	margin-top:20px;
+	margin-left:50px;
+	font-weight: bold;
+	float:left;
+	color:#FFF;
+	font-size:40px;
+	font-family:Cooper Black;
+}
+
+.nav{
+	list-style: none;
+}
+
+.nav ul{
+	float:right;
+	margin:0px;
+	padding-top: 30px;
+	margin-right:20px;
+	list-style: none;
+}
+
+.nav ul li{
+	display: inline;
+	margin-top:0px;
+	margin-left:22px;
+	padding-top:40px;
+	padding-bottom:40px;
+	padding-left:10px;
+	padding-right:10px;
+	cursor: pointer;
+	height: 84px;
+	line-height: 20px;
+	position: relative;
+}
+
+a{
+	text-decoration: none;
+}
+.nav ul li:hover,.nav ul li:active{
+	background-color: #211C19;
+}
+.active{
+	background-color: #211C19;
+}
+.nav ul li a{
+	font-family: 'Open Sans', sans-serif;
+	font-size: 14px;
+	line-height: 20px;
+	color: #FFF;
+	margin-top:0px;
+	padding-top: 40px;
+	padding-bottom: 36px;
+	padding-left:10px;
+	padding-right:10px;
+	height: 84px;
+}
+
+
+.content{
+	
+}
+
+.photoslide{	
+	position:fixed;
+	width: 100%;
+	margin-top: 84px;
+}
+
+
+
+.signup-form{
+	color:#FFF;
+	float:right;
+	left: 0px;
+	right: auto;
+	background-color: #F25C27;
+	padding: 12px;
+	width: 400px;
+	top: 92px;
+	position: absolute;
+	z-index: 999;
+}
+
+.login-form{
+	color:#FFF;
+	float:right;
+	right: -150px;
+	background-color: #F25C27;
+	padding: 12px;
+	width: 330px;
+	top: 92px;
+	position: absolute;
+	z-index: 999;
+}
+
+
+/*  -========-==================================--Suraj--========================================================= */
+
+/* ------------------- New Post Button ----------START---------------*/
+
+.newpost-btn{
+	background-color:#F4ECDD;
+	background-image:url(../img/slide-down.png);
+	background-repeat:no-repeat;
+	background-size:200px 35px;
+	color:#F0BD69;
+	width:200px;
+	margin-left:40%;
+	font-size:18px;
+	font-weight:bold;
+	height:35px;
+	position:relative;
+	border-width:0px;
+	border-color:#F25C27;
+	text-shadow:4px 2px 1px #000;
+}
+
+#post-btn{
+	width:223px;
+	background-color:#F25C27;
+	color:#FFF;
+	margin-top:5px;
+	height:40px;
+	border:0px;
+}
+
+.btnStyle{
+	width:223px;
+	background-color:#F25C27;
+	color:#FFF;
+	margin-top:5px;
+	height:40px;
+	border:0px;
+}
+
+.btnStyleDel{
+	background-image:url("../images/delete.png");
+	background-repeat:no-repeat;
+	color:#FFF;
+	margin-top:5px;
+	width:26px;
+	height:26px;
+	border-spacing:0px;
+	border-color:transparent;
+	border:0px;
+}
+.cmtbtnStyleDel{
+	background-image:url("../images/cmt-delete.png");
+	background-repeat:no-repeat;
+	color:#FFF;
+	margin-top:5px;
+	width:26px;
+	height:26px;
+	border-spacing:0px;
+	border-color:transparent;
+	border:0px;
+}
+.newpost-content{
+	background-color: #EA8C2D;
+	width: 100%;
+	height: 260px;
+	float: left;
+	font-size: large;
+	font-weight: 100;
+}
+
+.rate{
+	background-image:url("../images/rate.png");
+	background-repeat:no-repeat;
+	color:#FFF;
+	margin-top:5px;
+	width:26px;
+	height:30px;
+	border-spacing:0px;
+	border-color:transparent;
+	border:0px;
+}
+
+
+
+/* ------------------- New Post Button ----------END---------------*/
+
+
+
+/*------------------------------- FORUM ------------START ----------------- */
+
+.forum{
+	padding-top:40px;
+	background-color:#F4ECDD;
+	color:#000;
+	padding-left:3%;
+	
+}
+.all-forum{
+	background-color:#F4ECDD;
+}
+.form-search{	
+	padding-left:40px;
+}
+.content{
+	background-color:#F4ECDD;
+}
+/*------------------------------- FORUM ------------END ----------------- */
+
+
+
+/* ----------------------------------- SELECT tag CHANGE ---------------------START----------*/
+
+select.forumselect{
+  height: 30px;
+  /* In IE7, the height of the select element cannot be changed by height, only font-size */
+
+  *margin-top: 4px;
+  /* For IE7, add top margin to align select with labels */
+
+  line-height: 30px;
+  width: 220px;
+  border: 1px solid #cccccc;
+  background-color: #ffffff;
+  font-size: 14px;
+  font-weight: normal;
+
+
+}
+select[multiple],
+select[size] .forumwalu1{
+  height: auto;
+}
+select:focus, input[type=file]:focus, input[type=radio]:focus, input[type=checkbox]:focus .forumwalu2{
+  outline: thin dotted #333;
+  outline: 5px auto -webkit-focus-ring-color;
+  outline-offset: -2px;
+}
+
+
+/* ----------------------------SELECT tag Change--------- END-----------------*/
+
+
+/* ----------------------------INPUT  tag Change--------- START-----------------*/
+
+input.foruminput
+{
+  margin: 0;
+  font-size: 14px;
+  vertical-align: middle;
+  font-weight: normal;
+  line-height: 20px;
+  
+}
+
+
+
+
+/* ----------------------------INPUT tag Change--------- END-----------------*/
+
+textarea .forumtextarea{
+
+  margin: 0;
+  font-size: 14px;
+  vertical-align: middle;
+  font-weight: normal;
+  line-height: 20px;
+
+
+/*  margin: 0;
+  font-size: 100%;
+  vertical-align: middle;
+*/
+}
+
+
+
+/* ------------------------------ Table Starts --------------------------- */
+
+table {
+  max-width: 100%;
+  background-color: transparent;
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+.table {
+  width: 100%;
+  margin-bottom: 20px;
+}
+.table th,
+.table td {
+  padding: 8px;
+  line-height: 20px;
+  text-align: left;
+  vertical-align: top;
+  border-top: 1px solid #dddddd;
+}
+.table th {
+  font-weight: bold;
+}
+.table thead th {
+  vertical-align: bottom;
+}
+.table caption + thead tr:first-child th,
+.table caption + thead tr:first-child td,
+.table colgroup + thead tr:first-child th,
+.table colgroup + thead tr:first-child td,
+.table thead:first-child tr:first-child th,
+.table thead:first-child tr:first-child td {
+  border-top: 0;
+}
+.table tbody + tbody {
+  border-top: 2px solid #dddddd;
+}
+.table-condensed th,
+.table-condensed td {
+  padding: 4px 5px;
+}
+.table-bordered {
+  border: 1px solid #dddddd;
+  border-collapse: separate;
+  *border-collapse: collapse;
+  border-left: 0;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+}
+.table-bordered th,
+.table-bordered td {
+  border-left: 1px solid #dddddd;
+}
+.table-bordered caption + thead tr:first-child th,
+.table-bordered caption + tbody tr:first-child th,
+.table-bordered caption + tbody tr:first-child td,
+.table-bordered colgroup + thead tr:first-child th,
+.table-bordered colgroup + tbody tr:first-child th,
+.table-bordered colgroup + tbody tr:first-child td,
+.table-bordered thead:first-child tr:first-child th,
+.table-bordered tbody:first-child tr:first-child th,
+.table-bordered tbody:first-child tr:first-child td {
+  border-top: 0;
+}
+.table-bordered thead:first-child tr:first-child th:first-child,
+.table-bordered tbody:first-child tr:first-child td:first-child {
+  -webkit-border-top-left-radius: 4px;
+  border-top-left-radius: 4px;
+  -moz-border-radius-topleft: 4px;
+}
+.table-bordered thead:first-child tr:first-child th:last-child,
+.table-bordered tbody:first-child tr:first-child td:last-child {
+  -webkit-border-top-right-radius: 4px;
+  border-top-right-radius: 4px;
+  -moz-border-radius-topright: 4px;
+}
+.table-bordered thead:last-child tr:last-child th:first-child,
+.table-bordered tbody:last-child tr:last-child td:first-child,
+.table-bordered tfoot:last-child tr:last-child td:first-child {
+  -webkit-border-radius: 0 0 0 4px;
+  -moz-border-radius: 0 0 0 4px;
+  border-radius: 0 0 0 4px;
+  -webkit-border-bottom-left-radius: 4px;
+  border-bottom-left-radius: 4px;
+  -moz-border-radius-bottomleft: 4px;
+}
+.table-bordered thead:last-child tr:last-child th:last-child,
+.table-bordered tbody:last-child tr:last-child td:last-child,
+.table-bordered tfoot:last-child tr:last-child td:last-child {
+  -webkit-border-bottom-right-radius: 4px;
+  border-bottom-right-radius: 4px;
+  -moz-border-radius-bottomright: 4px;
+}
+.table-bordered caption + thead tr:first-child th:first-child,
+.table-bordered caption + tbody tr:first-child td:first-child,
+.table-bordered colgroup + thead tr:first-child th:first-child,
+.table-bordered colgroup + tbody tr:first-child td:first-child {
+  -webkit-border-top-left-radius: 4px;
+  border-top-left-radius: 4px;
+  -moz-border-radius-topleft: 4px;
+}
+.table-bordered caption + thead tr:first-child th:last-child,
+.table-bordered caption + tbody tr:first-child td:last-child,
+.table-bordered colgroup + thead tr:first-child th:last-child,
+.table-bordered colgroup + tbody tr:first-child td:last-child {
+  -webkit-border-top-right-radius: 4px;
+  border-top-right-radius: 4px;
+  -moz-border-radius-topleft: 4px;
+}
+.table-striped tbody tr:nth-child(odd) td,
+.table-striped tbody tr:nth-child(odd) th {
+  background-color: #f9f9f9;
+}
+
+/*.table-hover tbody tr:hover td,
+.table-hover tbody tr:hover th */
+.selectforum .forum:hover
+{
+  background-color: #f5f5f5;
+  opacity:0.6;
+  color:#000;
+}
+
+u
+table [class*=span],
+.row-fluid table [class*=span] {
+  display: table-cell;
+  float: none;
+  margin-left: 0;
+}
+.table .span1 {
+  float: none;
+  width: 44px;
+  margin-left: 0;
+}
+.table .span2 {
+  float: none;
+  width: 124px;
+  margin-left: 0;
+}
+.table .span3 {
+  float: none;
+  width: 204px;
+  margin-left: 0;
+}
+.table .span4 {
+  float: none;
+  width: 284px;
+  margin-left: 0;
+}
+.table .span5 {
+  float: none;
+  width: 364px;
+  margin-left: 0;
+}
+.table .span6 {
+  float: none;
+  width: 444px;
+  margin-left: 0;
+}
+.table .span7 {
+  float: none;
+  width: 524px;
+  margin-left: 0;
+}
+.table .span8 {
+  float: none;
+  width: 604px;
+  margin-left: 0;
+}
+.table .span9 {
+  float: none;
+  width: 684px;
+  margin-left: 0;
+}
+.table .span10 {
+  float: none;
+  width: 764px;
+  margin-left: 0;
+}
+.table .span11 {
+  float: none;
+  width: 844px;
+  margin-left: 0;
+}
+.table .span12 {
+  float: none;
+  width: 924px;
+  margin-left: 0;
+}
+.table .span13 {
+  float: none;
+  width: 1004px;
+  margin-left: 0;
+}
+.table .span14 {
+  float: none;
+  width: 1084px;
+  margin-left: 0;
+}
+.table .span15 {
+  float: none;
+  width: 1164px;
+  margin-left: 0;
+}
+.table .span16 {
+  float: none;
+  width: 1244px;
+  margin-left: 0;
+}
+.table .span17 {
+  float: none;
+  width: 1324px;
+  margin-left: 0;
+}
+.table .span18 {
+  float: none;
+  width: 1404px;
+  margin-left: 0;
+}
+.table .span19 {
+  float: none;
+  width: 1484px;
+  margin-left: 0;
+}
+.table .span20 {
+  float: none;
+  width: 1564px;
+  margin-left: 0;
+}
+.table .span21 {
+  float: none;
+  width: 1644px;
+  margin-left: 0;
+}
+.table .span22 {
+  float: none;
+  width: 1724px;
+  margin-left: 0;
+}
+.table .span23 {
+  float: none;
+  width: 1804px;
+  margin-left: 0;
+}
+.table .span24 {
+  float: none;
+  width: 1884px;
+  margin-left: 0;
+}
+.table tbody tr.success td {
+  background-color: #dff0d8;
+}
+.table tbody tr.error td {
+  background-color: #f2dede;
+}
+.table tbody tr.warning td {
+  background-color: #fcf8e3;
+}
+.table tbody tr.info td {
+  background-color: #d9edf7;
+}
+
+/*.table-hover tbody tr.success:hover td {
+  background-color: #d0e9c6;
+}
+.table-hover tbody tr.error:hover td {
+  background-color: #ebcccc;
+}
+.table-hover tbody tr.warning:hover td {
+  background-color: #faf2cc;
+}
+.table-hover tbody tr.info:hover td {
+  background-color: #c4e3f3;
+}*/
+
+.newpost-btn{
+	background-color:#F4ECDD;
+	background-image:url(../images/slide-down.png);
+	background-repeat:no-repeat;
+	background-size:200px 35px;
+	color:#F0BD69;
+	width:200px;
+	margin-left:40%;
+	font-size:18px;
+	font-weight:bold;
+	height:35px;
+	position:absolute;
+	border-width:0px;
+	border-color:#F25C27;
+	text-shadow:4px 2px 1px #000;
+
+}
+
+#newpost-btn1{
+	background-color:#EA8C2D;
+	background-image:url(../images/slide-up.png);
+	background-repeat:no-repeat;
+	background-size:200px 35px;
+	color:#EA8C2D;
+	width:200px;
+	margin-left:40%;
+	margin-bottom:0px;
+	font-size:18px;
+	font-weight:bold;
+	height:35px;
+	position:absolute;
+	border-width:0px;
+	border-color:#F25C27;
+	text-shadow:4px 2px 1px #000;
+}
+
+
+/* --------------------------------- Table Ends -------------------------- */
+
+.likebtn{
+	background-image:url("../images/rate.png");
+	background-repeat:no-repeat;
+	color:#FFF;
+	margin-top:5px;
+	width:26px;
+	height:26px;
+	border-spacing:0px;
+	border-color:transparent;
+	border:0px;
+}

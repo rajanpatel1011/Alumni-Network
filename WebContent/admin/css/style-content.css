@@ -1,0 +1,97 @@
+@charset "utf-8";
+/* CSS Document */
+
+.containt{
+	float:left;
+	width:100%;
+	height:100%;
+}
+
+.click-btn-css{
+	background-color:#FFF;
+	color:#000;
+}
+
+.tabs{
+	z-index:1;
+	margin-top:150px;
+	position:fixed;
+	width:15%;
+	height:100%;
+	background-color:#565453;	
+}
+
+button{
+	background-color:#565453;
+	border:0px;
+	width:100%;
+	font-family:Segoe UI Light;
+	font-size:18px;
+	color:#FFF;
+	text-align:justify;
+}
+
+
+.tabs div,.tabs div a button{
+	height:45px;
+}
+
+.tabs div a button:hover{
+	background-color:#F25C27;
+}
+
+.tab-content{
+	background-color:#FFF;
+	position:fixed;
+	margin-top:150px;
+	margin-left:15%;
+	width:85%;
+	height:100%;
+}
+
+<!-- News Tab Contentes --------------------------------------------------------------------------------------------------- -->
+
+.news{
+	font-family:Segoe UI Semilight;
+	height:100%;
+}
+
+
+.tab-title{
+	font-size:36px;
+	padding-left:400px;
+	padding-bottom:50px;
+	margin-top:30px;
+	font-family:Segoe UI Semilight;
+}
+
+table{
+	width:50%;
+	height:100%;
+	font-family:Segoe UI Semilight;
+	font-size:16px;
+	margin-top:50px;
+
+	margin-left:200px;
+}
+
+td{
+	text-align:center;	
+}
+
+.crtbtn{
+	margin-left:200px;
+	margin-top:20px;
+	height:40px;
+	width:150px;
+	color:#FFF;
+	text-align:center;
+	background-color:#432113;
+}
+a{
+	text-decoration:none;
+	color:#000;
+}
+.news-title,.news-description,.org-dt,.upload{
+	width:500px;
+}

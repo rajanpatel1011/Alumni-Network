@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<!-- saved from url=(0029)http://enable-javascript.com/ -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <meta name="description" content="Instructions on how to enable (activate) JavaScript in web browser and why.">
+    <meta name="keywords" content="enable javascript, browser, internet explorer, firefox, chrome, safari, opera">
+    <meta name="robots" content="NOODP">
+    <meta name="copyright" content="http://www.podmanicki.com">
+    <meta http-equiv="imagetoolbar" content="no">
+    <meta name="google-site-verification" content="2GrrsYqjSAuFnKvS3hSJF0p0w63zOjKF0_8sVPjF73U">
+    <link rel="home" href="http://www.enable-javascript.com/" title="Enable JavaScript">
+    <link rel="shortcut icon" href="http://enable-javascript.com/favicon.ico" type="image/x-icon">
+    <title>How to enable JavaScript in your browser and why</title>
+    <link rel="stylesheet" type="text/css" href="./How to enable JavaScript in your browser and why_files/style.css">
+    <link rel="stylesheet" type="text/css" href="./How to enable JavaScript in your browser and why_files/fancybox.css">
+    <script type="text/javascript" src="./How to enable JavaScript in your browser and why_files/jquery.min.js"></script>
+    <script type="text/javascript">        !window.jQuery && document.write(unescape('%3Cscript src="js/jquery-1.4.2.min.js"%3E%3C/script%3E'))</script>
+    <script type="text/javascript" src="./How to enable JavaScript in your browser and why_files/jquery.fancybox-1.3.1.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('.flickrimagelarge').toggleClass('flickrimagelarge flickrimagewrap').find('ul').addClass('thumbs').find('img').each(function () {
+                var $this = $(this);
+                var src = this.src;
+                var newSrc = src.replace(/_z.jpg/i, "_s.jpg");
+                this.src = newSrc;
+                $this.wrap('<a target="_blank" rel="' + $this.parents('.thumbs').attr('id') + '" href="' + src + '"></a>').parent().attr('title', this.alt);
+            })
+            /* Using custom settings */
+            $("a#inline").fancybox({
+                'hideOnContentClick': true
+            });
+            $("a.iframe").fancybox({
+                'hideOnContentClick': true
+            });
+            $("a.group").fancybox({
+                'overlayShow': true
+            });
+            $("a[rel=flickrie],a[rel=flickrie9],a[rel=flickrfirefox],a[rel=flickrfirefox3],a[rel=flickrchromenew],a[rel=flickrchrome],a[rel=flickrchrome10],a[rel=flickropera],a[rel=flickropera10],a[rel=flickropera10a],a[rel=flickropera10b],a[rel=flickrsafari]").fancybox({
+                'transitionIn': 'fade',
+                'transitionOut': 'fade',
+                'titleFormat': function (title, currentArray, currentIndex, currentOpts) {
+                    return '<span id="fancybox-title-over">' + (currentIndex + 1) + ' / ' + currentArray.length + (title.length ? ' &nbsp; ' + title : '') + '</span>';
+                }
+            });
+            // if javascript is in, they are probably a developer.. or at least until we finish getting the word out.
+            $('#ifyoureadeveloper').after($('#developer')).remove();
+        });
+    </script>
+<style type="text/css"></style></head>
+<body>
+    <div id="omot">
+        <div id="hat">
+            <a href="http://www.enable-javascript.com/" class="selectedflag flag">
+                <img src="./How to enable JavaScript in your browser and why_files/gb.gif" width="16" height="11" alt="english" title="english"></a>&nbsp; <a href="http://www.enable-javascript.com/hr/" class="flag">
+                    <img src="./How to enable JavaScript in your browser and why_files/hr.gif" width="16" height="11" alt="hrvatski" title="hrvatski"></a>&nbsp; <a href="http://www.enable-javascript.com/de/" class="flag">
+                        <img src="./How to enable JavaScript in your browser and why_files/de.gif" width="16" height="11" alt="german" title="german"></a>&nbsp; <a href="http://www.enable-javascript.com/nl/" class="flag">
+                            <img src="./How to enable JavaScript in your browser and why_files/nl.gif" width="16" height="11" alt="dutch" title="dutch"></a>&nbsp; <a href="http://www.enable-javascript.com/es/" class="flag">
+                                <img src="./How to enable JavaScript in your browser and why_files/es.gif" width="16" height="11" alt="spanish" title="spanish"></a>&nbsp; <a href="http://www.enable-javascript.com/pt/" class="flag">
+                                    <img src="./How to enable JavaScript in your browser and why_files/pt.gif" width="16" height="11" alt="português" title="português"></a>&nbsp; <a href="http://www.enable-javascript.com/it/" class="flag">
+                                        <img src="./How to enable JavaScript in your browser and why_files/it.gif" width="16" height="11" alt="italiano" title="italiano"></a>&nbsp; <a href="http://www.enable-javascript.com/no/" class="flag">
+                                            <img src="./How to enable JavaScript in your browser and why_files/nb-NO.gif" width="16" height="11" alt="norsk" title="norsk"></a>&nbsp; <a href="http://www.enable-javascript.com/ru/" class="flag">
+                                                <img src="./How to enable JavaScript in your browser and why_files/ru.gif" width="16" height="11" alt="Pусский" title="Pусский"></a>&nbsp; <a href="http://www.enable-javascript.com/fr/" class="flag">
+                                                    <img src="./How to enable JavaScript in your browser and why_files/fr.gif" width="16" height="11" alt="français" title="français"></a>&nbsp; <a href="http://www.enable-javascript.com/cz/" class="flag">
+                                                        <img src="./How to enable JavaScript in your browser and why_files/cz.gif" width="16" height="11" alt="czech" title="czech"></a>&nbsp; <a href="http://www.enable-javascript.com/ja/" class="flag">
+                                                            <img src="./How to enable JavaScript in your browser and why_files/ja.gif" width="16" height="11" alt="japanese" title="japanese"></a>&nbsp; <a href="http://www.enable-javascript.com/ko/" class="flag">
+                                                                <img src="./How to enable JavaScript in your browser and why_files/ko.gif" width="16" height="11" alt="korean" title="korean"></a>&nbsp; <a href="http://www.enable-javascript.com/hu/" class="flag">
+                                                                    <img src="./How to enable JavaScript in your browser and why_files/hu.gif" width="16" height="11" alt="hungarian" title="hungarian"></a>&nbsp; <a href="http://www.enable-javascript.com/th/" class="flag">
+                                                                        <img src="./How to enable JavaScript in your browser and why_files/th.gif" width="16" height="11" alt="thai" title="thai"></a>&nbsp; <a href="http://www.enable-javascript.com/ph/" class="flag">
+                                                                            <img src="./How to enable JavaScript in your browser and why_files/ph.gif" width="16" height="11" alt="filipino" title="filipino"></a>&nbsp; <a href="http://www.enable-javascript.com/tr/" class="flag">
+                                                                            <img src="./How to enable JavaScript in your browser and why_files/tr.gif" width="16" height="11" alt="türk" title="türk"></a>&nbsp; &nbsp; &nbsp;
+            <!-- ADDTHIS BUTTON BEGIN -->
+            <script type="text/javascript">
+                var addthis_config = {
+                    username: "tpodmani",
+                    services_compact: 'email, dzone, digg, facebook, twitter, more',
+                    services_exclude: 'print, amazonwishlist, amenme, arto, ballhype, bryderi, care2, citeulike, dosti, edelight, n4g, printfriendly, tellmypolitician, thisnext, tipd, viadeo',
+                    data_track_linkback: true
+                }
+
+            </script>
+            <a href="http://www.addthis.com/bookmark.php" style="text-decoration: none; color: #444;" class="addthis_button upper">
+                <img src="./How to enable JavaScript in your browser and why_files/addthis11.gif" width="11" height="11" alt="AddThis Share">
+                Share</a>
+            <script type="text/javascript" src="./How to enable JavaScript in your browser and why_files/addthis_widget.js"></script>
+            <!-- ADDTHIS BUTTON END -->
+        </div>
+        <div class="clear">
+        </div>
+        <div id="head">
+            <h1>
+                How to enable JavaScript in your browser</h1>
+        </div>
+        <div id="neck">
+            <h2>
+                <img src="./How to enable JavaScript in your browser and why_files/quote.gif" width="28" height="21" alt="quote">
+                Nowadays almost all web pages contain JavaScript, a scripting programming language
+                that runs on visitor's web browser. It makes web pages functional for specific purposes
+                and if disabled for some reason, the content or the functionality of the web page
+                can be limited or unavailable. Here you can find instructions on how to enable (activate)
+                JavaScript in five most commonly used browsers.</h2>
+        </div>
+        <div class="torso">
+            <div class="browser">
+                <a id="ieLink" href="http://enable-javascript.com/#ie"><img src="./How to enable JavaScript in your browser and why_files/ie9.gif" width="100" height="100" alt="Internet Explorer"></a>
+                <a id="firefoxLink" href="http://enable-javascript.com/#firefox"><img src="./How to enable JavaScript in your browser and why_files/firefox.gif" width="100" height="100" alt="Mozilla Firefox"></a>
+                <a id="chromeLink" class="current" href="http://enable-javascript.com/#chrome"><img src="./How to enable JavaScript in your browser and why_files/chrome.gif" width="100" height="100" alt="Google Chrome"></a>
+                <a id="safariLink" href="http://enable-javascript.com/#safari"><img src="./How to enable JavaScript in your browser and why_files/safari.gif" width="100" height="100" alt="Apple Safari"></a>
+                <a id="operaLink" href="http://enable-javascript.com/#opera"><img src="./How to enable JavaScript in your browser and why_files/opera.gif" width="100" height="100" alt="Opera"></a>
+            </div>
+            <script type="text/javascript">
+                document.write('<div class="enabled"><img src="images/yes.gif" width="16" height="16" alt="javascript enabled" /> JavaScript is enabled in your web browser. If you disable JavaScript, this text will change.<\/div>');
+            </script>
+            <noscript>
+                <div class="disabled">
+                    <img src="./How to enable JavaScript in your browser and why_files/no.gif" width="16" height="16" alt="javascript disabled">
+                    Javascript is disabled in your web browser. If you enable JavaScript, this text
+                    will change.</div>
+            </noscript>
+            <div id="ifyoureadeveloper">
+                <img src="./How to enable JavaScript in your browser and why_files/infom.gif" width="10" height="10" alt="info developer">
+                <strong>If you're a web developer, <span><a href="http://enable-javascript.com/#developer" id="devinfo">check the
+                    instructions</a> on how to implement the <code>&lt;noscript&gt;</code> code on your
+                    internet pages.</span></strong>
+            </div>
+            <div id="pnlcurrentBrowser">
+	
+            <div id="pnlChromeNew">
+		
+                    <h3 id="chrome">
+                        <img src="./How to enable JavaScript in your browser and why_files/chrome10-32.png" id="Img1" width="32" height="32" alt="Chrome" class="browimgmiddle">
+                        Google Chrome</h3>
+                    <ol>
+                        <li>
+                            On the web browser menu click on the "Customize and control Google Chrome" and select "Settings".</li>
+                        <li>
+                            In the "Settings" section click on the "Show advanced settings..."</li>
+                        <li>
+                            Under the the "Privacy" click on the "Content settings...".</li>
+                        <li>
+                            When the dialog window opens, look for the "JavaScript" section and select "Allow all sites to run JavaScript (recommended)".</li>
+                        <li>
+                            Click on the "OK" button to close it.</li>
+                        <li>
+                            Close the "Settings" tab.</li>
+                        <li>
+                            Click on the "Reload this page" button of the web browser to refresh the page.</li>
+                    </ol>
+                    <div id="pnlChromeLarge" class="flickrimagelarge">
+			
+                        <ul id="flickrchromenew">
+                            <li>1.
+                                <img src="./How to enable JavaScript in your browser and why_files/7780404404_29aa80e0e3_z.jpg" id="Img2" title="On the web browser menu click on the &quot;Customize and control Google Chrome&quot; and select &quot;Settings&quot;." alt="On the web browser menu click on the &quot;Customize and control Google Chrome&quot; and select &quot;Settings&quot;.">
+                            </li>
+                            <li>2.
+                                <img src="./How to enable JavaScript in your browser and why_files/7780404290_beb923884b_z.jpg" id="Img3" title="In the &quot;Settings&quot; section click on the &quot;Show advanced settings...&quot;" alt="In the &quot;Settings&quot; section click on the &quot;Show advanced settings...&quot;">
+                            </li>
+                            <li>3.
+                                <img src="./How to enable JavaScript in your browser and why_files/7780404172_9207f67364_z.jpg" id="Img4" title="Under the the &quot;Privacy&quot; click on the &quot;Content settings...&quot;." alt="Under the the &quot;Privacy&quot; click on the &quot;Content settings...&quot;.">
+                            </li>
+                            <li>4.
+                                <img src="./How to enable JavaScript in your browser and why_files/7780404068_92fc5b2396_z.jpg" id="Img5" title="When the dialog window opens, look for the &quot;JavaScript&quot; section and select &quot;Allow all sites to run JavaScript (recommended)&quot;." alt="When the dialog window opens, look for the &quot;JavaScript&quot; section and select &quot;Allow all sites to run JavaScript (recommended)&quot;.">
+                            </li>
+                            <li>5.
+                                <img src="./How to enable JavaScript in your browser and why_files/7780403992_80d924480b_z.jpg" id="Img6" title="Click on the &quot;OK&quot; button to close it." alt="Click on the &quot;OK&quot; button to close it.">
+                            </li>
+                            <li>6.
+                                <img src="./How to enable JavaScript in your browser and why_files/7780403906_d3386e5877_z.jpg" id="Img7" title="Close the &quot;Settings&quot; tab." alt="Close the &quot;Settings&quot; tab.">
+                            </li>
+                            <li>7.
+                                <img src="./How to enable JavaScript in your browser and why_files/7780403812_b765206cc6_z.jpg" id="Img8" title="Click on the &quot;Reload this page&quot; button of the web browser to refresh the page." alt="Click on the &quot;Reload this page&quot; button of the web browser to refresh the page.">
+                            </li>
+                        </ul>
+                    
+		</div>
+                    
+                
+	</div>
+</div>
+            <div id="pnlotherBrowsers">
+	
+                <div id="pnlIE">
+		
+                    <h3 id="ie">
+                        <img src="./How to enable JavaScript in your browser and why_files/ie932.png" width="32" height="32" alt="Internet Explorer" class="browimgmiddle">
+                        Internet Explorer</h3>
+                    <ol>
+                        <li>On web browser menu click "Tools" menu and select "Internet Options".</li>
+                        <li>In the "Internet Options" window select the "Security" tab.</li>
+                        <li>On the "Security" tab click on the "Custom level..." button.</li>
+                        <li>When the "Security Settings - Internet Zone" dialog window opens, look
+                            for the "Scripting" section.</li>
+                        <li>In the "Active Scripting" item select "Enable".</li>
+                        <li>When the "Warning!" window pops out asking "Are you sure you want
+                            to change the settings for this zone?" select "Yes".</li>
+                        <li>In the "Internet Options" window click on the "OK" button to
+                            close it.</li>
+                        <li>Click on the "Refresh" button of the web browser to refresh the page.</li>
+                    </ol>
+                    
+                    <div id="pnlIESmall" class="flickrimagewrap">
+			
+                        <ul class="thumbs">
+                            <li>1. <a href="http://farm6.static.flickr.com/5029/5689539791_6c2a317971_z.jpg" rel="flickrie9" title="On web browser menu click &quot;Tools&quot; menu and select &quot;Internet Options&quot;." target="_blank">
+                                <img src="./How to enable JavaScript in your browser and why_files/5689539791_6c2a317971_s.jpg" alt="ie9 01" width="75" height="75"></a> </li>
+                            <li>2. <a href="http://farm2.static.flickr.com/1418/4721685229_5a5de0ab80_z.jpg" rel="flickrie9" title="In the &quot;Internet Options&quot; window select the &quot;Security&quot; tab." target="_blank">
+                                <img src="./How to enable JavaScript in your browser and why_files/4721685229_5a5de0ab80_s.jpg" alt="ie9 02" width="75" height="75"></a> </li>
+                            <li>3. <a href="http://farm2.static.flickr.com/1071/4722333668_0e19ab60c0_z.jpg" rel="flickrie9" title="On the &quot;Security&quot; tab click on the &quot;Custom level...&quot; button." target="_blank">
+                                <img src="./How to enable JavaScript in your browser and why_files/4722333668_0e19ab60c0_s.jpg" alt="ie9 03" width="75" height="75"></a> </li>
+                            <li>4. <a href="http://farm2.static.flickr.com/1065/4721678225_de73ab447e_z.jpg" rel="flickrie9" title="When the &quot;Security Settings - Internet Zone&quot; dialog window opens, look for the &quot;Scripting&quot; section." target="_blank">
+                                <img src="./How to enable JavaScript in your browser and why_files/5690114140_2c725bb23c_s.jpg" alt="ie9 04" width="75" height="75"></a> </li>
+                            <li>5. <a href="http://farm2.static.flickr.com/1240/4721672085_943d43f36a_z.jpg" rel="flickrie9" title="In the &quot;Active Scripting&quot; item select &quot;Enable&quot;." target="_blank">
+                                <img src="./How to enable JavaScript in your browser and why_files/4721672085_943d43f36a_s.jpg" alt="ie9 05" width="75" height="75"></a> </li>
+                            <li>6. <a href="http://farm2.static.flickr.com/1335/4721667825_41e2705d46_z.jpg" rel="flickrie9" title="When the &quot;Warning!&quot; window pops out asking &quot;Are you sure you want to change the settings for this zone?&quot; select &quot;Yes&quot;." target="_blank">
+                                <img src="./How to enable JavaScript in your browser and why_files/4721667825_41e2705d46_s.jpg" alt="ie9 06" width="75" height="75"></a> </li>
+                            <li>7. <a href="http://farm2.static.flickr.com/1050/4721663071_c5b532743d_z.jpg" rel="flickrie9" title="In the &quot;Internet Options&quot; window click on the&quot;OK&quot; button to close it." target="_blank">
+                                <img src="./How to enable JavaScript in your browser and why_files/4721663071_c5b532743d_s.jpg" alt="ie9 07" width="75" height="75"></a> </li>
+                            <li>8. <a href="http://farm6.static.flickr.com/5300/5570661607_0040d30b25_z.jpg" rel="flickrie9" title="Click on the &quot;Refresh&quot; button of the web browser to refresh the page." target="_blank">
+                                <img src="./How to enable JavaScript in your browser and why_files/5570661607_0040d30b25_s.jpg" alt="ie9 08" width="75" height="75"></a> </li>
+                        </ul>
+                    
+		</div>
+                
+	</div>
+                <div id="pnlIElte8">
+		
+                    <h5 id="ielte8">
+                        <img src="./How to enable JavaScript in your browser and why_files/ie16.gif" width="16" height="16" alt="Internet Explorer &lt; 9" class="browimgmiddle">
+                        Internet Explorer &lt; 9</h5>
+                    <ol>
+                        <li>On web browser menu click "Tools" and select "Internet Options".</li>
+                        <li>In the "Internet Options" window select the "Security" tab.</li>
+                        <li>On the "Security" tab click on the "Custom level..." button.</li>
+                        <li>When the "Security Settings - Internet Zone" dialog window opens, look
+                            for the "Scripting" section.</li>
+                        <li>In the "Active Scripting" item select "Enable".</li>
+                        <li>When the "Warning!" window pops out asking "Are you sure you want
+                            to change the settings for this zone?" select "Yes".</li>
+                        <li>In the "Internet Options" window click on the"OK" button to
+                            close it.</li>
+                        <li>Click on the "Refresh" button of the web browser to refresh the page.</li>
+                    </ol>
+                    
+                    <div id="pnlIElte8Small" class="flickrimagewrap">
+			
+                        <ul class="thumbs">
+                            <li>1. <a href="http://farm2.static.flickr.com/1340/4721687795_acd01cda73_z.jpg" rel="flickrie" title="On web browser menu click &quot;Tools&quot; and select &quot;Internet Options&quot;." target="_blank">
+                                <img src="./How to enable JavaScript in your browser and why_files/4721687795_acd01cda73_s.jpg" alt="ie 01" width="75" height="75"></a> </li>
+                            <li>2. <a href="http://farm2.static.flickr.com/1418/4721685229_5a5de0ab80_z.jpg" rel="flickrie" title="In the &quot;Internet Options&quot; window select the &quot;Security&quot; tab." target="_blank">
+                                <img src="./How to enable JavaScript in your browser and why_files/4721685229_5a5de0ab80_s.jpg" alt="ie 02" width="75" height="75"></a> </li>
+                            <li>3. <a href="http://farm2.static.flickr.com/1071/4722333668_0e19ab60c0_z.jpg" rel="flickrie" title="On the &quot;Security&quot; tab click on the &quot;Custom level...&quot; button." target="_blank">
+                                <img src="./How to enable JavaScript in your browser and why_files/4722333668_0e19ab60c0_s.jpg" alt="ie 03" width="75" height="75"></a> </li>
+                            <li>4. <a href="http://farm2.static.flickr.com/1065/4721678225_de73ab447e_z.jpg" rel="flickrie" title="When the &quot;Security Settings - Internet Zone&quot; dialog window opens, look for the &quot;Scripting&quot; section." target="_blank">
+                                <img src="./How to enable JavaScript in your browser and why_files/5690114140_2c725bb23c_s.jpg" alt="ie 04" width="75" height="75"></a> </li>
+                            <li>5. <a href="http://farm2.static.flickr.com/1240/4721672085_943d43f36a_z.jpg" rel="flickrie" title="In the &quot;Active Scripting&quot; item select &quot;Enable&quot;." target="_blank">
+                                <img src="./How to enable JavaScript in your browser and why_files/4721672085_943d43f36a_s.jpg" alt="ie 05" width="75" height="75"></a> </li>
+                            <li>6. <a href="http://farm2.static.flickr.com/1335/4721667825_41e2705d46_z.jpg" rel="flickrie" title="When the &quot;Warning!&quot; window pops out asking &quot;Are you sure you want to change the settings for this zone?&quot; select &quot;Yes&quot;." target="_blank">
+                                <img src="./How to enable JavaScript in your browser and why_files/4721667825_41e2705d46_s.jpg" alt="ie 06" width="75" height="75"></a> </li>
+                            <li>7. <a href="http://farm2.static.flickr.com/1050/4721663071_c5b532743d_z.jpg" rel="flickrie" title="In the &quot;Internet Options&quot; window click on the &quot;OK&quot; button to close it." target="_blank">
+                                <img src="./How to enable JavaScript in your browser and why_files/4721663071_c5b532743d_s.jpg" alt="ie 07" width="75" height="75"></a> </li>
+                            <li>8. <a href="http://farm2.static.flickr.com/1436/4721648357_a07b3f91f6_z.jpg" rel="flickrie" title="Click on the &quot;Refresh&quot; button of the web browser to refresh the page." target="_blank">
+                                <img src="./How to enable JavaScript in your browser and why_files/4721648357_a07b3f91f6_s.jpg" alt="ie 08" width="75" height="75"></a> </li>
+                        </ul>
+                    
+		</div>
+                
+	</div>
+                <div id="pnlFirefox">
+		
+                    <h3 id="firefox">
+                        <img src="./How to enable JavaScript in your browser and why_files/firefox32.gif" width="32" height="32" alt="Firefox" class="browimgmiddle">
+                        Mozilla Firefox</h3>
+                    <ol>
+                        <li>In the address bar, type about:config and press Enter.</li>
+                        <li>Click "I'll be careful, I promise" if a warning message appears.</li>
+                        <li>In the search box, search for javascript.enabled</li>
+                        <li>Toggle the "javascript.enabled" preference (right-click and select "Toggle" or double-click the preference) to change the value from "false" to "true".</li>
+                    </ol>
+
+
+                
+	</div>
+                <div id="pnlFirefoxlte23">
+		
+                    <h5 id="firefox23">
+                        <img src="./How to enable JavaScript in your browser and why_files/firefox16.gif" width="16" height="16" alt="Firefox &lt; 23" class="browimgmiddle">
+                        Mozilla Firefox &lt; 23</h5>
+                    <ol>
+                        <li>On the web browser menu click "Tools" and select "Options".</li>
+                        <li>In the "Options" window select the "Content" tab.</li>
+                        <li>Mark the "Enable JavaScript" checkbox.</li>
+                        <li>In the opened "Options" window click on the "OK" button to close
+                            it.</li>
+                        <li>Click on the "Reload current page" button of the web browser to refresh
+                            the page.</li>
+                    </ol>
+                    
+                    <div id="pnlFirefoxlte23Small" class="flickrimagewrap">
+			
+                        <ul class="thumbs">
+                            <li>1. <a href="http://farm6.static.flickr.com/5225/5692607561_2918796fe7_z.jpg" rel="flickrfirefox" title="On the web browser menu click &quot;Tools&quot; and select &quot;Options&quot;." target="_blank">
+                                <img src="./How to enable JavaScript in your browser and why_files/5692607561_2918796fe7_s.jpg" alt="ff 01" width="75" height="75"></a> </li>
+                            <li>2. <a href="http://farm4.static.flickr.com/3396/5702296363_46b6120eb0_z.jpg" rel="flickrfirefox" title="In the &quot;Options&quot; window select the &quot;Content&quot; tab." target="_blank">
+                                <img src="./How to enable JavaScript in your browser and why_files/5702296363_46b6120eb0_s.jpg" alt="ff 02" width="75" height="75"></a> </li>
+                            <li>3. <a href="http://farm4.static.flickr.com/3482/5702865556_53afd8a45c_z.jpg" rel="flickrfirefox" title="Mark the &quot;Enable JavaScript&quot; checkbox." target="_blank">
+                                <img src="./How to enable JavaScript in your browser and why_files/5702865556_53afd8a45c_s.jpg" alt="ff 03" width="75" height="75"></a> </li>
+                            <li>4. <a href="http://farm4.static.flickr.com/3584/5702296515_5f4df5e1eb_z.jpg" rel="flickrfirefox" title="In the opened &quot;Options&quot; window click on the &quot;OK&quot; button to close it." target="_blank">
+                                <img src="./How to enable JavaScript in your browser and why_files/5702296515_5f4df5e1eb_s.jpg" alt="ff 04" width="75" height="75"></a> </li>
+                            <li>5. <a href="http://farm4.static.flickr.com/3266/5702859774_6d1b1192a0_z.jpg" rel="flickrfirefox" title="Click on the &quot;Reload current page&quot; button of the web browser to refresh the page." target="_blank">
+                                <img src="./How to enable JavaScript in your browser and why_files/5702859774_6d1b1192a0_s.jpg" alt="ff 05" width="75" height="75"></a> </li>
+                        </ul>
+                    
+		</div>
+                
+	</div>
+                
+            
+            <div id="pnlSafari">
+		
+                <h3 id="safari">
+                    <img src="./How to enable JavaScript in your browser and why_files/safari32.gif" width="32" height="32" alt="Safari" class="browimgmiddle">
+                    Apple Safari</h3>
+                <ol>
+                    <li>On the web browser menu click on the "Edit" and select "Preferences".</li>
+                    <li>In the "Preferences" window select the "Security" tab.</li>
+                    <li>In the "Security" tab section "Web content" mark the "Enable
+                        JavaScript" checkbox.</li>
+                    <li>Click on the "Reload the current page" button of the web browser to refresh
+                        the page.</li>
+                </ol>
+                
+                <div id="pnlSafariSmall" class="flickrimagewrap">
+			
+                    <ul class="thumbs">
+                        <li>1. <a href="http://farm5.static.flickr.com/4134/4741286721_8770fe8879_z.jpg" rel="flickrsafari" title="On the web browser menu click on the &quot;Edit&quot; and select &quot;Preferences&quot;." target="_blank">
+                            <img src="./How to enable JavaScript in your browser and why_files/4741286721_8770fe8879_s.jpg" alt="safari 01" width="75" height="75"></a> </li>
+                        <li>2. <a href="http://farm5.static.flickr.com/4093/4741286719_e4fa9ec414_z.jpg" rel="flickrsafari" title="In the &quot;Preferences&quot; window select the &quot;Security&quot; tab." target="_blank">
+                            <img src="./How to enable JavaScript in your browser and why_files/4741286719_e4fa9ec414_s.jpg" alt="safari 02" width="75" height="75"></a> </li>
+                        <li>3. <a href="http://farm5.static.flickr.com/4081/4741286717_1e1a8ff4da_z.jpg" rel="flickrsafari" title="In the &quot;Security&quot; tab section &quot;Web content&quot; mark the &quot;Enable JavaScript&quot; checkbox." target="_blank">
+                            <img src="./How to enable JavaScript in your browser and why_files/4741286717_1e1a8ff4da_s.jpg" alt="safari 03" width="75" height="75"></a> </li>
+                        <li>4. <a href="http://farm5.static.flickr.com/4142/4741286715_ac0d603b07_z.jpg" rel="flickrsafari" title="Click on the &quot;Reload the current page&quot; button of the web browser to refresh the page." target="_blank">
+                            <img src="./How to enable JavaScript in your browser and why_files/4741286715_ac0d603b07_s.jpg" alt="safari 04" width="75" height="75"></a> </li>
+                    </ul>
+                
+		</div>
+            
+	</div>
+            <div id="pnlOpera">
+		
+                <h3 id="opera">
+                    <img src="./How to enable JavaScript in your browser and why_files/opera32.gif" width="32" height="32" alt="Opera" class="browimgmiddle">
+                    Opera</h3>
+                <ul class="liplace">
+                    <li>1. a) Click on "Menu", hover mouse on the "Settings" then hover
+                        mouse on the "Quick preferences" and mark the "Enable JavaScript"
+                        checkbox.</li>
+                    <li>1. b) If "Menu bar" is shown click on the "Tools", hover mouse
+                        on the "Quick preferences" and mark the "Enable JavaScript"
+                        checkbox.</li>
+                </ul>
+                
+                <div id="pnlOperaSmall" class="flickrimagewrap">
+			
+                    <ul class="thumbs">
+                        <li>1. a) <a href="http://farm5.static.flickr.com/4100/4936114546_e141346ae6_z.jpg" rel="flickropera10a" title="Click on &quot;Menu&quot;, hover mouse on the &quot;Settings&quot; then hover mouse on the &quot;Quick preferences&quot; and mark the &quot;Enable Javascript&quot; checkbox." target="_blank">
+                            <img src="./How to enable JavaScript in your browser and why_files/4936114546_e141346ae6_s.jpg" alt="opera10 a" width="75" height="75"></a> </li>
+                        <li>1. b) <a href="http://farm5.static.flickr.com/4102/4932584805_d2bf049921_z.jpg" rel="flickropera10b" title="If &quot;Menu bar&quot; is shown click on the &quot;Tools&quot;, hover mouse on the &quot;Quick preferences&quot; and mark the &quot;Enable Javascript&quot; checkbox." target="_blank">
+                            <img src="./How to enable JavaScript in your browser and why_files/4932584805_d2bf049921_s.jpg" alt="opera10 b" width="75" height="75"></a> </li>
+                    </ul>
+                
+		</div>
+            
+	</div>
+            <div id="pnlOperaLt10">
+		
+                <h5>
+                    <img src="./How to enable JavaScript in your browser and why_files/opera16.gif" width="16" height="16" alt="Opera &lt; 10" class="browimgmiddle">
+                    Opera &lt; v. 10</h5>
+                <ol>
+                    <li>On the web browser menu click "Tools" and select "Preferences".</li>
+                    <li>In the "Preferences" window select the "Advanced" tab.</li>
+                    <li>On the "Advanced" tab click on "Content" menu item.</li>
+                    <li>Mark the "Enable JavaScript" checkbox.</li>
+                    <li>In the opened "Preferences" window click on the "OK" button
+                        to close it.</li>
+                    <li>Click on the "Reload" button of the web browser to refresh the page.</li>
+                </ol>
+                
+                <div id="pnlOperaLt10Small" class="flickrimagewrap">
+			
+                    <ul class="thumbs">
+                        <li>1. <a href="http://farm5.static.flickr.com/4143/4741979582_e13641f1e0_z.jpg" rel="flickropera" title="On the web browser menu click  &quot;Tools&quot; and select &quot;Preferences&quot;." target="_blank">
+                            <img src="./How to enable JavaScript in your browser and why_files/4741979582_e13641f1e0_s.jpg" alt="opera 01" width="75" height="75"></a> </li>
+                        <li>2. <a href="http://farm5.static.flickr.com/4081/4741979578_9d2101b6e9_z.jpg" rel="flickropera" title="In the &quot;Preferences&quot; window select the &quot;Advanced&quot; tab." target="_blank">
+                            <img src="./How to enable JavaScript in your browser and why_files/4741979578_9d2101b6e9_s.jpg" alt="opera 02" width="75" height="75"></a> </li>
+                        <li>3. <a href="http://farm5.static.flickr.com/4142/4741979576_8fbfd8d2fa_z.jpg" rel="flickropera" title="On the &quot;Advanced&quot; tab click on &quot;Content&quot; menu item." target="_blank">
+                            <img src="./How to enable JavaScript in your browser and why_files/4741979576_8fbfd8d2fa_s.jpg" alt="opera 03" width="75" height="75"></a> </li>
+                        <li>4. <a href="http://farm5.static.flickr.com/4079/4741979572_9c4b76d75d_z.jpg" rel="flickropera" title="Mark the &quot;Enable JavaScript&quot; checkbox." target="_blank">
+                            <img src="./How to enable JavaScript in your browser and why_files/4741979572_9c4b76d75d_s.jpg" alt="opera 04" width="75" height="75"></a> </li>
+                        <li>5. <a href="http://farm5.static.flickr.com/4120/4741979568_a813c935b2_z.jpg" rel="flickropera" title="In the opened &quot;Preferences&quot; window click on the &quot;OK&quot; button to close it." target="_blank">
+                            <img src="./How to enable JavaScript in your browser and why_files/4741979568_a813c935b2_s.jpg" alt="opera 05" width="75" height="75"></a> </li>
+                        <li>6. <a href="http://farm5.static.flickr.com/4077/4741979564_e4bf7733b7_z.jpg" rel="flickropera" title="Click on the &quot;Reload&quot; button of the web browser to refresh the page." target="_blank">
+                            <img src="./How to enable JavaScript in your browser and why_files/4741979564_e4bf7733b7_s.jpg" alt="opera 06" width="75" height="75"></a> </li>
+                    </ul>
+                
+		</div>
+            
+	</div>
+            
+</div>
+        </div>
+        <div id="developer">
+            <h4>
+                <img src="./How to enable JavaScript in your browser and why_files/developer32.gif" width="32" height="32" alt="Developer" class="marginrights browimgmiddle">
+                Instructions for web developers</h4>
+            <p>
+                You may want to consider linking to this site, to educate any script-disabled users
+                on how to enable JavaScript in five most commonly used browsers. You are free to
+                use the code below and modify it according to your needs.</p>
+            <div class="borderscript">
+                <div class="script">
+                    <pre>&lt;noscript&gt;
+ For full functionality of this site it is necessary to enable JavaScript.
+ Here are the &lt;a href="http://www.enable-javascript.com/" target="_blank"&gt;
+ instructions how to enable JavaScript in your web browser&lt;/a&gt;.
+&lt;/noscript&gt;</pre>
+                </div>
+            </div>
+            On enable-javascript.com we optimize the script-disabled user experience as much
+            as we can:
+            <ul class="checked">
+                <li>The instructions for your browser are put at the top of the page</li>
+                <li>All the images are inlined, full-size, for easy perusing</li>
+                <li>This developer-centric message is out of the way</li>
+            </ul>
+            We want your visitors to have JavaScript enabled just as much as you do!
+        </div>
+        <!-- eo #developer -->
+        <h6>
+            About</h6>
+        <p>
+            Programming, designing, testing, getting user feedback and writing materials for
+            this website was done by Toni Podmanicki, Paul Irish &amp; Jeremy Hill. We wish
+            to thank all those who helped and contributed in any way. Hope you find this page
+            useful.</p>
+        <div class="torso paddtop">
+            <div class="devbox leftfloat">
+                <a href="http://toni.podmanicki.com/">
+                    <img src="./How to enable JavaScript in your browser and why_files/ToniPodmanicki.png" class="imgprofile leftfloat" width="50px" height="50px" alt="Toni Podmanicki">
+                    <span class="strong">Toni Podmanicki</span>
+                    <br>
+                    <span class="smallfont">Front End Developer from<br>
+                        Croatia, Europe.</span></a></div>
+            <div class="devbox leftfloat">
+                <a href="http://paulirish.com/">
+                    <img src="./How to enable JavaScript in your browser and why_files/PaulIrish.png" class="imgprofile leftfloat" width="50px" height="50px" alt="Paul Irish"><span class="strong">Paul Irish</span>
+                    <br>
+                    <span class="smallfont">Google Chrome developer relations, jQuery team member.</span></a></div>
+            <div class="devbox leftfloat">
+                <a href="http://twitter.com/spifferiferfied">
+                    <img src="./How to enable JavaScript in your browser and why_files/JeremyHill.png" class="imgprofile leftfloat" width="50px" height="50px" alt="Jeremy Hill"><span class="strong">Jeremy Hill</span><br>
+                    <span class="smallfont">Front End Web Developer working in Chicago, IL.</span></a></div>
+        </div>
+        <div class="clear">
+            <h4 class="paddtop">
+                Many thanks for help to the following</h4>
+            <ul class="paddtopm thanksto">
+                <li><a href="http://zeljko.podmanicki.com/">Zeljko Podmanicki</a> Researching, testing and providing ingenious ideas (as usual)</li>
+                <li><a href="http://enable-javascript.com/#nogo">Ivana Roncevic</a> English - Croatian</li>
+                <li><a href="http://originell.org/">Luis Nell</a> English - German</li>
+                <li><a href="http://blog.jorritsalverda.nl/">Jorrit Salverda</a> English - Dutch</li>
+                <li><a href="http://dzign.us/">Leandro D'Onofrio</a> English - Spanish</li>
+                <li><a href="http://davedev.com.br/">Davis Peixoto</a> English - Portuguese</li>
+                <li><a href="http://www.visitportocesareo.com/">Giacomo Ratta</a> English - Italian</li>
+                <li><a href="http://apt.no/">Erland Wiencke</a> English - Norwegian</li>
+                <li><a href="http://kulakowka.com/">Anton Kulakov</a> English - Russian</li>
+                <li><a href="http://commeunsigne.fr/">David Martin</a> English - French</li>
+                <li><a href="http://janmyler.com/">Jan Myler</a> English - Czech</li>
+                <li><a href="http://hail2u.net/">Kyo Nagashima</a> English - Japanese</li>
+                <li><a href="http://firejune.com/">Joon Kyung</a> English - Korean</li>
+                <li><a href="">Tamás Antal</a> English - Hungarian</li>
+                <li><a href="http://we.in.th/">Sitdhibong Laokok</a> English - Thai</li>
+                <li><a href="http://lifetickler.com/author/jesse/">Jesse Veluz</a> English - Filipino</li>
+                <li><a href="http://www.ugureskici.com/">Uğur Eskici</a> English - Turkish</li>
+
+            </ul>
+            <h4>
+                Tools making this site cool</h4>
+            <ul class="paddtopm thanksto">
+                <li><a href="http://jquery.com/">jQuery</a> is a fast and concise JavaScript Library
+                    that simplifies HTML document traversing, event handling, animating, and Ajax interactions
+                    for rapid web development. jQuery is designed to change the way that you write JavaScript.</li>
+                <li><a href="http://fancybox.net/">FancyBox</a> is a tool for displaying images, html
+                    content and multi-media in a Mac-style "lightbox" that floats overtop
+                    of web page.</li>
+                <li><a href="http://www.famfamfam.com/lab/icons/flags/">FamFamFam</a> set of very nice
+                    flag icons.</li>
+            </ul>
+        </div>
+        <div id="legs">
+            <div class="leftfloat">
+                © <a href="http://www.podmanicki.com/web.html" title="Web design">Toni &amp; Zeljko
+                    Podmanicki</a>
+                2009-2012.</div>
+            <div class="rightfloat">
+                Contact enab<a href="http://www.google.com/recaptcha/mailhide/d?k=01c2zKRvkGJ1xEfnmbkfJd2g==&c=wQiBpJFaqlDQN_vnFG47U3x19r_k2f45y6dA9kBUGbE=" onclick="window.open(&#39;http://www.google.com/recaptcha/mailhide/d?k\07501c2zKRvkGJ1xEfnmbkfJd2g\75\75\46c\75wQiBpJFaqlDQN_vnFG47U3x19r_k2f45y6dA9kBUGbE\075&#39;, &#39;&#39;, &#39;toolbar=0,scrollbars=0,location=0,statusbar=0,menubar=0,resizable=0,width=500,height=300&#39;); return false;" title="Reveal this e-mail address">...</a>@gmail.com | <a href="http://enable-javascript.com/#hat" title="Top of page">
+                        Go on top</a></div>
+        </div>
+    </div>
+    <script type="text/javascript">
+        var _gaq = _gaq || [];
+        _gaq.push(['_setAccount', 'UA-6516330-2']);
+        _gaq.push(['_trackPageview']);
+        (function () {
+            var ga = document.createElement('script');
+            ga.type = 'text/javascript';
+            ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(ga, s);
+        })();
+    </script>
+    <script type="text/javascript" charset="utf-8">
+        var is_ssl = ("https:" == document.location.protocol);
+        var asset_host = is_ssl ? "https://s3.amazonaws.com/getsatisfaction.com/" : "http://s3.amazonaws.com/getsatisfaction.com/";
+        document.write(unescape("%3Cscript src='" + asset_host + "javascripts/feedback-v2.js' type='text/javascript'%3E%3C/script%3E"));
+    </script>
+    <script type="text/javascript" charset="utf-8">
+        var feedback_widget_options = {};
+        feedback_widget_options.display = "overlay";
+        feedback_widget_options.company = "enable-javascript";
+        feedback_widget_options.placement = "right";
+        feedback_widget_options.color = "#CCCCCC";
+        feedback_widget_options.style = "idea";
+        var feedback_widget = new GSFN.feedback_widget(feedback_widget_options);
+    </script>
+
+
+</body></html>
