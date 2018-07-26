@@ -1,3 +1,4 @@
+
 <% 
 	response.setHeader("Cache-Control", "no-cache,no-store,must-revalidate");
 	response.setHeader("Pragma", "no-cache");
@@ -69,83 +70,87 @@ $(document).ready(function() {
 
 </script>
 <style>
-td input{
-			width:195px;
+td input {
+	width: 195px;
 }
-td{
-	text-align:left;
+
+td {
+	text-align: left;
 }
 </style>
 <div class="tab-content">
-            <div id="ini-usr">
-            	<label class="tab-title">Initial Users</label>
-            		<form id="initUser" method="post">
-					<table>
-							<tr>
-								<td colspan="2" style="text-align:center;" id="msg" >
-									
-								</td>
-							</tr>
-            				<tr>
-            					<td>First Name :</td>
-         					    <td><input type="text" name="fname" id="fname" /> </td>
-            				</tr> 
-            				
-            				<tr>
-            					<td>Last Name :</td>
-         					    <td><input type="text" name="lname" id="lname"/> </td>
-            				</tr>
+	<div id="ini-usr">
+		<label class="tab-title">Initial Users</label>
+		<form id="initUser" method="post">
+			<table>
+				<tr>
+					<td colspan="2" style="text-align: center;" id="msg"></td>
+				</tr>
+				<tr>
+					<td>First Name :</td>
+					<td><input type="text" name="fname" id="fname" /></td>
+				</tr>
 
-            				<tr>
-            					<td>Gender :</td>
-         					    <td><input type="radio" style="width:10px;" name="gender" id="Male" value="m" checked>Male<input type="radio" style="width:10px;" name="gender" id="Female" value="f">Female</td>
-            				</tr>
-            			
-            				<tr>
-            					<td>DOB :</td>
-         					    <td><input type="text" name="dob" id="dob" /> </td>
-            				</tr>
-            				<tr>
-            					<td>Email :</td>
-         					    <td><input type="text" name="email" id="email" /> </td>
-            				</tr>
-            				<tr>
-            					<td>Passout Year :</td>
-         					    <td><select style="width:195px;height:28px;" id="inputPassyr" class="box" name="inputPassyr">
-			<option selected>-select-</option>
-			</select> </td>
-            				</tr>
-            				<tr>
-            					<td>Branch :</td>
-         					    <td><select style="width:195px;height:28px;" class="box" id="selectBranch" name="branch">
-				<option selected>-select-</option>
-			</select> </td>
-            				</tr>
-            				<tr>
-            					<td>Enrollment No :</td>
-         					    <td><input type="text" name="enrno" id="enrno"/> </td>
-            				</tr>
-            				<tr>
-            					<td>UserID :</td>
-         					    <td><input type="text" name="uid" id="uid" /> </td>
-            				</tr>
-            				
-            				<tr>
-            					<td>Password :</td>
-         					    <td><input type="password" name="pwd" id="pwd"/> </td>
-            				</tr>
-            				
-            				<tr>
-            					<td>Confirm Password :</td>
-         					    <td><input type="password" name="cpwd" id="cpwd" /> </td>
-            				</tr>           				
-            				
-            				<tr>
-            					<td colspan="2"><input type="submit" class="crtbtn" value="Add"/></td>
-            				</tr>            				
-				</table>
-				</form>
-			</div>
+				<tr>
+					<td>Last Name :</td>
+					<td><input type="text" name="lname" id="lname" /></td>
+				</tr>
+
+				<tr>
+					<td>Gender :</td>
+					<td><input type="radio" style="width: 10px;" name="gender"
+						id="Male" value="m" checked>Male<input type="radio"
+						style="width: 10px;" name="gender" id="Female" value="f">Female</td>
+				</tr>
+
+				<tr>
+					<td>DOB :</td>
+					<td><input type="text" name="dob" id="dob" /></td>
+				</tr>
+				<tr>
+					<td>Email :</td>
+					<td><input type="text" name="email" id="email" /></td>
+				</tr>
+				<tr>
+					<td>Passout Year :</td>
+					<td><select style="width: 195px; height: 28px;"
+						id="inputPassyr" class="box" name="inputPassyr">
+							<option selected>-select-</option>
+					</select></td>
+				</tr>
+				<tr>
+					<td>Branch :</td>
+					<td><select style="width: 195px; height: 28px;" class="box"
+						id="selectBranch" name="branch">
+							<option selected>-select-</option>
+					</select></td>
+				</tr>
+				<tr>
+					<td>Enrollment No :</td>
+					<td><input type="text" name="enrno" id="enrno" /></td>
+				</tr>
+				<tr>
+					<td>UserID :</td>
+					<td><input type="text" name="uid" id="uid" /></td>
+				</tr>
+
+				<tr>
+					<td>Password :</td>
+					<td><input type="password" name="pwd" id="pwd" /></td>
+				</tr>
+
+				<tr>
+					<td>Confirm Password :</td>
+					<td><input type="password" name="cpwd" id="cpwd" /></td>
+				</tr>
+
+				<tr>
+					<td colspan="2"><input type="submit" class="crtbtn"
+						value="Add" /></td>
+				</tr>
+			</table>
+		</form>
+	</div>
 </div>
 </div>
 </body>

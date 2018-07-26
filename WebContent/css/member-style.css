@@ -1,43 +1,45 @@
 @charset "utf-8";
 /* CSS Document */
-
-body{
-	margin:0px;
-	padding:0px;
+body {
+	margin: 0px;
+	padding: 0px;
 }
 
-.header1,.header2{
+.header1, .header2 {
 	padding-left: 0px;
 	padding-right: 0px;
 	width: 100%;
 }
-.header1{
-	margin:0px;
+
+.header1 {
+	margin: 0px;
 	background-color: #432113;
 	height: 30%;
 	position: fixed;
 }
 
-.head-title{
-	font-family:Brush Script Std;
-	font-size:24px;
+.head-title {
+	font-family: Brush Script Std;
+	font-size: 24px;
 	background-color: #432113;
-	float:left;
-	margin:20px;
-	margin-left:0px;
-	color:#FFF;	
-	cursor:pointer;
+	float: left;
+	margin: 20px;
+	margin-left: 0px;
+	color: #FFF;
+	cursor: pointer;
 }
-.logo{
-	margin:10px;
-	margin-left:20px;
-	float:left;
+
+.logo {
+	margin: 10px;
+	margin-left: 20px;
+	float: left;
 	height: 40px;
 	width: 40px;
-	cursor:pointer;
+	cursor: pointer;
 }
-.head-title label{
-	cursor:pointer;
+
+.head-title label {
+	cursor: pointer;
 }
 
 .fixhdr {
@@ -54,63 +56,64 @@ body{
 	border-color: #FFF;
 }
 
-.fixhdr button{
-	background-color:#F25C27;
-	color:#FFF;
-	width:70px;
-	height:50px;
-	border-width:0px;
-	border-color:#F25C27;
+.fixhdr button {
+	background-color: #F25C27;
+	color: #FFF;
+	width: 70px;
+	height: 50px;
+	border-width: 0px;
+	border-color: #F25C27;
 }
 
-.header2{
+.header2 {
 	background-color: #F25C27;
 	margin-top: 55px;
 	position: absolute;
 	font-family: 'Dorsa', sans-serif;
 }
 
-.profilepic{
+.profilepic {
 	margin: 0px;
-	
 }
-.profilepic img{
-	margin:20px;
-	float:left;
+
+.profilepic img {
+	margin: 20px;
+	float: left;
 	width: 120px;
 	height: 120px;
-	box-shadow:0px 4px 2px 2px #fff; 
-	border-radius:25px;
-	
+	box-shadow: 0px 4px 2px 2px #fff;
+	border-radius: 25px;
 }
-.username{
-	float:left;
-	
-	font-weight:bold;
-	margin-top:10px;	
+
+.username {
+	float: left;
+	font-weight: bold;
+	margin-top: 10px;
 }
-.tab-block{
-	margin-top:90px;
-	padding-top:15px;
-	height:85px;
+
+.tab-block {
+	margin-top: 90px;
+	padding-top: 15px;
+	height: 85px;
 	background-color: #211C19;
 }
 
-.tab{
-	margin-top:20px;
+.tab {
+	margin-top: 20px;
 	background-color: #F5F1E5;
 	padding-top: 8px;
 	height: 27px;
 }
 
-.tab label{
+.tab label {
 	padding-top: 8px;
 	padding-bottom: 8px;
 	padding-left: 0px;
 	padding-right: 0px;
 	height: 40px;
 }
-.tab label a{
+
+.tab label a {
 	font-size: 14px;
 	padding-top: 8px;
 	padding-bottom: 8px;
@@ -126,28 +129,31 @@ body{
 	padding-left: 12px;
 	margin-right: 2px;
 }
-.tab label a:hover{
+
+.tab label a:hover {
 	background-color: #F25C27;
-	color:#FFF;
+	color: #FFF;
 }
-.active{
+
+.active {
 	background-color: #F25C27;
-	color:#FFF;
+	color: #FFF;
 }
-.deactive{
+
+.deactive {
 	
 }
 
-.footer{
-	position:absolute;
-	color:#000;
+.footer {
+	position: absolute;
+	color: #000;
 	margin-top: 22px;
 }
 
-.content{
-	margin-top:240px;
-	color:#000;	
+.content {
+	margin-top: 240px;
+	color: #000;
 	background-color: #211C19;
-	width:100%;
+	width: 100%;
 	position: absolute;
 }

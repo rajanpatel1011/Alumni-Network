@@ -1,7 +1,9 @@
-.signupForm{
+.signupForm {
 	padding: 12px;
 }
-.signup-form input[type="text"], .signup-form input[type="password"],.box{
+
+.signup-form input[type="text"], .signup-form input[type="password"],
+	.box {
 	display: block;
 	width: 180px;
 	background-color: #ffffff;
@@ -13,23 +15,23 @@
 	height: 20px;
 	padding: 4px 6px;
 	font-size: 14px;
-	line-height: 20px;	
+	line-height: 20px;
 	color: #7f7f7f;
 	-webkit-border-radius: 3px;
 	border-radius: 3px;
 }
 
-.msg{
-	background-color:#251D1B;
-	color:#F25C27;
+.msg {
+	background-color: #251D1B;
+	color: #F25C27;
 	height: 200px;
 	width: 75%;
 	padding: 10px;
-	padding-left:20px;
+	padding-left: 20px;
 	font-weight: bolder;
 }
 
-.signup1-form input{
+.signup1-form input {
 	margin: 0;
 	margin-bottom: 4px;
 	vertical-align: middle;
@@ -50,10 +52,11 @@
 	-webkit-writing-mode: horizontal-tb;
 }
 
-.btn{
+.btn {
 	color: #F25C27;
 	margin-top: 5px;
-	border-color: rgba(0, 0, 0, 0.15) rgba(0, 0, 0, 0.15) rgba(0, 0, 0, 0.25);
+	border-color: rgba(0, 0, 0, 0.15) rgba(0, 0, 0, 0.15)
+		rgba(0, 0, 0, 0.25);
 	display: inline-block;
 	padding: 4px 14px;
 	margin-bottom: 0;

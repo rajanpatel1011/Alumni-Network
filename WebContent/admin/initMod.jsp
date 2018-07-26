@@ -19,28 +19,32 @@ $(document).ready(function() {
 $('#ini-mod-btn').addClass('click-btn-css');
 </script>
 <div class="tab-content">
-<div id="ini-mod">
- 	 			<%String f=request.getParameter("result");
+	<div id="ini-mod">
+		<%String f=request.getParameter("result");
  	 			 	if(!StringUtils.isEmptyOrWhitespaceOnly(f)||!StringUtils.isNullOrEmpty(f)){
  						if(f=="1"){
- 							%><%="Request Send... " %><%
+ 							%><%="Request Send... " %>
+		<%
  						}
  						if(f=="2"){
- 							%><%="Try..." %><%
+ 							%><%="Try..." %>
+		<%
  						}
  						if(f=="3"){
- 							%><%="Internal error.." %><%
+ 							%><%="Internal error.." %>
+		<%
  						}
  	 			 	}%>
-				<label class="tab-title">Initial Modrator</label><br />
-                
-                
-                <div align="center"><br />
- 	 	<div id=list></div>
-          </div>      
-            </div>
-            </div>
+		<label class="tab-title">Initial Modrator</label><br />
+
+
+		<div align="center">
+			<br />
+			<div id=list></div>
+		</div>
+	</div>
 </div>
-            
+</div>
+
 </body>
 </html>

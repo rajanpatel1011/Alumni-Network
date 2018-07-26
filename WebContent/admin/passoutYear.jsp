@@ -1,3 +1,4 @@
+
 <% 
 	response.setHeader("Cache-Control", "no-cache,no-store,must-revalidate");
 	response.setHeader("Pragma", "no-cache");
@@ -39,35 +40,45 @@ $(document).ready(function() {
 
 <div class="tab-content" style="position: initial;">
 	<div id="pyear">
-		<label class="tab-title"></label><br />    
-			<table style="width:60%">
-				<tr>
-					<th>
-						<button class="pass-yr-btn2">Passout Year</button>
-					</th>
-				</tr>
-				<tr>
-						<td>
-							<div id="msg"></div>
-			 			<%String resu=request.getParameter("fl");
+		<label class="tab-title"></label><br />
+		<table style="width: 60%">
+			<tr>
+				<th>
+					<button class="pass-yr-btn2">Passout Year</button>
+				</th>
+			</tr>
+			<tr>
+				<td>
+					<div id="msg"></div> <%String resu=request.getParameter("fl");
 							if(!"".equals(resu)||null!=(resu)||!"null".equals(resu)){
 						 	 	if(("-1").equals(resu)){
-							 		%><%="Year has been deleted successfully!" %><%
+							 		%><%="Year has been deleted successfully!" %>
+					<%
 					 			}
 						 	 	if(("-2").equals(resu)){
-							 		%><%="Year can not be delete!!" %><%
+							 		%><%="Year can not be delete!!" %>
+					<%
 						 		}
 						}%>
-					 		<div class="pass-yr2" id="pass-yr2">
-							</div>
-							<form id="addYear" method="post" >
-							<table>
-							<tr><td colspan='2'><hr/></td></tr><tr><td>Year : </td><td><input type='text' name='year' id="year"/></td></tr></table><input type="submit" class='crtbtn' value="Add" /><br/><br/><hr/>
-							</form>
-						</td>
-					</tr>
-			</table>        			
-	</div>          
+					<div class="pass-yr2" id="pass-yr2"></div>
+					<form id="addYear" method="post">
+						<table>
+							<tr>
+								<td colspan='2'><hr /></td>
+							</tr>
+							<tr>
+								<td>Year :</td>
+								<td><input type='text' name='year' id="year" /></td>
+							</tr>
+						</table>
+						<input type="submit" class='crtbtn' value="Add" /><br />
+						<br />
+						<hr />
+					</form>
+				</td>
+			</tr>
+		</table>
+	</div>
 </div>
 </div>
 </body>

@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
-    <% 
+	pageEncoding="ISO-8859-1"%>
+<% 
 	response.setHeader("Cache-Control", "no-cache,no-store,must-revalidate");
 	response.setHeader("Pragma", "no-cache");
 	response.setHeader("Expires", "0");
@@ -33,7 +33,7 @@
 
 </head>
 <body>
-<%
+	<%
 AdminLoginBEAN bean = (AdminLoginBEAN) session.getAttribute("adminloginBEAN");
 
 if(bean == null){
@@ -41,14 +41,12 @@ if(bean == null){
 	rd.forward(request, response);
 }else{
 %>
-<div class="fbody">
-	<div class="header">
-		
-        <div class="title">
-			C.G.Patel Institute Of Technology
-        </div>
-        <div class="btn">
-        <% String url = null;
+	<div class="fbody">
+		<div class="header">
+
+			<div class="title">C.G.Patel Institute Of Technology</div>
+			<div class="btn">
+				<% String url = null;
         	url = (String) request.getAttribute("javax.servlet.forward.request_uri"); 
         	if(url == null){
         		url = "aoaoaoaoaoaoaooaooaoa";
@@ -58,21 +56,24 @@ if(bean == null){
         		System.out.print("strurl =>"+strurl);
         		if(strurl.equals("/Alumni")){
         			%>
-						<a href="AdminLogoutSERVLET"><input type="button" class="logout" value="Logout"/></a>
+				<a href="AdminLogoutSERVLET"><input type="button" class="logout"
+					value="Logout" /></a>
 				<%
         		}else{
         			%>
-        			<a href="../AdminLogoutSERVLET"><input type="button" class="logout" value="Logout"/></a>
-        			<%
+				<a href="../AdminLogoutSERVLET"><input type="button"
+					class="logout" value="Logout" /></a>
+				<%
         		}
         	%>
-        </div>
-        <div class="adminId">
-        	Admin
-        </div>
-	</div>
-    <hr />
-   	<div class="ap"><label>Admin Panel</label></div>
-   	<%} %>
+			</div>
+			<div class="adminId">Admin</div>
+		</div>
+		<hr />
+		<div class="ap">
+			<label>Admin Panel</label>
+		</div>
+		<%} %>
+	
 </body>
 </html>

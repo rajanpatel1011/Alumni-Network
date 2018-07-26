@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
-    <%@page import="com.alumni.admin.beans.*"%>
+	pageEncoding="ISO-8859-1"%>
+<%@page import="com.alumni.admin.beans.*"%>
 <% 
 	response.setHeader("Cache-Control", "no-cache,no-store,must-revalidate");
 	response.setHeader("Pragma", "no-cache");
@@ -16,59 +16,59 @@
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html>
-    <head>
-        <title>Animated Form Switching with jQuery</title>
-        
-		<link rel="shortcut icon" href="../favicon.ico" type="image/x-icon"/>
-        <link rel="stylesheet" type="text/css" href="css/style1.css" />
-		<script src="js/cufon-yui.js" type="text/javascript"></script>
-		<script src="js/ChunkFive_400.font.js" type="text/javascript"></script>
-		
-        <link rel="stylesheet" type="text/css" href="admin/css/style1.css" />
-		<script src="admin/js/cufon-yui.js" type="text/javascript"></script>
-		<script src="admin/js/ChunkFive_400.font.js" type="text/javascript"></script>
-		
-		
-		<script type="text/javascript">
+<head>
+<title>Animated Form Switching with jQuery</title>
+
+<link rel="shortcut icon" href="../favicon.ico" type="image/x-icon" />
+<link rel="stylesheet" type="text/css" href="css/style1.css" />
+<script src="js/cufon-yui.js" type="text/javascript"></script>
+<script src="js/ChunkFive_400.font.js" type="text/javascript"></script>
+
+<link rel="stylesheet" type="text/css" href="admin/css/style1.css" />
+<script src="admin/js/cufon-yui.js" type="text/javascript"></script>
+<script src="admin/js/ChunkFive_400.font.js" type="text/javascript"></script>
+
+
+<script type="text/javascript">
 			Cufon.replace('h1',{ textShadow: '1px 1px #fff'});
 			Cufon.replace('h2',{ textShadow: '1px 1px #fff'});
 			Cufon.replace('h3',{ textShadow: '1px 1px #000'});
 			Cufon.replace('.back');
 		</script>
-		
-		<style>
-			.button{
-				cursor: pointer;
-				float: right;
-				background-color:#D9D9D9;
-				height:40px;
-				width:148px;
-				border: 1px solid #ccc;
-				font-size: 14px;
-				font-weight: bold;
-				padding: 8px 0 9px;
-				text-align: center;
-				margin: 15px 20px 10px 10px;
-				text-shadow: 0px 1px 0px #fff;
-				border-radius: 4px;
-				-webkit-box-shadow: 0px 0px 2px #fff inset;
-				box-shadow: 0px 0px 2px #fff inset;
-			}
-		</style>
-		<script type="text/javascript" src="../js/jquery-1.9.1.min.js"></script>
-        	<script>
+
+<style>
+.button {
+	cursor: pointer;
+	float: right;
+	background-color: #D9D9D9;
+	height: 40px;
+	width: 148px;
+	border: 1px solid #ccc;
+	font-size: 14px;
+	font-weight: bold;
+	padding: 8px 0 9px;
+	text-align: center;
+	margin: 15px 20px 10px 10px;
+	text-shadow: 0px 1px 0px #fff;
+	border-radius: 4px;
+	-webkit-box-shadow: 0px 0px 2px #fff inset;
+	box-shadow: 0px 0px 2px #fff inset;
+}
+</style>
+<script type="text/javascript" src="../js/jquery-1.9.1.min.js"></script>
+<script>
         	$(document).ready(function(e) {
         		$('#pempty').hide();
         		$('#uempty').hide();
         		
         	});
         	</script>
-    </head>
-    <body>
-		<div class="wrapper">
-			<div class="content" style="margin-top:100px">
-				<div id="form_wrapper" class="form_wrapper">
-					<% String url = null;
+</head>
+<body>
+	<div class="wrapper">
+		<div class="content" style="margin-top: 100px">
+			<div id="form_wrapper" class="form_wrapper">
+				<% String url = null;
         	url = (String) request.getAttribute("javax.servlet.forward.request_uri"); 
         	if(url == null){
         		url = "aoaoaoaoaoaoaooaooaoa";
@@ -80,85 +80,90 @@
         			if(strurl.length() > 13){
         			if(strurl.subSequence(0, 13).equals("/Alumni/admin")){
         			%>
-					<form class="login active" id="adminLogin" action="../AdminLoginSERVLET" method="post">
-					
+				<form class="login active" id="adminLogin"
+					action="../AdminLoginSERVLET" method="post">
+
 					<input type="hidden" value="three" name="urlFlag" />
 					<%}
         			}else{
         				%>
-    					<form class="login active" id="adminLogin" action="AdminLoginSERVLET" method="post">
-    					
-    					<input type="hidden" value="one" name="urlFlag" />
-    					<%
+					<form class="login active" id="adminLogin"
+						action="AdminLoginSERVLET" method="post">
+
+						<input type="hidden" value="one" name="urlFlag" />
+						<%
         			}
         		}else{
         			%>
-        			<form class="login active" id="adminLogin" action="../AdminLoginSERVLET" method="post">
-        			<input type="hidden" value="two" name="urlFlag" />
-        			<%
+						<form class="login active" id="adminLogin"
+							action="../AdminLoginSERVLET" method="post">
+							<input type="hidden" value="two" name="urlFlag" />
+							<%
         		}
         	%>
-        	
-        	
-						<h3>Admin Panel</h3>
-						<div>
-							<label>Username:</label>
-							<input type="text" name="uname" />
-							<span id="uempty" style="margin-left:30px;color:red">Username cannot be empty ...</span>
-						</div>
-						<div>
-							<label>Password: <a href="forgot_password.html" rel="forgot_password" class="forgot linkform">Forgot your password?</a></label>
-							<input type="password" name="pwd" />
-							<input type="hidden" name="check" value="1">
-							<span id="pempty" style="margin-left:30px;color:red">Password cannot be empty ...</span>
-							
-							 <%
+
+
+							<h3>Admin Panel</h3>
+							<div>
+								<label>Username:</label> <input type="text" name="uname" /> <span
+									id="uempty" style="margin-left: 30px; color: red">Username
+									cannot be empty ...</span>
+							</div>
+							<div>
+								<label>Password: <a href="forgot_password.html"
+									rel="forgot_password" class="forgot linkform">Forgot your
+										password?</a></label> <input type="password" name="pwd" /> <input
+									type="hidden" name="check" value="1"> <span id="pempty"
+									style="margin-left: 30px; color: red">Password cannot be
+									empty ...</span>
+
+								<%
 								String validationString = request.getParameter("validation");
 								if(validationString != null && !"".equals(validationString)) {
 									int validation = Integer.parseInt(validationString);
 										if(validation == 1) {
 							%>
-									<label>You are not Login ...</label>
-							<%
+								<label>You are not Login ...</label>
+								<%
 									}else if(validation == 2) {
 										%>
-										<label>Incorrect Username Password ...</label>
-										<%
+								<label>Incorrect Username Password ...</label>
+								<%
 									}
 								}
 							%>
-				
-						</div>
-						<div class="bottom">
-							<!-- div class="remember"><input type="checkbox" /><span>Keep me logged in</span></div -->
-						<!-- input type="submit" value="Login" / --> 
-							<button class="button" id="adminlogin" type="submit">Login</button>
-							<div class="clear"></div>
-						</div>
-					</form>
-					<form class="forgot_password">
-						<h3>Forgot Password</h3>
-						<div>
-							<label>Username or Email:</label>
-							<input type="text" />
-							<span class="error">This is an error</span>
-						</div>
-						<div class="bottom">
-							<input type="submit" value="Send Password"></input>
-							<a href="index.html" rel="login" class="linkform">Suddenly remebered? Log in here</a>
-							<div class="clear"></div>
-						</div>
-					</form>
-				</div>
-				<div class="clear"></div>
-			</div>
-		</div>
-		
 
-		<!-- The JavaScript -->
-		<script type="text/javascript" src="admin/js/jquery.min.js"></script>
-		<script type="text/javascript" src="js/jquery.min.js"></script>
-		<script type="text/javascript">
+							</div>
+							<div class="bottom">
+								<!-- div class="remember"><input type="checkbox" /><span>Keep me logged in</span></div -->
+								<!-- input type="submit" value="Login" / -->
+								<button class="button" id="adminlogin" type="submit">Login</button>
+								<div class="clear"></div>
+							</div>
+						</form>
+						<form class="forgot_password">
+							<h3>Forgot Password</h3>
+							<div>
+								<label>Username or Email:</label> <input type="text" /> <span
+									class="error">This is an error</span>
+							</div>
+							<div class="bottom">
+								<input type="submit" value="Send Password"></input> <a
+									href="index.html" rel="login" class="linkform">Suddenly
+									remebered? Log in here</a>
+								<div class="clear"></div>
+							</div>
+						</form>
+			</div>
+			<div class="clear"></div>
+		</div>
+	</div>
+
+
+	<!-- The JavaScript -->
+	<script type="text/javascript" src="admin/js/jquery.min.js"></script>
+	<script type="text/javascript" src="js/jquery.min.js"></script>
+	<script type="text/javascript">
 			$(function() {
 					//the form wrapper (includes all forms)
 				var $form_wrapper	= $('#form_wrapper'),
@@ -231,7 +236,7 @@
 							 });	
 			});
         </script>
-    </body>
+</body>
 </html>
 
 <%}%>

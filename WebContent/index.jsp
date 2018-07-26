@@ -1,6 +1,6 @@
 <%@page import="com.alumni.beans.LoginBEAN"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+	pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <%
 	response.setHeader("Cache-Control", "no-cache,no-store,must-revalidate");
@@ -25,14 +25,15 @@ if(session.getAttribute("loginBEAN") != null){
 <head>
 
 <noscript>
-    Javascript is disabled.
-<meta http-equiv="refresh" content="5" />
-    <meta HTTP-EQUIV="REFRESH" content="0; url=indexJS.jsp"> 
-    
+	Javascript is disabled.
+	<meta http-equiv="refresh" content="5" />
+	<meta HTTP-EQUIV="REFRESH" content="0; url=indexJS.jsp">
+
 </noscript>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <!-- To create a Responsive Web Design -->
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, maximum-scale=1">
 <title>Alumni Network</title>
 <link rel="stylesheet" href="css/style.css" type="text/css">
 <script type="text/javascript" src="js/jquery-1.9.1.min.js"></script>
@@ -63,50 +64,43 @@ if(validationString != null && !"".equals(validationString)) {
 		});*/
 	});
 </script>
-<link href="css/mobiscroll.custom-2.6.2.min.css" rel="stylesheet" type="text/css" />
+<link href="css/mobiscroll.custom-2.6.2.min.css" rel="stylesheet"
+	type="text/css" />
 </head>
 <body>
 
-<div class="header">
-	<div class="title">
-		C.G.Patel Institute Of Technology
+	<div class="header">
+		<div class="title">C.G.Patel Institute Of Technology</div>
+		<div class="nav">
+			<ul>
+				<li id="home"><a href="index.jsp">HOME</a></li>
+
+				<li id="signup"><a href="#" id="sup">SIGN UP</a>
+					<div class="signup-form" id="signup-form">
+						<jsp:include page="signup.jsp" />
+					</div></li>
+				<li id="login"><a href="#" id="lgn">LOGIN</a>
+					<div class="login-form" id="login-form">
+						<jsp:include page="login.jsp" />
+					</div></li>
+
+				<li id="contect"><a href="#">CONTACT</a></li>
+			</ul>
+		</div>
 	</div>
-	<div class="nav">
-		<ul>
-			<li id="home"><a href="index.jsp" >HOME</a></li>
-			
-			<li id="signup">
-				<a href="#" id="sup">SIGN UP</a>
-				<div class="signup-form" id="signup-form">
-					<jsp:include page="signup.jsp" />
-				</div>
-			</li>
-			<li id="login">
-				<a href="#" id="lgn">LOGIN</a>
-				<div class="login-form" id="login-form">
-					<jsp:include page="login.jsp" />
-				</div>
-			</li>		
-			
-			<li id="contect"><a href="#">CONTACT</a></li>
-		</ul>
+
+
+	<div class="content">
+		<div class="photoslide">
+			<jsp:include page="photoslide.html" />
+		</div>
 	</div>
-</div>	
 
 
-<div class="content">
-	<div class="photoslide">
-		<jsp:include page="photoslide.html" />
-	</div>
-</div>
+	<div class="footer"></div>
+	<script src="js/mobiscroll.custom-2.6.2.min.js" type="text/javascript"></script>
 
-
-<div class="footer">
-
-</div>
-<script src="js/mobiscroll.custom-2.6.2.min.js" type="text/javascript"></script>
-
-<script type="text/javascript">
+	<script type="text/javascript">
 $(function(){
     var now = new Date();
    	//alert(now.getFullYear()-20);

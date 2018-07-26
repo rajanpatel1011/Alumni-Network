@@ -44,39 +44,49 @@ $(document).ready(function() {
 
 </script>
 
-<div class="tab-content" style="position:initial">
+<div class="tab-content" style="position: initial">
 	<div id="branch">
-		<label class="tab-title"></label><br />    
-			<table style="width:60%">
-				<tr>
-					<th>
-						<button class="batch-btn2">Branch</button>
-					</th>
-				</tr>
-				<tr>
-					<td>
-					
-						<div id="msg"></div>
-						<%String resu=request.getParameter("result");
+		<label class="tab-title"></label><br />
+		<table style="width: 60%">
+			<tr>
+				<th>
+					<button class="batch-btn2">Branch</button>
+				</th>
+			</tr>
+			<tr>
+				<td>
+
+					<div id="msg"></div> <%String resu=request.getParameter("result");
 						if(!StringUtils.isEmptyOrWhitespaceOnly(resu)||!StringUtils.isNullOrEmpty(resu)){
 							
 						 	if(resu.equals("1")){
-							 	%><%="Branch has been deleted successfully!" %><%
+							 	%><%="Branch has been deleted successfully!" %>
+					<%
 						 	}
 						 	if(resu.equals("2")){
-							 	%><%="Branch can not be delete!!" %><%
+							 	%><%="Branch can not be delete!!" %>
+					<%
 						 	}
 						}%>
-						<div class="batch2" id="branchlist">
-						</div>
-						<form id="addBranch" method="post">
+					<div class="batch2" id="branchlist"></div>
+					<form id="addBranch" method="post">
 						<table>
-						
-						<tr><td colspan='2'><hr/></td></tr><tr><td>Branch : </td><td><input type='text' name='branch' id='inputbranch' /></td></tr></table><input type='submit' class='crtbtn' value='Add'/><br/><br/><hr/>
-						</form>
-					</td>
-				</tr>
-			</table>        			
+
+							<tr>
+								<td colspan='2'><hr /></td>
+							</tr>
+							<tr>
+								<td>Branch :</td>
+								<td><input type='text' name='branch' id='inputbranch' /></td>
+							</tr>
+						</table>
+						<input type='submit' class='crtbtn' value='Add' /><br />
+						<br />
+						<hr />
+					</form>
+				</td>
+			</tr>
+		</table>
 	</div>
 </div>
 </div>

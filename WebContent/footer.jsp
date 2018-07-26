@@ -1,6 +1,4 @@
-<div class="footer">
-	 © 2013 | Alumni Association
-</div>
+<div class="footer">© 2013 | Alumni Association</div>
 
 <!-- Activate live tiles -->
 <script type="text/javascript">

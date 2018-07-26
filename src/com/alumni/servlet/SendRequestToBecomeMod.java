@@ -15,7 +15,7 @@ import javax.servlet.http.HttpSession;
 import com.alumni.beans.LoginBEAN;
 import com.alumni.beans.sendRequestToBecomeModbeans;
 import com.alumni.bo.SendRequestTobecomeModBO;
-import com.sun.mail.iap.Response;
+//import com.sun.mail.iap.Response;
 
 /**
  * Servlet implementation class SendRequestToBecomeMod
