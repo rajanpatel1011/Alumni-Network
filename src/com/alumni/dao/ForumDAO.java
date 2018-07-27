@@ -28,7 +28,7 @@ public class ForumDAO {
 			con = ConnectionDAO.getConnection();
 
 			String s = "SELECT forum.*,members.f_name,members.l_name,permision.perm_Name,(select count(c_Id) as noCmt from `comment` where f_Id=forum.f_Id),p.m_Id FROM members,permision,forum LEFT JOIN pinned_forum p ON (p.m_Id="+m_Id+" and p.f_Id=forum.f_Id) where (forum.creator_id=members.m_id) and (forum.perm_Id=permision.perm_Id) and (forum.delete_flag=0) and ((forum.perm_Id=1) or (forum.perm_Id=2 and p_Id=? and b_Id=?) or (forum.perm_Id=3 and p_Id=?) or (forum.perm_Id=4 and b_Id=?)) Order By forum.f_Id DESC;";
-			String s10 = "SELECT forum.*,members.f_name,members.l_name,permision.perm_Name,(select count(c_Id) as noCmt from `comment` where f_Id=forum.f_Id) FROM forum,members,permision,pinned_forum p where (forum.creator_id=members.m_id) and (p.f_Id=forum.f_Id) and (forum.perm_Id=permision.perm_Id) and (forum.delete_flag=0) and ((forum.perm_Id=1) or (forum.perm_Id=2 and p_Id=? and b_Id=?) or (forum.perm_Id=3 and p_Id=?) or (forum.perm_Id=4 and b_Id=?)) and p.m_Id=? Order By p.f_Id DESC ";
+			String s10 = "SELECT forum.*,members.f_name,members.l_name,permision.perm_Name,(select count(c_Id) as noCmt from `comment` where f_Id=forum.f_Id) FROM forum,members,permision,pinned_forum p where (forum.creator_id=members.m_id) and (p.f_Id=forum.f_Id) and (forum.perm_Id=permision.perm_Id) and (forum.delete_flag=0) and ((forum.perm_Id=1) or (forum.perm_Id=2 and p_Id=? and b_Id=?) or (forum.perm_Id=3 and p_Id=?) or (forum.perm_Id=4 and b_Id=?)) and p.m_Id=? Order By p.f_Id DESC; ";
 			
 			List<ForumBean> array = null;
 			ArrayList<CommentBEAN> cmtArray = null;
@@ -70,6 +70,7 @@ public class ForumDAO {
 					fb.setPinned(true);
 					//Comment ==============================
 					cmtArray = new ArrayList<CommentBEAN>();
+					
 					String st = "SELECT m.f_name,m.l_name,c.c_Id,c.f_Id,c.cmt_data,c.m_Id,c.date_time,c.rate FROM `comment` c,members m where m.m_Id=c.m_Id and c.f_Id = ?;";
 					PreparedStatement ps1 = con.prepareStatement(st);
 					ps1.setInt(1,rs10.getInt(1));					
