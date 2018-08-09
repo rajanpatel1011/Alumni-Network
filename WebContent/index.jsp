@@ -49,7 +49,7 @@ if(validationString != null && !"".equals(validationString)) {
 %>
 <script>
 	$(document).ready(function() {
-	/*	$( "#veryCode" ).submit(function( event ) {
+		$( "#veryCode" ).submit(function( event ) {
 			event.preventDefault();
 			var code = $("#code").val();
 			var emailId = $("#emailId").val();
@@ -61,7 +61,7 @@ if(validationString != null && !"".equals(validationString)) {
 				else
 					$('#msg').append("Internal Server Error.Click <a href='index.jsp'>here</a> to try again.");
 			});
-		});*/
+		});
 	});
 </script>
 <link href="css/mobiscroll.custom-2.6.2.min.css" rel="stylesheet"
@@ -99,7 +99,6 @@ if(validationString != null && !"".equals(validationString)) {
 
 	<div class="footer"></div>
 	<script src="js/mobiscroll.custom-2.6.2.min.js" type="text/javascript"></script>
-
 	<script type="text/javascript">
 $(function(){
     var now = new Date();
