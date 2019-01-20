@@ -18,7 +18,7 @@ public class ConnectionDAO {
 				throw new SQLException();
 			}
 			
-			connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/aumninw?user=root&password=password");
+			connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/aumninw?user=root&password=rads1443");
 			
 			//connection = DriverManager.getConnection("jdbc:mysql://182.50.133.170:3306/aumninw","aumninw","Admin@123");
 			
