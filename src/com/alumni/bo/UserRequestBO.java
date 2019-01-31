@@ -79,7 +79,7 @@ public class UserRequestBO {
 			message.setRecipients(Message.RecipientType.TO,
 			InternetAddress.parse(bean.getEmail_id()));
 			message.setSubject("Alumni Network");
-			message.setText("Dear User Your Account is verified successfully!!"+"\n UserID:"+bean.getEmail_id()+"\nPassword:"+bean.getPassword().toString());
+			message.setText("Dear User Your Account is verified successfully!!"+"\n UserID:"+bean.getEmail_id()+"\nPassword:"+ bean.getPassword());
 			Transport.send(message);
 			
 			return "message Sent successfully!";

@@ -2237,7 +2237,7 @@ $.fn.metrojs.TileTimer = function (interval, callback, repeatCount) {
             } else
                 this.stop();
         }
-    }
+    };
     // clear the timer and reset the count
     this.stop = function () {
         this.timerId = window.clearTimeout(this.timerId);
@@ -2473,7 +2473,7 @@ jQuery.fn.applicationBar = function (options) {
                     $this.addClass("expanded");
             $this.stop().animate({ height: hgt }, { duration: data.duration });
         };
-        $this.data("ApplicationBar", data)
+        $this.data("ApplicationBar", data);
 
         $this.find(stgs.handleSelector).click(function () {
             data.animateAppBar($this.hasClass("expanded"));

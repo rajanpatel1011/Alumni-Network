@@ -55,9 +55,9 @@ public class EmailVerificationDAO {
 			int id;
 			if(rs.next()) {
 				id = rs.getInt(1);
-			} else
-				return null; 
-
+			} else {
+				return null;
+			}
 			
 			
 			

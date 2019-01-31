@@ -34,7 +34,7 @@ public class EditProfileSERVLET extends HttpServlet {
         super();
         // TODO Auto-generated constructor stub
     }
-
+@Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
     	response.setHeader("Cache-Control", "no-cache,no-store,must-revalidate");
 		response.setHeader("Pragma", "no-cache");
@@ -46,6 +46,7 @@ public class EditProfileSERVLET extends HttpServlet {
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
+	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		response.setHeader("Cache-Control", "no-cache,no-store,must-revalidate");

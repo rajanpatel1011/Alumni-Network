@@ -25,16 +25,16 @@ public class EmailVerificationCodeDAO {
 				emailVerificationCodeBEAN.setToken(rs.getString("token"));
 				emailVerificationCodeBEAN.setId(rs.getInt("very_id"));
 				return emailVerificationCodeBEAN; 
-			} else
-				return null; 
-			
+			} else {
+				return null;
+			}
 		} finally {
 			try{
 				verifiedCode(emailVerificationCodeBEAN);
 				ConnectionDAO.closeConnection(con);
 				return emailVerificationCodeBEAN;
 			}catch(Exception  e){
-				
+				System.out.println(e);
 			}
 		}
 	}

@@ -83,9 +83,9 @@ public class ModeratorRequestDAO {
 			while(rs.next());	
 			
 			return array;
-		} else
-			return null;
-
+		} else {
+			return new ArrayList<>();
+		}
 		
 		}
 		

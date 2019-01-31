@@ -6,6 +6,10 @@ import java.sql.SQLException;
 
 public class ConnectionDAO {
 
+	private ConnectionDAO(){
+
+	}
+
 	/**
 	 * @param args
 	 */
@@ -39,7 +43,7 @@ public class ConnectionDAO {
 			if(connection!= null && !connection.isClosed())
 			{
 				connection.close();
-				// System.out.println(" Connection Close");
+				 System.out.println(" Connection Close");
 			}
 		}
 		catch(Exception e)

@@ -52,7 +52,7 @@ public class PhotoUploadDAO {
 		
 		con=ConnectionDAO.getConnection();
 		String s="SELECT photos.*,members.f_name,members.l_name,permision.perm_Name FROM photos,members,permision,album where (photos.creator_Id=members.m_id) and (photos.perm_Id=permision.perm_Id) and (album.a_Id=photos.a_Id) and (photos.a_Id=?) and (( ((photos.perm_Id=1) or (photos.perm_Id=2) or (photos.perm_Id=3) or (photos.perm_Id=4)) and album.perm_Id=1) or ( ((photos.perm_Id=1) or (photos.perm_Id=2) or (photos.perm_Id=3)) and p_Id=? and b_Id=? and album.perm_id=2) or ( ((photos.perm_Id=1) or (photos.perm_Id=3)) and p_Id=? and album.perm_Id=3) or ( ((photos.perm_Id=1) or (photos.perm_Id=4)) and b_Id=? and album.perm_Id=4));";
-		PreparedStatement ps1=(PreparedStatement) con.prepareStatement(s);
+		PreparedStatement ps1= con.prepareStatement(s);
 		ps1.setInt(1,a_id);
 		ps1.setInt(2,p_id);
 		ps1.setInt(3,b_id);
@@ -94,9 +94,9 @@ public class PhotoUploadDAO {
 			while(rs.next());	
 			
 			return array;
-		} else
-			return null;
-
+		} else {
+			return new ArrayList<>();
+		}
 		
 		}
 		

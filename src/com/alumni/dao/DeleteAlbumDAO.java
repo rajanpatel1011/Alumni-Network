@@ -40,9 +40,9 @@ public class DeleteAlbumDAO {
 			while(rs.next());	
 			
 			return array;
-		} else
-			return null;
-
+		} else {
+			return new ArrayList<>();
+		}
 		
 		}
 		
@@ -123,7 +123,7 @@ public class DeleteAlbumDAO {
 		}
 		catch(Exception e)
 		{
-			
+			System.out.println(e);
 		}
 		finally
 		{

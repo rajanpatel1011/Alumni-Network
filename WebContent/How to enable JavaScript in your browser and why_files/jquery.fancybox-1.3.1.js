@@ -881,7 +881,7 @@
 			fancybox_start();
 		}
 
-		return;
+		
 	};
 
 	$.fancybox.cancel = function() {

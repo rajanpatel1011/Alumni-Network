@@ -86,7 +86,7 @@ public class ReportedUserDAO {
 			}
 			else
 				{
-				return null;
+				return new ArrayList<>();
 				}
 
 		}

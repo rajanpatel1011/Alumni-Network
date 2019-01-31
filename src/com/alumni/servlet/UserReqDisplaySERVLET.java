@@ -22,7 +22,7 @@ import com.alumni.bo.UserRequestBO;
  */
 @WebServlet("/UserReqDisplaySERVLET")
 public class UserReqDisplaySERVLET extends HttpServlet {
-	
+	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		response.setHeader("Cache-Control", "no-cache,no-store,must-revalidate");
 		response.setHeader("Pragma", "no-cache");
@@ -30,6 +30,7 @@ public class UserReqDisplaySERVLET extends HttpServlet {
 		
 		doPost(request, response);
 	}
+	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		response.setHeader("Cache-Control", "no-cache,no-store,must-revalidate");
 		response.setHeader("Pragma", "no-cache");

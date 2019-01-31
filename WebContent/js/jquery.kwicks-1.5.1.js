@@ -189,7 +189,7 @@
 				} else {
 					container.flexslider();
 				}
-			}
+			};
 			this.update = function () {
 				var currentState = jQuery('#responsiveFlag').css('display');
 				
@@ -202,7 +202,7 @@
 					
 					this.init();	
 				}
-			}
+			};
 			
 			this.init();
 		}

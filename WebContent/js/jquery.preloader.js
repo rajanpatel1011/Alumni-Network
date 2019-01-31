@@ -83,11 +83,11 @@ $.fn.preloader = function(options){
 			clearInterval(timer);
 			init();
 			 icon.remove();
-			return;
+			
 		}
 		
 		},100);
 	
-	}
+	};
 	
 	

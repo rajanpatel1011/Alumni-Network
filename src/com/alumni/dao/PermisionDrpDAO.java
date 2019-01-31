@@ -32,8 +32,9 @@ public class PermisionDrpDAO {
 					array.add(pdb);
 				}while(rs.next());	
 				return array;
-			} else
-				return null;
+			} else {
+				return new ArrayList<>();
+			}
 		}		
 		finally 
 		{

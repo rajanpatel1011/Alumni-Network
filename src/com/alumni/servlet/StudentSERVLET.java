@@ -27,12 +27,13 @@ public class StudentSERVLET extends HttpServlet {
      */
     public StudentSERVLET() {
         super();
-        // TODO Auto-generated constructor stub
+
     }
 
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
+	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		doPost(request,response);
 	}
@@ -40,6 +41,7 @@ public class StudentSERVLET extends HttpServlet {
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
+	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		response.setHeader("Cache-Control", "no-cache,no-store,must-revalidate");
 		response.setHeader("Pragma", "no-cache");
@@ -66,7 +68,7 @@ public class StudentSERVLET extends HttpServlet {
 			try {
 				bean = profile.fetch(id);
 				request.setAttribute("Profilebean", bean);			
-		//		request.setAttribute("id",id);
+				request.setAttribute("id",id);
 				RequestDispatcher rq=request.getRequestDispatcher("student.jsp?id="+st);
 	        	rq.forward(request,response);
 			} 

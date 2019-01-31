@@ -59,7 +59,7 @@ public class GalleryAlbumUploadDAO {
 		
 		con=ConnectionDAO.getConnection();
 		String s="SELECT album.*,members.f_name,members.l_name,permision.perm_Name,members.m_Id  FROM album,members,permision where (album.uplodr_Id=members.m_id) and (album.perm_Id=permision.perm_Id) and (album.delete_flag = 0) and ((album.perm_Id=1) or (album.perm_Id=2 and p_Id=? and b_Id=?) or (album.perm_Id=3 and p_Id=?) or (album.perm_Id=4 and b_Id=?)); ";
-		PreparedStatement ps1=(PreparedStatement) con.prepareStatement(s);
+		PreparedStatement ps1= con.prepareStatement(s);
 		ps1.setInt(1,p_id);
 		ps1.setInt(2,b_id);
 		ps1.setInt(3,p_id);
@@ -104,9 +104,9 @@ public class GalleryAlbumUploadDAO {
 			while(rs.next());	
 			
 			return array;
-		} else
-			return null;
-
+		} else {
+			return new ArrayList<>();
+		}
 		
 		}
 		

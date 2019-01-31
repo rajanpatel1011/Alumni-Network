@@ -24,7 +24,7 @@ import com.alumni.bo.DocRequestAppBO;
 public class DocRequestAppSERVLET extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
- 
+ @Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 	// TODO Auto-generated method stub
 		response.setHeader("Cache-Control", "no-cache,no-store,must-revalidate");
@@ -54,12 +54,7 @@ public class DocRequestAppSERVLET extends HttpServlet {
 					
 				}
 				
-				
-				else if( Bean.getData().equals(""))
-				{
-					RequestDispatcher dis=request.getRequestDispatcher("DocApp.jsp?flag=3");
-					dis.forward(request, response);
-				}
+
 					
 			
 				else
