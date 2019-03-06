@@ -22,11 +22,11 @@ public class ConnectionDAO {
 				throw new SQLException();
 			}
 			
-			connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/aumninw?user=root&password=rads1443");
+			//connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/aumninw?user=root&password=rads1443");
 			
 			//connection = DriverManager.getConnection("jdbc:mysql://182.50.133.170:3306/aumninw","aumninw","Admin@123");
 			
-	//		connection = DriverManager.getConnection("jdbc:mysql://us-cdbr-cb-east-01.cleardb.net:3306/cb_aumninw","b48e9c36f019f2","4c7cbb94");
+			connection = DriverManager.getConnection("jdbc:mysql://us-cdbr-iron-east-03.cleardb.net:3306/heroku_9915491d71b4e71","b48e9c36f019f2","66000fbb");
 			
 			
 			 //System.out.println("Connection Successfully");
