@@ -14,18 +14,22 @@ public class ConnectionDAO {
 			Connection connection=null;
 			try {
 				Class.forName("com.mysql.jdbc.Driver");
+				connection = DriverManager.getConnection("jdbc:mysql://us-cdbr-iron-east-03.cleardb.net:3306/heroku_9915491d71b4e71","b644aae84597ea","66000fbb");
+
 			} catch(ClassNotFoundException e) {
 				throw new SQLException();
 			}
+			catch(Exception e1) {
+				System.out.println(e1);
+			}
 			
-			connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/aumninw?user=root&password=rads1443");
+			//connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/aumninw?user=root&password=rads1443");
 			
 			//connection = DriverManager.getConnection("jdbc:mysql://182.50.133.170:3306/aumninw","aumninw","Admin@123");
 			
-	//		connection = DriverManager.getConnection("jdbc:mysql://us-cdbr-cb-east-01.cleardb.net:3306/cb_aumninw","b48e9c36f019f2","4c7cbb94");
 			
 			
-			 //System.out.println("Connection Successfully");
+			 System.out.println("Connection Successfully");
 			return connection;
 	}
 	/**This method will close the connection

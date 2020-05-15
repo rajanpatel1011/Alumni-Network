@@ -47,7 +47,6 @@ public class AdminLoginSERVLET extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
 		response.setHeader("Cache-Control", "no-cache,no-store,must-revalidate");
 		response.setHeader("Pragma", "no-cache");
 		response.setHeader("Expires", "0");
@@ -70,7 +69,7 @@ public class AdminLoginSERVLET extends HttpServlet {
 					return;
 				}
 				String check = request.getParameter("check");
-				//System.out.println("uid :" +userId +"      pwd :"+password + "    check="+check);
+				System.out.println("uid :" +uname +"      pwd :"+pwd + "    check="+check);
 				
 				if(check == null || "".equals(check)) {
 					rd = request.getRequestDispatcher("admin/index.jsp?validation=1");
@@ -91,6 +90,7 @@ public class AdminLoginSERVLET extends HttpServlet {
 							}
 							
 						}else{
+							System.out.println("bean is not loggedin");
 							rd = request.getRequestDispatcher("admin/index.jsp?validation=1");
 						}
 						//response.sendRedirect("moderator.jsp");
@@ -107,6 +107,7 @@ public class AdminLoginSERVLET extends HttpServlet {
 					}
 				} catch (SQLException e) {
 					response.sendRedirect("admin/index.jsp?validation=1");
+					System.out.println(e);
 				}finally{
 					
 				}

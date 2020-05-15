@@ -13,6 +13,7 @@ public class AdminLoginDAO {
 
 	public AdminLoginBEAN login(String uname, String pwd) throws SQLException {
 		// TODO Auto-generated method stub
+		AdminLoginBEAN bean = null;
 		Connection con = null;
 		try {
 			con = ConnectionDAO.getConnection();
@@ -21,18 +22,25 @@ public class AdminLoginDAO {
 			ps.setString(2,pwd);
 			ResultSet rs = ps.executeQuery();
 			if(rs.next()) {
-				AdminLoginBEAN bean = new AdminLoginBEAN();
+				 bean = new AdminLoginBEAN();
 				bean.setLoggedin(true);
 				bean.setUserName(rs.getString(2));
 				return bean; 
 			} else{
-				AdminLoginBEAN bean = new AdminLoginBEAN();
+				 bean = new AdminLoginBEAN();
 				bean.setLoggedin(false);
 				return bean;
 			}
-		} finally {
+			
+				
+			
+		} 
+		catch(Exception e){
+			System.out.println("Connection "+ e);
+		}finally {
 			ConnectionDAO.closeConnection(con);
 		}
+		return bean;
 		
 		
 	}
