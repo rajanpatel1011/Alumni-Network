@@ -107,12 +107,9 @@ public class AdminLoginSERVLET extends HttpServlet {
 					}
 				} catch (SQLException e) {
 					response.sendRedirect("admin/index.jsp?validation=1");
-<<<<<<< HEAD
 					System.out.println(e);
 				}finally{
 					
-=======
->>>>>>> branch 'master' of https://github.com/rajanpatel1011/Alumni-Network.git
 				}
 		}
 	}
