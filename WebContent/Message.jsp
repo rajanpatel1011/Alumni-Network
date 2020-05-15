@@ -73,7 +73,7 @@ response.setHeader("Cache-Control", "no-cache,no-store,must-revalidate");
 			    {
 			    document.getElementById("subjectList").innerHTML=xmlhttp.responseText;
 			    }
-			  }
+			  };
 			xmlhttp.open("GET","getSubjects.php?classId="+classId,true);
 			xmlhttp.send();
 			

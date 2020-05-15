@@ -30,8 +30,9 @@ public class LoginDAO {
 				loginBEAN.setPic(rs.getString(8));
 				
 				return loginBEAN; 
-			} else
-				return null; 
+			} else {
+				return null;
+			}
 		} finally {
 			ConnectionDAO.closeConnection(con);
 		}

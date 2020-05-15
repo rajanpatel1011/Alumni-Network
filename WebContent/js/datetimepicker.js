@@ -67,7 +67,7 @@ function NewCal(pCtrl,pFormat,pShowTime,pTimeMode)
 		var strMinute;
 		var strSecond;
 		//parse month
-		Sp1=exDateTime.indexOf(DateSeparator,0)
+		Sp1=exDateTime.indexOf(DateSeparator,0);
 		Sp2=exDateTime.indexOf(DateSeparator,(parseInt(Sp1)+1));
 		
 		if ((Cal.Format.toUpperCase()=="DDMMYYYY") || (Cal.Format.toUpperCase()=="DDMMMYYYY"))
@@ -135,7 +135,7 @@ function RenderCal()
 	vCalHeader="<table border=1 cellpadding=1 cellspacing=1 width='100%' align=\"center\" valign=\"top\">\n";
 	//Month Selector
 	vCalHeader+="<tr>\n<td colspan='7'><table border=0 width='100%' cellpadding=0 cellspacing=0><tr><td align='left'>\n";
-	vCalHeader+="<select name=\"MonthSelector\" onChange=\"javascript:winMain.Cal.SwitchMth(this.selectedIndex);winMain.RenderCal();\">\n";
+	vCalHeader+="<select name=\"MonthSelector\" onChange=\"winMain.Cal.SwitchMth(this.selectedIndex);winMain.RenderCal();\">\n";
 	var dtToday=new Date();
 	mycuryear=dtToday.getFullYear();
 	var thismonth=dtToday.getMonth()+1;
@@ -264,7 +264,7 @@ function RenderCal()
 			var SelectAm =(parseInt(Cal.Hours,10)<12)? "Selected":"";
 			var SelectPm =(parseInt(Cal.Hours,10)>=12)? "Selected":"";
 
-			vCalTime+="<select name=\"ampm\" onchange=\"javascript:winMain.Cal.SetAmPm(this.options[this.selectedIndex].value);\">";
+			vCalTime+="<select name=\"ampm\" onchange=\"winMain.Cal.SetAmPm(this.options[this.selectedIndex].value);\">";
 			vCalTime+="<option "+SelectAm+" value=\"AM\">AM</option>";
 			vCalTime+="<option "+SelectPm+" value=\"PM\">PM<option>";
 			vCalTime+="</select>";

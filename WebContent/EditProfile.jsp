@@ -917,7 +917,7 @@ response.setHeader("Expires", "0");
 									<td width="39" height="20">&nbsp;&nbsp;</td>
 									<td width="83"><a href="AddJobInProfile" id="1"><button
 												type="button" value="Add Job" class="btn" id="update_btn">Add
-												Job</button></a> <% String resultFlag2=(String)request.getParameter("add");%>
+												Job</button></a> <% String resultFlag2= request.getParameter("add");%>
 										<% if(!StringUtils.isEmptyOrWhitespaceOnly(resultFlag2)||!StringUtils.isNullOrEmpty(resultFlag2)){ %>
 										<%if(resultFlag2.equals("notadd")){ %> <label>Not added
 											job </label> <%} %> <%if(resultFlag2.equals("deladd")){ %> <label>Not

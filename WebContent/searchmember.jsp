@@ -65,8 +65,7 @@ function optionHide(){
 	$('#btnYear').addClass("btnoption");
 	$('#btnBranch').removeClass("activeoption");
 	$('#btnBranch').addClass("btnoption");
-};
-
+}
 $(document).ready(function() {
 	
 	$('#searchTxtBox').on("keyup",function(){

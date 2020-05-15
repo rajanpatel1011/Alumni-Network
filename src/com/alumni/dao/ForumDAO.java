@@ -200,7 +200,7 @@ public class ForumDAO {
 			}
 			else
 				{
-				return null;
+				return new ArrayList<>();
 				}
 		}
 		finally 

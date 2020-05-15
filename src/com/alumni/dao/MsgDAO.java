@@ -47,7 +47,7 @@ public class MsgDAO {
 			}
 			else
 			{
-				return null;
+				return new ArrayList<>();
 			}
 		}
 		finally 

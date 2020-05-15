@@ -8,7 +8,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.alumni.dao.ConnectionDAO;
-import com.alumni.admin.beans.UserAppBEAN;;
+import com.alumni.admin.beans.UserAppBEAN;
+
 public class UserAppDAO {
 	
 	

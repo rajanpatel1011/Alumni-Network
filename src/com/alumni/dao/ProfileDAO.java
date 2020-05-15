@@ -213,7 +213,7 @@ public class ProfileDAO {
  				}
  				 				
  				else{
- 					return null;
+ 					return new ArrayList<>();
  				}
  			
 
@@ -227,7 +227,7 @@ public class ProfileDAO {
 			ConnectionDAO.closeConnection(connectionhobbies);
 				
 			}
-			return null;
+			return new ArrayList<>();
 	 	}
 	//-------------------------- all hobbies -------------------------------
 		public List<MemhobbiesBEAN> getAllHobbies()throws SQLException{
@@ -255,7 +255,7 @@ public class ProfileDAO {
 			finally{
 				ConnectionDAO.closeConnection(con);
 			}
-			return null;
+			return new ArrayList<>();
 		}
 		
 		public List<Integer> getMemHobbiesid(int m_id){
@@ -283,7 +283,7 @@ public class ProfileDAO {
 				System.out.print(e);
 				e.printStackTrace();
 			}
-			return null;
+			return new ArrayList<>();
 			
 		}
 	//----------------- memberhobbies ---------------------------
@@ -296,7 +296,7 @@ public class ProfileDAO {
 				con=ConnectionDAO.getConnection();
 				List<Integer> listofmemhobbiesid=getMemHobbiesid(m_id);
 				if(listofmemhobbiesid==null){
-					return null;
+					return new ArrayList<>();
 				}
 				PreparedStatement hobbieslistquery=con.prepareStatement("SELECT * FROM hobbies");
 				ResultSet rs=hobbieslistquery.executeQuery();
@@ -320,7 +320,7 @@ public class ProfileDAO {
 				ConnectionDAO.closeConnection(con);
 				
 			}
-			return null;
+			return new ArrayList<>();
 		}
 //------------------------------------update profile --------------------------
 		public void updateprofile(ProfileBEAN bean)throws SQLException {
@@ -510,7 +510,7 @@ public class ProfileDAO {
 			ConnectionDAO.closeConnection(con);
 			
 		}
-		return null;
+		return new ArrayList<>();
 	}
 	
 	public List<EducationBEAN> getdegreelist(int u_Id)throws SQLException {
@@ -539,7 +539,7 @@ public class ProfileDAO {
 			ConnectionDAO.closeConnection(con);
 			
 		}
-		return null;
+		return new ArrayList<>();
 	}
 	
 
@@ -588,7 +588,7 @@ public class ProfileDAO {
 			ConnectionDAO.closeConnection(con);
 			
 		}
-		return null;
+		return new ArrayList<>();
 	}
 //------------------------------------ add job ---------------------------------------
 	public int addjob(JobBean bean)throws SQLException {

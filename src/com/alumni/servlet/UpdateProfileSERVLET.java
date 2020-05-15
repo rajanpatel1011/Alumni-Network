@@ -49,7 +49,8 @@ public class UpdateProfileSERVLET extends HttpServlet {
         super();
         // TODO Auto-generated constructor stub
     }
-protected void doget(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
+    @Override
+protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
 	response.setHeader("Cache-Control", "no-cache,no-store,must-revalidate");
 	response.setHeader("Pragma", "no-cache");
 	response.setHeader("Expires", "0");
@@ -68,6 +69,7 @@ private String getFileName(final Part part) {
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
+	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
 		response.setHeader("Cache-Control", "no-cache,no-store,must-revalidate");
@@ -291,8 +293,8 @@ else{
 	 		ProfileBO oldbo = new ProfileBO();
 	 		ProfileBEAN oldbean = oldbo.fetch(lb.getM_id()); // old bean
 //---------------------------- upload photo block-------------------------------------------------------------------------------	 		
-//	 		final String path = getServletContext().getRealPath("/")+"images\\profile\\";
-	 		final String path = "http://alumninetwork.datadoctorr.com/alumni/imageUpload/";
+	 		final String path = getServletContext().getRealPath("/")+"images\\profile\\";
+	 	//	final String path = "http://alumninetwork.datadoctorr.com/alumni/imageUpload/";
 	 		
 		    final Part filePart = request.getPart("profilepic");
 		   
@@ -452,7 +454,7 @@ else{
 				for(int k=1;k<j;k++){
 					
 					jobbean=new JobBean();
-					int f=(int) Integer.parseInt(profesId[k]);
+					int f= Integer.parseInt(profesId[k]);
 					jobbean.setProId(f);
 					jobbean.setJobType(jobtypeStrings[k]);
 					jobbean.setStartedMonth(jobstratmonth[k]);
@@ -473,7 +475,7 @@ else{
 		h--;
 		for(int m=1;m<h;m++){
 			memberhobbiesbean=new MemhobbiesBEAN();
-			int g=(int) Integer.parseInt(selctedhobbies[m]);
+			int g= Integer.parseInt(selctedhobbies[m]);
 			memberhobbiesbean.setHid(g);
 			memberhobbiesbean.setMem_Id(lb.getM_id());
 			listofhobbies.add(memberhobbiesbean);

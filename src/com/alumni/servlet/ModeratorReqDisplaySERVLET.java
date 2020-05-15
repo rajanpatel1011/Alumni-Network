@@ -14,7 +14,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.alumni.beans.ModeratorRequestBean;
 import com.alumni.beans.UserRequestBean;
-import com.alumni.bo.ModerratorRequestBO;;
+import com.alumni.bo.ModerratorRequestBO;
 
 /**
  * Servlet implementation class ModeratorReqDisplaySERVLET
@@ -33,7 +33,7 @@ public class ModeratorReqDisplaySERVLET extends HttpServlet {
 
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-	 */
+	 */@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		doPost(request, response);
@@ -42,7 +42,7 @@ public class ModeratorReqDisplaySERVLET extends HttpServlet {
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
+	 */@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		ModerratorRequestBO BO=new ModerratorRequestBO();

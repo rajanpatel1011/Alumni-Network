@@ -34,8 +34,9 @@ public class PassoutYrDrpDAO {
 					array.add(pyr);
 				}while(rs.next());	
 				return array;
-			} else
-				return null;
+			} else {
+				return new ArrayList<>();
+			}
 		}		
 		finally 
 		{

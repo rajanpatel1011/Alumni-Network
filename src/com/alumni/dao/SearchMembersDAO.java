@@ -59,8 +59,9 @@ public class SearchMembersDAO {
 					array.add(bean);
 				}while(rs1.next());	
 				return array;
-			} else
-				return null;
+			} else {
+				return new ArrayList<>();
+			}
 		}		
 		finally 
 		{

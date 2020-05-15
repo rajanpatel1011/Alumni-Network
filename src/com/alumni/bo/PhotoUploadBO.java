@@ -3,7 +3,7 @@ package com.alumni.bo;
 import java.sql.SQLException;
 import java.util.List;
 import com.alumni.beans.PhotoUploadBean;
-import com.alumni.dao.PhotoUploadDAO;;
+import com.alumni.dao.PhotoUploadDAO;
 
 public class PhotoUploadBO {
 	

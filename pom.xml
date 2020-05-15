@@ -2,7 +2,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>Alumni-Network</groupId>
   <artifactId>Alumni-Network</artifactId>
-  <version>0.0.1-SNAPSHOT</version>
+  <version>1.0.1</version>
   <packaging>war</packaging>
   <build>
     <sourceDirectory>src</sourceDirectory>
@@ -30,7 +30,29 @@
           <target>1.8</target>
         </configuration>
       </plugin>
-    </plugins>
+
+        <plugin>
+                  <groupId>org.apache.maven.plugins</groupId>
+                  <artifactId>maven-dependency-plugin</artifactId>
+                  <executions>
+                      <execution>
+                          <phase>package</phase>
+                          <goals><goal>copy</goal></goals>
+                          <configuration>
+                              <artifactItems>
+                                  <artifactItem>
+                                      <groupId>com.github.jsimone</groupId>
+                                      <artifactId>webapp-runner</artifactId>
+                                      <version>9.0.16.0</version>
+                                      <destFileName>webapp-runner.jar</destFileName>
+                                  </artifactItem>
+                              </artifactItems>
+                          </configuration>
+                      </execution>
+                  </executions>
+              </plugin>
+          </plugins>
+
   </build>
   <dependencies>
   <!-- https://mvnrepository.com/artifact/mysql/mysql-connector-java -->
@@ -78,6 +100,13 @@
     <version>1.4</version>
 </dependency>
 
-  
+      <!-- https://mvnrepository.com/artifact/org.apache.tomcat/tomcat-catalina -->
+      <dependency>
+          <groupId>org.apache.tomcat</groupId>
+          <artifactId>tomcat-catalina</artifactId>
+          <version>9.0.5</version>
+      </dependency>
+
   </dependencies>
+
 </project>

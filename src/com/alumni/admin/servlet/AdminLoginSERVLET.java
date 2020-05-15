@@ -33,7 +33,7 @@ public class AdminLoginSERVLET extends HttpServlet {
 
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-	 */
+	 */@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		response.setHeader("Cache-Control", "no-cache,no-store,must-revalidate");
@@ -45,7 +45,7 @@ public class AdminLoginSERVLET extends HttpServlet {
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
+	 */@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		response.setHeader("Cache-Control", "no-cache,no-store,must-revalidate");
 		response.setHeader("Pragma", "no-cache");
@@ -107,9 +107,12 @@ public class AdminLoginSERVLET extends HttpServlet {
 					}
 				} catch (SQLException e) {
 					response.sendRedirect("admin/index.jsp?validation=1");
+<<<<<<< HEAD
 					System.out.println(e);
 				}finally{
 					
+=======
+>>>>>>> branch 'master' of https://github.com/rajanpatel1011/Alumni-Network.git
 				}
 		}
 	}

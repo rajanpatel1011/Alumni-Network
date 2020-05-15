@@ -33,8 +33,9 @@ public List<BranchDrpBEAN> branch() throws ClassNotFoundException, SQLException{
 					array.add(branchDrpBEAN);
 				}while(rs1.next());	
 				return array;
-			} else
-				return null;
+			} else {
+				return new ArrayList<>();
+			}
 		}		
 		finally 
 		{

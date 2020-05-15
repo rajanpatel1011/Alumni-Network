@@ -42,10 +42,8 @@ public class MemhobbiesBEAN {
 				return false;
 		} else if (!hobbieesname.equals(other.hobbieesname))
 			return false;
-		if (mem_Id != other.mem_Id)
-			return false;
-		return true;
-	}
+        return mem_Id == other.mem_Id;
+    }
 	
 	public void setHid(int hid) {
 		this.hid = hid;

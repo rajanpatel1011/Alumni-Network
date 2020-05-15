@@ -28,7 +28,7 @@ public class profileSERVLET extends HttpServlet {
     public profileSERVLET() {
         super();
     }
-
+@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		response.setHeader("Cache-Control", "no-cache,no-store,must-revalidate");
 		response.setHeader("Pragma", "no-cache");
@@ -75,7 +75,7 @@ public class profileSERVLET extends HttpServlet {
 		//	ff.forward(request, response);
 		}
 	}
-	
+	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		response.setHeader("Cache-Control", "no-cache,no-store,must-revalidate");
 		response.setHeader("Pragma", "no-cache");

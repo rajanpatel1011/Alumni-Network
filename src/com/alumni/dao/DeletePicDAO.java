@@ -26,6 +26,7 @@ public class DeletePicDAO {
 			
 		}
 		finally{
+
 			ConnectionDAO.closeConnection(con);
 		}
 		return null;

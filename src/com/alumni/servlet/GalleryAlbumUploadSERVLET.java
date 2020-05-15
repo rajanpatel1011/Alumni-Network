@@ -37,7 +37,7 @@ public class GalleryAlbumUploadSERVLET extends HttpServlet {
     /**
      * Default constructor. 
      */
-    
+    @Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub 
 		
@@ -47,7 +47,7 @@ public class GalleryAlbumUploadSERVLET extends HttpServlet {
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
+	 */@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		response.setContentType("text/html;charset=UTF-8");
 
@@ -70,9 +70,9 @@ public class GalleryAlbumUploadSERVLET extends HttpServlet {
 				
 				// Create path components to save the file
 				
-				//final String path = getServletContext().getRealPath("/") +"images\\Album\\";
+				final String path = getServletContext().getRealPath("/") +"images\\Album\\";
 				
-				final String path = "http://alumninetwork.datadoctorr.com/alumni/imageUpload/";
+				//final String path = "http://alumninetwork.datadoctorr.com/alumni/imageUpload/";
 				System.out.print(path);
 				//		request.getParameter("destination");
 				final Part filePart = request.getPart("imageFile");
@@ -85,7 +85,7 @@ public class GalleryAlbumUploadSERVLET extends HttpServlet {
 				final String fileName =getFileName(filePart);
 	  
 	   
-				 if(fileName.equals(""))
+				 if(fileName==null)
 				    {
 				    	response.sendRedirect("Gallery.jsp?resultFlag=3");
 				    }
