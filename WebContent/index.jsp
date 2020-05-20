@@ -28,7 +28,6 @@ if(session.getAttribute("loginBEAN") != null){
 	Javascript is disabled.
 	<meta http-equiv="refresh" content="5" />
 	<meta HTTP-EQUIV="REFRESH" content="0; url=indexJS.jsp">
-
 </noscript>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <!-- To create a Responsive Web Design -->

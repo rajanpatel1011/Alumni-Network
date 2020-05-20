@@ -21,7 +21,7 @@ public class MsgDAO {
 		{
 			con = ConnectionDAO.getConnection();
 
-			String s = "select forum.creator_id,members.f_name,members.l_name,forum.desription,forum.date_time from aumninw.forum,aumninw.members where (forum.creator_id=members.m_id) and (forum.reciver_id=?);";
+			String s = "select forum.creator_id,members.f_name,members.l_name,forum.desription,forum.date_time from heroku_9915491d71b4e71.forum,heroku_9915491d71b4e71.members where (forum.creator_id=members.m_id) and (forum.reciver_id=?);";
 			
 			PreparedStatement ps = con.prepareStatement(s);
 			ps.setInt(1, member_id);

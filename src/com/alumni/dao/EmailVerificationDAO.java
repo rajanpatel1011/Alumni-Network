@@ -18,11 +18,10 @@ import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 
 import com.alumni.beans.EmailVerificationBEAN;
-import com.alumni.beans.LoginBEAN;
 
 public class EmailVerificationDAO {
 
-	public EmailVerificationBEAN sendCode(EmailVerificationBEAN emailVerificationBEAN) throws ClassNotFoundException, SQLException {
+	public EmailVerificationBEAN sendCode(EmailVerificationBEAN emailVerificationBEAN) throws ClassNotFoundException, SQLException, MessagingException {
 		// TODO Auto-generated method stub
 		emailVerificationBEAN = setCode(emailVerificationBEAN);
 		emailVerificationBEAN = setToken(emailVerificationBEAN);
@@ -124,16 +123,16 @@ public class EmailVerificationDAO {
 	}
 
 
-	public EmailVerificationBEAN Email(EmailVerificationBEAN emailVerificationBEAN)
+	public EmailVerificationBEAN Email(EmailVerificationBEAN emailVerificationBEAN) throws MessagingException
 	{
 		
-		final String Username="alumninw@gmail.com";
-		final String Password="cgpit123";
+		final String Username="alumninetwork83@gmail.com";
+		final String Password="cgpit@123";
 		Properties props=new Properties();
 		props.put("mail.smtp.auth", "true");
 		props.put("mail.smtp.starttls.enable", "true");
 		props.put("mail.smtp.host", "smtp.gmail.com");
-		props.put("mail.smtp.port", "587");
+		//props.put("mail.smtp.port", "587");
 		Session session = Session.getInstance(props,
 				  new javax.mail.Authenticator() {
 					protected PasswordAuthentication getPasswordAuthentication() {
@@ -143,7 +142,7 @@ public class EmailVerificationDAO {
 		try {
 			 
 			Message message = new MimeMessage(session);
-			message.setFrom(new InternetAddress("alumninw@gmail.com"));
+			message.setFrom(new InternetAddress("alumninetwork83@gmail.com"));
 			message.setRecipients(Message.RecipientType.TO,
 			InternetAddress.parse(emailVerificationBEAN.getEmail()));
 			message.setSubject("Alumni Network");
@@ -153,19 +152,16 @@ public class EmailVerificationDAO {
 					"Click <a href='http://localhost:7181/Alumni/index.jsp?token="+emailVerificationBEAN.getToken()+"'>here</a> to verify email..");
 			Transport.send(message);
 			emailVerificationBEAN.setNetwork(true);
-			//return "message Sent successfully!";
-			
+			//return "message Sent successfully!";			
 			emailVerificationBEAN.setMailSent("message Sent successfully!");
 			
 		} 
-		catch (Exception e) {
+		catch (Exception e) {	
 			emailVerificationBEAN.setNetwork(false);
-			
+			System.out.println(e);
 			
 		}
 		
-			return emailVerificationBEAN;
-		
-		
+			return emailVerificationBEAN;			
 	}
 }

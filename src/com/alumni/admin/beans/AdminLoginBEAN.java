@@ -1,5 +1,6 @@
 package com.alumni.admin.beans;
 
+
 public class AdminLoginBEAN {
 	private String userName;
 	private boolean loggedin;

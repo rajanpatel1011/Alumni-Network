@@ -48,7 +48,7 @@ public class UserAppBO {
 	public String EmailON(String Email)
 	{
 		
-		final String Username="alumninw@gmail.com";
+		final String Username="alumninetwork83@gmail.com";
 		final String Password="cgpit123";
 		Properties props=new Properties();
 		props.put("mail.smtp.auth", "true");
@@ -64,7 +64,7 @@ public class UserAppBO {
 		try {
 			 
 			Message message = new MimeMessage(session);
-			message.setFrom(new InternetAddress("alumninw@gmail.com"));
+			message.setFrom(new InternetAddress("alumninetwork83@gmail.com"));
 			message.setRecipients(Message.RecipientType.TO,
 			InternetAddress.parse(Email));
 			message.setSubject("Alumni Network");
@@ -88,7 +88,7 @@ public class UserAppBO {
 	public String EmailOFF(String Email)
 	{
 		
-		final String Username="alumninw@gmail.com";
+		final String Username="alumninetwork83@gmail.com";
 		final String Password="cgpit123";
 		Properties props=new Properties();
 		props.put("mail.smtp.auth", "true");
@@ -104,7 +104,7 @@ public class UserAppBO {
 		try {
 			 
 			Message message = new MimeMessage(session);
-			message.setFrom(new InternetAddress("alumninw@gmail.com"));
+			message.setFrom(new InternetAddress("alumninetwork83@gmail.com"));
 			message.setRecipients(Message.RecipientType.TO,
 			InternetAddress.parse(Email));
 			message.setSubject("Alumni Network");

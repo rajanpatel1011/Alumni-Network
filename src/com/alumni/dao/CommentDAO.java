@@ -28,7 +28,7 @@ public class CommentDAO {
 			ps.setInt(3,cr_id);
 			ps.executeUpdate();
 			
-			PreparedStatement ps1 = con.prepareStatement("update forum set No_Of_cmt = (select count(c_Id) as noCmt from `comment` where f_Id=forum.f_Id) where f_Id=forum.f_Id;");
+			PreparedStatement ps1 = con.prepareStatement("update forum set No_Of_cmt = (select count(c_Id) as noCmt from comment where f_Id=forum.f_Id) where f_Id=forum.f_Id;");
 			ps1.executeUpdate();
 			
 		}finally 
