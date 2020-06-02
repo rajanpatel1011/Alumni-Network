@@ -24,7 +24,7 @@ response.setHeader("Expires", "0");
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <%@ page import="com.alumni.beans.*"%>
 <%@ page import="java.util.List"%>
-<%@ page import="java.text.SimpleDateFormat;"%>
+<%@ page import="java.text.SimpleDateFormat"%>
 
 <title>Edit Profile</title>
 
