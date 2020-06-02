@@ -24,7 +24,7 @@ response.setHeader("Cache-Control", "no-cache,no-store,must-revalidate");
 
 <%@ page import="com.alumni.beans.*"%>
 <%@ page import="java.util.List"%>
-<%@ page import="java.text.SimpleDateFormat;"%>
+<%@ page import="java.text.SimpleDateFormat"%>
 
 
 <title>user profile</title>
