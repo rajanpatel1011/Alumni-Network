@@ -132,11 +132,11 @@ response.setHeader("Cache-Control", "no-cache,no-store,must-revalidate");
 			<form id="form1" name="form1" method="post" action="MsgCreateSERVLET">
 				<script type="text/javascript">
 
-$(document).ready(function() {
+ 				$(document).ready(function() {
 	
-	$("#newpost-content1").show();
-});
-</script>
+	 				$("#newpost-content1").show();
+ 					});
+ 					</script>
 				<div class="newpost-content" id="newpost-content1">
 
 					<div style="float: left; width: 80%;" class="newpost-content2">
