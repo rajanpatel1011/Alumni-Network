@@ -72,6 +72,7 @@ public class InitModDAO {
 				
 			}
 			
+			@SuppressWarnings("null")
 			public int getMemId(int m) throws SQLException{
 				Connection con=null;
 				
@@ -79,7 +80,7 @@ public class InitModDAO {
 					con=ConnectionDAO.getConnection();
 					PreparedStatement ps = con.prepareStatement("SELECT m_Id FROM init_users where i_Id=?;");
 					ps.setInt(1,m);
-					ResultSet rs=ps.executeQuery();
+					ResultSet rs=ps.executeQuery();					
 					if(rs.next()){
 						return rs.getInt(1);
 					}

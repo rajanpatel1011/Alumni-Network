@@ -18,37 +18,34 @@ import com.alumni.bo.BranchDrpBO;
 public class BranchDrpSERVLET extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-
 	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
+	 *      response)
 	 */
 	@Override
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		response.setHeader("Cache-Control", "no-cache,no-store,must-revalidate");
 		response.setHeader("Pragma", "no-cache");
 		response.setHeader("Expires", "0");
-		
+
 		BranchDrpBO branch = new BranchDrpBO();
 		try {
-			List <BranchDrpBEAN> branchlist = branch.branch();
-			if(branchlist == null)
+			List<BranchDrpBEAN> branchlist = branch.branch();
+			if (branchlist == null)
 				response.getWriter().write("null");
-			else 
-			{				 
-				for(BranchDrpBEAN bean : branchlist) {
+			else {
+				for (BranchDrpBEAN bean : branchlist) {
 					String brancharray = bean.getBranch();
 					int id = bean.getBranchId();
-					response.getWriter().write("<option value="+id+">"+ brancharray +"</option>"); 
+					response.getWriter().write("<option value=" + id + ">" + brancharray + "</option>");
 				}
 			}
 		} catch (ClassNotFoundException e) {
-			// TODO Auto-generated catch block
 			response.getWriter().write("null");
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			response.getWriter().write("null");
 		}
-		
+
 	}
 }

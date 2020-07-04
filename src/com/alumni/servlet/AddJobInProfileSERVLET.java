@@ -20,56 +20,57 @@ import com.alumni.bo.ProfileBO;
 @WebServlet("/AddJobInProfile")
 public class AddJobInProfileSERVLET extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public AddJobInProfileSERVLET() {
-        super();
-        // TODO Auto-generated constructor stub
-    }
 
 	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 * @see HttpServlet#HttpServlet()
 	 */
-	@Override
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		response.setHeader("Cache-Control", "no-cache,no-store,must-revalidate");
-		response.setHeader("Pragma", "no-cache");
-		response.setHeader("Expires", "0");
-		doPost(request,response);
-		// TODO Auto-generated method stub
+	public AddJobInProfileSERVLET() {
+		super();
 	}
 
 	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
+	 *      response)
 	 */
 	@Override
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		response.setHeader("Cache-Control", "no-cache,no-store,must-revalidate");
 		response.setHeader("Pragma", "no-cache");
 		response.setHeader("Expires", "0");
-	//	int count=0;
-	//	response.setContentType("text/plain");
-	//	count ++;
-	    HttpSession session = request.getSession();
+		doPost(request, response);
+	}
+
+	/**
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
+	 *      response)
+	 */
+	@Override
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		response.setHeader("Cache-Control", "no-cache,no-store,must-revalidate");
+		response.setHeader("Pragma", "no-cache");
+		response.setHeader("Expires", "0");
+		// int count=0;
+		// response.setContentType("text/plain");
+		// count ++;
+		HttpSession session = request.getSession();
 		LoginBEAN lb = (LoginBEAN) session.getAttribute("loginBEAN");
-		
+
 		int b = 0;
 		ProfileBO bo = new ProfileBO();
 		JobBean bean = new JobBean();
 		bean.setM_Id(lb.getM_id());
 		try {
-			 b=bo.addJob(bean);
-			 //request.setAttribute("add",b);
-			 response.sendRedirect("EditProfileSERVLET?add="+b+"#1");
-			 
+			b = bo.addJob(bean);
+			// request.setAttribute("add",b);
+			response.sendRedirect("EditProfileSERVLET?add=" + b + "#1");
+
 		} catch (SQLException e) {
 			e.printStackTrace();
 			response.sendRedirect("EditProfileSERVLET?add=notadd#1");
-			
+
 		}
-		
+
 	}
 }

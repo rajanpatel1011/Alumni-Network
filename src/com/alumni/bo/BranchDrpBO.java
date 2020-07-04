@@ -7,8 +7,7 @@ import com.alumni.beans.BranchDrpBEAN;
 import com.alumni.dao.BranchDrpDAO;
 
 public class BranchDrpBO {
-	public List<BranchDrpBEAN> branch() throws ClassNotFoundException, SQLException{
-		// System.out.println("In Branch BO");
+	public List<BranchDrpBEAN> branch() throws ClassNotFoundException, SQLException {
 		BranchDrpDAO branchDrpDAO = new BranchDrpDAO();
 		List<BranchDrpBEAN> branchDrpBEAN = branchDrpDAO.branch();
 		return branchDrpBEAN;

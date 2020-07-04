@@ -3,8 +3,8 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <%
 	response.setHeader("Cache-Control", "no-cache,no-store,must-revalidate");
-	response.setHeader("Pragma", "no-cache");
-	response.setHeader("Expires", "0");
+response.setHeader("Pragma", "no-cache");
+response.setHeader("Expires", "0");
 %>
 <html>
 <head>
@@ -46,13 +46,13 @@
 	<div class="content">
 		<form action=DocRequestAppSERVLET method="post">
 
-			<% 
-        String resultFlag=request.getParameter("flag");
-        if(resultFlag!=null && !"".equals(resultFlag))
-       {
-       %>
-			<%    if(resultFlag.equals("1"))
-       {%>
+			<%
+				String resultFlag = request.getParameter("flag");
+			if (resultFlag != null && !"".equals(resultFlag)) {
+			%>
+			<%
+				if (resultFlag.equals("1")) {
+			%>
 			<table align="center">
 				<tr>
 					<th bgcolor="#211C19"><font color="#11DA00">Document
@@ -60,9 +60,9 @@
 				</tr>
 			</table>
 			<%
-            	}
-              if(resultFlag.equals("2"))
-          {%>
+				}
+			if (resultFlag.equals("2")) {
+			%>
 			<table align="center">
 				<tr>
 					<th bgcolor="#211C19"><font color="red">Try After
@@ -70,9 +70,9 @@
 				</tr>
 			</table>
 			<%
-               	}
-              if(resultFlag.equals("3"))
-              {%>
+				}
+			if (resultFlag.equals("3")) {
+			%>
 			<table align="center">
 				<tr>
 					<th bgcolor="#211C19"><font color="red">Fill Subject
@@ -80,8 +80,9 @@
 				</tr>
 			</table>
 			<%
-                   	}
-            	} %>
+				}
+			}
+			%>
 			<table width="100%" height="100%" cellspacing="15" class="center"
 				style="background-color: #F5F1E5; margin-bottom: 60px; color: #000;">
 

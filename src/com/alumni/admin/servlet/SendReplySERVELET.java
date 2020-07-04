@@ -20,56 +20,58 @@ import com.alumni.admin.bo.HelpandSupportBO;
 @WebServlet("/SendReplySERVELET")
 public class SendReplySERVELET extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
-    /**
-     * @see HttpServlet#HttpServlet()
-   
+
 	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-	 */@Override
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		doPost(request,response);
+	 * @see HttpServlet#HttpServlet()
+	 * 
+	 *      /**
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
+	 *      response)
+	 */
+	@Override
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		doPost(request, response);
 	}
 
 	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */@Override
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
+	 *      response)
+	 */
+	@Override
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		response.setHeader("Cache-Control", "no-cache,no-store,must-revalidate");
 		response.setHeader("Pragma", "no-cache");
 		response.setHeader("Expires", "0");
 		RequestDispatcher rd;
 		HttpSession session = request.getSession();
 		AdminLoginBEAN bean1 = (AdminLoginBEAN) session.getAttribute("adminloginBEAN");
-		
-		if(bean1 == null){
+
+		if (bean1 == null) {
 			rd = request.getRequestDispatcher("admin/index.jsp?validation=1");
 			rd.forward(request, response);
-		}else{
-		int e_id=Integer.parseInt(request.getParameter("E_id"));
-		String email=request.getParameter("email");
-		String message=request.getParameter("message");
-		HelpandSupportBO BO=new HelpandSupportBO();
-		String flag=BO.Email(email, message);
-		if(flag.equals("sent"))
-		{
-			try {
-				BO.deleteHelpandSupport(e_id);
-				RequestDispatcher dis=request.getRequestDispatcher("HelpandSupportDisplaySERVELT?flag=1");
-				dis.forward(request, response);
-				
-				
-			} catch (SQLException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
+		} else {
+			int e_id = Integer.parseInt(request.getParameter("E_id"));
+			String email = request.getParameter("email");
+			String message = request.getParameter("message");
+			HelpandSupportBO BO = new HelpandSupportBO();
+			String flag = BO.Email(email, message);
+			if (flag.equals("sent")) {
+				try {
+					BO.deleteHelpandSupport(e_id);
+					RequestDispatcher dis = request.getRequestDispatcher("HelpandSupportDisplaySERVELT?flag=1");
+					dis.forward(request, response);
+
+				} catch (SQLException e) {
+					e.printStackTrace();
+					System.out.println(e);
+				}
+
 			}
-			
+
 		}
-		
-		}
-		
+
 	}
 
 }

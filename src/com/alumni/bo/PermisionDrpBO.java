@@ -8,11 +8,11 @@ import com.alumni.dao.PermisionDrpDAO;
 
 public class PermisionDrpBO {
 
-	public List<PermisionDrpBEAN> perm() throws ClassNotFoundException, SQLException{
-		
+	public List<PermisionDrpBEAN> perm() throws ClassNotFoundException, SQLException {
+
 		PermisionDrpDAO pDrpDAO = new PermisionDrpDAO();
 		List<PermisionDrpBEAN> pdb = pDrpDAO.perm();
 		return pdb;
 	}
-	
+
 }

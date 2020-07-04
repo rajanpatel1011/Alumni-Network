@@ -22,65 +22,62 @@ import com.alumni.bo.CommentBO;
 @WebServlet("/CommentSERVLET")
 public class CommentSERVLET extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public CommentSERVLET() {
-        super();
-        // TODO Auto-generated constructor stub
-    }
 
 	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 * @see HttpServlet#HttpServlet()
 	 */
-	@Override
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
+	public CommentSERVLET() {
+		super();
 	}
 
 	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
+	 *      response)
 	 */
 	@Override
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+	}
+
+	/**
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
+	 *      response)
+	 */
+	@Override
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		response.setHeader("Cache-Control", "no-cache,no-store,must-revalidate");
 		response.setHeader("Pragma", "no-cache");
 		response.setHeader("Expires", "0");
-		
-		//String forumId = request.getParameter("forumId");
-		//String commentId = request.getParameter("commentId");
+
+		// String forumId = request.getParameter("forumId");
+		// String commentId = request.getParameter("commentId");
 		CommentBO bo = new CommentBO();
-		try 
-		{
+		try {
 			RequestDispatcher rd;
 			HttpSession session = request.getSession();
 			LoginBEAN lb = (LoginBEAN) session.getAttribute("loginBEAN");
-			if(lb == null){
+			if (lb == null) {
 				System.out.println("HEllo Error...!!!!! :D :D");
 				response.sendRedirect("index.jsp?validation=2");
-			}else{
-					String addcomment = request.getParameter("addcomment");
-					String f_Id = request.getParameter("f_Id");
-					int cr_id = lb.getM_id();
-					String cmtID = request.getParameter("cmt_ID");
-					System.out.print("comment id ="+cmtID);
-					bo.AddComments(addcomment,f_Id,cr_id);					
-					session.setAttribute("cmt_Id", cmtID);
-					response.sendRedirect("Login#"+cmtID);
-					//rd = request.getRequestDispatcher("index.jsp#"+cmtID);
-					
+			} else {
+				String addcomment = request.getParameter("addcomment");
+				String f_Id = request.getParameter("f_Id");
+				int cr_id = lb.getM_id();
+				String cmtID = request.getParameter("cmt_ID");
+				System.out.print("comment id =" + cmtID);
+				bo.AddComments(addcomment, f_Id, cr_id);
+				session.setAttribute("cmt_Id", cmtID);
+				response.sendRedirect("Login#" + cmtID);
+				// rd = request.getRequestDispatcher("index.jsp#"+cmtID);
+
 			}
-		//	rd.forward(request, response);
+			// rd.forward(request, response);
 			return;
-		}
-		catch (Exception e)
-		{    			
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		
+
 	}
 
 }

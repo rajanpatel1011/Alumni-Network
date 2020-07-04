@@ -23,46 +23,45 @@ import com.alumni.bo.UserRequestBO;
 @WebServlet("/UserReqDisplaySERVLET")
 public class UserReqDisplaySERVLET extends HttpServlet {
 	@Override
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		response.setHeader("Cache-Control", "no-cache,no-store,must-revalidate");
 		response.setHeader("Pragma", "no-cache");
 		response.setHeader("Expires", "0");
-		
+
 		doPost(request, response);
 	}
+
 	@Override
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		response.setHeader("Cache-Control", "no-cache,no-store,must-revalidate");
 		response.setHeader("Pragma", "no-cache");
 		response.setHeader("Expires", "0");
-		
-		UserRequestBO bo=new UserRequestBO();
-	    
+
+		UserRequestBO bo = new UserRequestBO();
+
 		HttpSession session = request.getSession();
 		LoginBEAN loginBEAN = (LoginBEAN) session.getAttribute("loginBEAN");
-		if(loginBEAN == null){
+		if (loginBEAN == null) {
 			System.out.println("HEllo Error...!!!!! :D :D");
 			response.sendRedirect("index.jsp?validation=2");
-		}else{
-		
-			try {
-				List<UserRequestBean> list = bo.users(loginBEAN.getM_id(),loginBEAN.getB_id(),loginBEAN.getP_id());
-				request.setAttribute("list",list);
-				RequestDispatcher rs=request.getRequestDispatcher("UserRequest.jsp");
-				rs.forward(request, response);
-				
+		} else {
 
-		    } catch (ClassNotFoundException e) {
-				// TODO Auto-generated catch block
+			try {
+				List<UserRequestBean> list = bo.users(loginBEAN.getM_id(), loginBEAN.getB_id(), loginBEAN.getP_id());
+				request.setAttribute("list", list);
+				RequestDispatcher rs = request.getRequestDispatcher("UserRequest.jsp");
+				rs.forward(request, response);
+
+			} catch (ClassNotFoundException e) {
 				e.printStackTrace();
 			} catch (SQLException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-			
+
 		}
-		
-		
+
 	}
 
 }

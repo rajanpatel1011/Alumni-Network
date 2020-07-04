@@ -22,41 +22,45 @@ import com.alumni.bo.LoginBO;
 @WebServlet("/Login")
 public class LoginSERVLET extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-  
+
 	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */@Override
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
+	 *      response)
+	 */
+	@Override
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		response.setHeader("Cache-Control", "no-cache,no-store,must-revalidate");
 		response.setHeader("Pragma", "no-cache");
 		response.setHeader("Expires", "0");
-	
+
 		HttpSession session = request.getSession();
 		LoginBEAN loginBEAN = (LoginBEAN) session.getAttribute("loginBEAN");
 		RequestDispatcher rd = null;
-		if(loginBEAN != null){
-			int rol=loginBEAN.getRole();
-			if(rol == 1) {
+		if (loginBEAN != null) {
+			int rol = loginBEAN.getRole();
+			if (rol == 1) {
 				rd = request.getRequestDispatcher("ForumSERVLET");
-				//response.sendRedirect("moderator.jsp");
-			} else if(rol == 0) {
-				//response.sendRedirect("member.jsp?&user="+loginBEAN.getUserName());
+				// response.sendRedirect("moderator.jsp");
+			} else if (rol == 0) {
+				// response.sendRedirect("member.jsp?&user="+loginBEAN.getUserName());
 				rd = request.getRequestDispatcher("ForumSERVLET");
-				//response.sendRedirect("member.jsp");
-			}else{
+				// response.sendRedirect("member.jsp");
+			} else {
 				rd = request.getRequestDispatcher("index.jsp?validation=2");
-				//response.sendRedirect("index.jsp?validation=2");
+				// response.sendRedirect("index.jsp?validation=2");
 			}
-			
-		}else{
+
+		} else {
 			rd = request.getRequestDispatcher("index.jsp?validation=2");
 		}
 		rd.forward(request, response);
-	}@Override
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		
+	}
+
+	@Override
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+
 		response.setHeader("Cache-Control", "no-cache,no-store,must-revalidate");
 		response.setHeader("Pragma", "no-cache");
 		response.setHeader("Expires", "0");
@@ -68,52 +72,52 @@ public class LoginSERVLET extends HttpServlet {
 		LoginBEAN loginBEAN = (LoginBEAN) session.getAttribute("loginBEAN");
 
 		int flagChkLogin = 0;
-		if(loginBEAN == null){			
-				String userId = request.getParameter("uid");
-				String password = request.getParameter("pwd");
-				
-				String check = request.getParameter("check");
-				System.out.println("uid :" +userId +"      pwd :"+password + "    check="+check);
-				
-				if(check == null || "".equals(check)) {
-					rd = request.getRequestDispatcher("index.jsp?validation=2");
-					rd.forward(request,response);
-					return;
-				}
-				
-				LoginBO loginBO = new LoginBO();
-				try {
-					loginBEAN = loginBO.login(userId,password);
-					if(loginBEAN != null){
-						int role=loginBEAN.getRole();
-						session.setAttribute("loginBEAN",loginBEAN);
-						if(role == 1) {
-//=====================================================================================================
-//=====================================================================================================
-							rd = request.getRequestDispatcher("ForumSERVLET");
-							//response.sendRedirect("moderator.jsp");
-						} else if(role == 0) {
-//=====================================================================================================
-//=====================================================================================================
-							//response.sendRedirect("member.jsp?&user="+userId);
-							rd = request.getRequestDispatcher("ForumSERVLET");
-							//response.sendRedirect("member.jsp");
-						}else{
-							//response.sendRedirect("index.jsp?validation=1");
-							rd = request.getRequestDispatcher("index.jsp?validation=1");
-							flagChkLogin=1;
-						}
-					}else{
-						//response.sendRedirect("index.jsp?validation=1");
-						rd = request.getRequestDispatcher("index.jsp?validation=1");
-						flagChkLogin=1;
-					}
+		if (loginBEAN == null) {
+			String userId = request.getParameter("uid");
+			String password = request.getParameter("pwd");
 
-						rd.forward(request, response);
-				
-				} catch (SQLException e) {
-					response.sendRedirect("index.jsp?validation=2 ");
+			String check = request.getParameter("check");
+			System.out.println("uid :" + userId + "      pwd :" + password + "    check=" + check);
+
+			if (check == null || "".equals(check)) {
+				rd = request.getRequestDispatcher("index.jsp?validation=2");
+				rd.forward(request, response);
+				return;
+			}
+
+			LoginBO loginBO = new LoginBO();
+			try {
+				loginBEAN = loginBO.login(userId, password);
+				if (loginBEAN != null) {
+					int role = loginBEAN.getRole();
+					session.setAttribute("loginBEAN", loginBEAN);
+					if (role == 1) {
+//=====================================================================================================
+//=====================================================================================================
+						rd = request.getRequestDispatcher("ForumSERVLET");
+						// response.sendRedirect("moderator.jsp");
+					} else if (role == 0) {
+//=====================================================================================================
+//=====================================================================================================
+						// response.sendRedirect("member.jsp?&user="+userId);
+						rd = request.getRequestDispatcher("ForumSERVLET");
+						// response.sendRedirect("member.jsp");
+					} else {
+						// response.sendRedirect("index.jsp?validation=1");
+						rd = request.getRequestDispatcher("index.jsp?validation=1");
+						flagChkLogin = 1;
+					}
+				} else {
+					// response.sendRedirect("index.jsp?validation=1");
+					rd = request.getRequestDispatcher("index.jsp?validation=1");
+					flagChkLogin = 1;
 				}
+
+				rd.forward(request, response);
+
+			} catch (SQLException e) {
+				response.sendRedirect("index.jsp?validation=2 ");
+			}
 		}
 	}
 

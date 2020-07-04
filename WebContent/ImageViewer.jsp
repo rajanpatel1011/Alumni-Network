@@ -378,13 +378,10 @@ $(document).ready(function() {
 									<div class="tm_mask tm_mask-2"></div>
 									<div class="tm_content">
 										<p>
-											<%=bean.getPerm_name() %><br />
-											<br /> Uploaded By:
+											<%=bean.getPerm_name() %><br /> <br /> Uploaded By:
 											<%=bean.getF_name()%>
-											<br />
-											<br /> Title:
-											<%=bean.getTitle() %><br />
-											<br />
+											<br /> <br /> Title:
+											<%=bean.getTitle() %><br /> <br />
 											<%=bean.getCaption() %><br /> <br />
 											<%=bean.getTakendate() %>
 

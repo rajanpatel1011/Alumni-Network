@@ -24,79 +24,79 @@ import com.alumni.beans.UserRequestBean;
 @WebServlet("/NewsDisplaySERVLET")
 public class NewsDisplaySERVLET extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public NewsDisplaySERVLET() {
-        super();
-        // TODO Auto-generated constructor stub
-    }
 
 	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-	 */@Override
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
+	 * @see HttpServlet#HttpServlet()
+	 */
+	public NewsDisplaySERVLET() {
+		super();
+	}
+
+	/**
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
+	 *      response)
+	 */
+	@Override
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		response.setHeader("Cache-Control", "no-cache,no-store,must-revalidate");
 		response.setHeader("Pragma", "no-cache");
 		response.setHeader("Expires", "0");
 		RequestDispatcher rd;
 		HttpSession session = request.getSession();
 		AdminLoginBEAN bean = (AdminLoginBEAN) session.getAttribute("adminloginBEAN");
-		
-		if(bean == null){
+
+		if (bean == null) {
 			rd = request.getRequestDispatcher("admin/index.jsp?validation=1");
 			rd.forward(request, response);
-		}else{
-			doPost(request,response);
+		} else {
+			doPost(request, response);
 		}
-		
+
 	}
 
 	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */@Override
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
+	 *      response)
+	 */
+	@Override
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+
 		response.setHeader("Cache-Control", "no-cache,no-store,must-revalidate");
 		response.setHeader("Pragma", "no-cache");
 		response.setHeader("Expires", "0");
 		RequestDispatcher rd;
 		HttpSession session = request.getSession();
 		AdminLoginBEAN bean1 = (AdminLoginBEAN) session.getAttribute("adminloginBEAN");
-		
-		if(bean1 == null){
+
+		if (bean1 == null) {
 			rd = request.getRequestDispatcher("admin/index.jsp?validation=1");
 			rd.forward(request, response);
-		}else{
-		NewsBO bo = new NewsBO();
-		
-		RequestDispatcher rs = null;
-		List<NewsBEAN> list;
-		
-		AdminLoginBEAN bean = (AdminLoginBEAN) session.getAttribute("adminloginBEAN");
-		
-		if(bean == null){
-			rs = request.getRequestDispatcher("admin/index.jsp?validation=1");
-			rs.forward(request, response);
-		}else{
-			try {
-				list = bo.news();
-				request.setAttribute("list",list);
-				rs=request.getRequestDispatcher("admin/news.jsp");
-			} catch (ClassNotFoundException e) {
-				// 	TODO Auto-generated catch block
-				e.printStackTrace();
-			} catch (SQLException e) {
-				// 	TODO Auto-generated catch block
-				e.printStackTrace();
+		} else {
+			NewsBO bo = new NewsBO();
+
+			RequestDispatcher rs = null;
+			List<NewsBEAN> list;
+
+			AdminLoginBEAN bean = (AdminLoginBEAN) session.getAttribute("adminloginBEAN");
+
+			if (bean == null) {
+				rs = request.getRequestDispatcher("admin/index.jsp?validation=1");
+				rs.forward(request, response);
+			} else {
+				try {
+					list = bo.news();
+					request.setAttribute("list", list);
+					rs = request.getRequestDispatcher("admin/news.jsp");
+				} catch (ClassNotFoundException e) {
+					e.printStackTrace();
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
+				rs.forward(request, response);
 			}
-			rs.forward(request, response);
 		}
 	}
-	}
-	
 
 }

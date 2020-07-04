@@ -7,14 +7,12 @@ import com.alumni.beans.MsgBEAN;
 import com.alumni.dao.MsgDAO;
 
 public class MsgBO {
-	
-	// For viewing Messages to user
-	public List<MsgBEAN> msg(int member_id) throws ClassNotFoundException, SQLException
-	{
-		
+
+	public List<MsgBEAN> msg(int member_id) throws ClassNotFoundException, SQLException {
+
 		MsgDAO mdao = new MsgDAO();
 		List<MsgBEAN> mb = mdao.msg(member_id);
-		return mb;		
+		return mb;
 	}
 
 }

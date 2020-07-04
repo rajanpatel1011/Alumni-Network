@@ -21,61 +21,64 @@ import com.alumni.bo.ProfileBO;
 @WebServlet("/StudentSERVLET")
 public class StudentSERVLET extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public StudentSERVLET() {
-        super();
-
-    }
 
 	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 * @see HttpServlet#HttpServlet()
 	 */
-	@Override
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		doPost(request,response);
+	public StudentSERVLET() {
+		super();
+
 	}
 
 	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
+	 *      response)
 	 */
 	@Override
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		doPost(request, response);
+	}
+
+	/**
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
+	 *      response)
+	 */
+	@Override
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		response.setHeader("Cache-Control", "no-cache,no-store,must-revalidate");
 		response.setHeader("Pragma", "no-cache");
 		response.setHeader("Expires", "0");
-		
-		 ProfileBO profile=new ProfileBO();        
-       ProfileBEAN bean;
-       HttpSession session = request.getSession();
+
+		ProfileBO profile = new ProfileBO();
+		ProfileBEAN bean;
+		HttpSession session = request.getSession();
 		LoginBEAN lb = (LoginBEAN) session.getAttribute("loginBEAN");
 		RequestDispatcher rd;
-		if(lb == null){
+		if (lb == null) {
 			rd = request.getRequestDispatcher("index.jsp?validation=2");
-			rd.forward(request,response);
-		}else{
-			
+			rd.forward(request, response);
+		} else {
+
 //----------- visting id--- 		
-		String st=request.getParameter("id");
-		int id = Integer.parseInt(st);
+			String st = request.getParameter("id");
+			int id = Integer.parseInt(st);
 //----------------------------------------------
-		if(lb.getM_id()==id){
-			RequestDispatcher rq = request.getRequestDispatcher("profileSERVLET");
-			rq.forward(request, response);
-		}else{
-			try {
-				bean = profile.fetch(id);
-				request.setAttribute("Profilebean", bean);			
-				request.setAttribute("id",id);
-				RequestDispatcher rq=request.getRequestDispatcher("student.jsp?id="+st);
-	        	rq.forward(request,response);
-			} 
-			catch (SQLException e1) {
-				e1.printStackTrace();
+			if (lb.getM_id() == id) {
+				RequestDispatcher rq = request.getRequestDispatcher("profileSERVLET");
+				rq.forward(request, response);
+			} else {
+				try {
+					bean = profile.fetch(id);
+					request.setAttribute("Profilebean", bean);
+					request.setAttribute("id", id);
+					RequestDispatcher rq = request.getRequestDispatcher("student.jsp?id=" + st);
+					rq.forward(request, response);
+				} catch (SQLException e1) {
+					e1.printStackTrace();
+				}
 			}
 		}
-		}
-}
+	}
 }

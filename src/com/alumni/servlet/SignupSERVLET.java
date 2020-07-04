@@ -16,7 +16,6 @@ import javax.servlet.http.HttpServletResponse;
 import com.alumni.beans.SignupBEAN;
 import com.alumni.bo.SignupBO;
 
-//signup servlet by Rahul ,,,,
 /**
  * Servlet implementation class SignupSERVLET
  */
@@ -25,11 +24,12 @@ public class SignupSERVLET extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */@Override
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
+	 *      response)
+	 */
+	@Override
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		String Fname = request.getParameter("inputFname");
 		String Lname = request.getParameter("inputLname");
 		String gender = request.getParameter("gender");
@@ -38,23 +38,22 @@ public class SignupSERVLET extends HttpServlet {
 		String Passyr = request.getParameter("inputPassyr");
 		String branch = request.getParameter("branch");
 		String Enrno = request.getParameter("inputEnrno");
-		
+
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-mm-dd");
 		Date d = null;
-		
+
 		try {
 			d = sdf.parse(dob);
 		} catch (ParseException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
+
 		int PassyrId = Integer.parseInt(Passyr);
 		int BranchId = Integer.parseInt(branch);
-		
+
 		SignupBO signupBO = new SignupBO();
 		SignupBEAN signupBEAN = new SignupBEAN();
-		
+
 		signupBEAN.setFname(Fname);
 		signupBEAN.setLname(Lname);
 		signupBEAN.setGender(gender);
@@ -63,23 +62,22 @@ public class SignupSERVLET extends HttpServlet {
 		signupBEAN.setPassyrId(PassyrId);
 		signupBEAN.setBranchId(BranchId);
 		signupBEAN.setEnrno(Enrno);
-		
-		try {			
+
+		try {
 			signupBEAN = signupBO.signup(signupBEAN);
 		} catch (ClassNotFoundException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
-		if(signupBEAN.isSuccess()){
-			response.getWriter().write("Dear user your request is sent successfully to your respective moderator.You have shortly notify by mail.");
-		}else{ 
+
+		if (signupBEAN.isSuccess()) {
+			response.getWriter().write(
+					"Dear user your request is sent successfully to your respective moderator.You have shortly notify by mail.");
+		} else {
 			response.getWriter().write("Try again server problem...");
 		}
-		
+
 	}
 
 }

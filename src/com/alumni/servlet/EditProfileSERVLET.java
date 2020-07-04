@@ -18,7 +18,6 @@ import com.alumni.beans.MemhobbiesBEAN;
 import com.alumni.beans.ProfileBEAN;
 import com.alumni.bo.ProfileBO;
 
-
 /**
  * Servlet implementation class EditProfileSERVLET
  */
@@ -26,61 +25,63 @@ import com.alumni.bo.ProfileBO;
 
 public class EditProfileSERVLET extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public EditProfileSERVLET() {
-        super();
-        // TODO Auto-generated constructor stub
-    }
-@Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-    	response.setHeader("Cache-Control", "no-cache,no-store,must-revalidate");
-		response.setHeader("Pragma", "no-cache");
-		response.setHeader("Expires", "0");
-		
-    	doPost(request,response);
-    }
-	
+
 	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 * @see HttpServlet#HttpServlet()
 	 */
+	public EditProfileSERVLET() {
+		super();
+	}
+
 	@Override
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		response.setHeader("Cache-Control", "no-cache,no-store,must-revalidate");
 		response.setHeader("Pragma", "no-cache");
 		response.setHeader("Expires", "0");
-		
-		
-		ProfileBO profile=new ProfileBO();        
-         ProfileBEAN bean;
-         HttpSession session = request.getSession();
- 		LoginBEAN lb = (LoginBEAN) session.getAttribute("loginBEAN");
+
+		doPost(request, response);
+	}
+
+	/**
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
+	 *      response)
+	 */
+	@Override
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+
+		response.setHeader("Cache-Control", "no-cache,no-store,must-revalidate");
+		response.setHeader("Pragma", "no-cache");
+		response.setHeader("Expires", "0");
+
+		ProfileBO profile = new ProfileBO();
+		ProfileBEAN bean;
+		HttpSession session = request.getSession();
+		LoginBEAN lb = (LoginBEAN) session.getAttribute("loginBEAN");
 		try {
-			
+
 			bean = profile.fetch(lb.getM_id());
-			 request.setAttribute("EditProfilebean", bean);	
-			
-		     List<EducationBEAN> dbean = profile.alldegree(lb.getM_id());
-		     request.setAttribute("degreelist", dbean);
-		     
-		     List<MemhobbiesBEAN> hbean= profile.getAllListOfHobbies();
-		   	  request.setAttribute("hobbieslist", hbean);
-		   	  
-		     RequestDispatcher rq=request.getRequestDispatcher("EditProfile.jsp");
-	        rq.forward(request,response);
-	    
-		} 
-		
-		 catch (SQLException e) {
+			request.setAttribute("EditProfilebean", bean);
+
+			List<EducationBEAN> dbean = profile.alldegree(lb.getM_id());
+			request.setAttribute("degreelist", dbean);
+
+			List<MemhobbiesBEAN> hbean = profile.getAllListOfHobbies();
+			request.setAttribute("hobbieslist", hbean);
+
+			RequestDispatcher rq = request.getRequestDispatcher("EditProfile.jsp");
+			rq.forward(request, response);
+
+		}
+
+		catch (SQLException e) {
 			System.out.println(e);
 			e.printStackTrace();
-			 RequestDispatcher rq=request.getRequestDispatcher("EditProfile.jsp");
-		     rq.forward(request,response);
+			RequestDispatcher rq = request.getRequestDispatcher("EditProfile.jsp");
+			rq.forward(request, response);
 		}
-		
- 	}
-	
+
+	}
+
 }

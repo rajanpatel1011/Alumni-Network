@@ -22,54 +22,51 @@ import com.alumni.beans.LoginBEAN;
 @WebServlet("/ForumSERVLET")
 public class ForumSERVLET extends HttpServlet {
 	private static final long serialVersionUID = 1L;
+
 	@Override
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
-	{
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		response.setHeader("Cache-Control", "no-cache,no-store,must-revalidate");
 		response.setHeader("Pragma", "no-cache");
 		response.setHeader("Expires", "0");
 		RequestDispatcher rd;
 		HttpSession session = request.getSession();
 		LoginBEAN lb = (LoginBEAN) session.getAttribute("loginBEAN");
-		if(lb == null){
+		if (lb == null) {
 			System.out.println("HEllo Error...!!!!! :D :D");
 			rd = request.getRequestDispatcher("index.jsp?validation=2");
 			rd.forward(request, response);
-		}else{
-			doPost(request,response);
+		} else {
+			doPost(request, response);
 		}
 	}
-@Override
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
-	{
+
+	@Override
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		response.setHeader("Cache-Control", "no-cache,no-store,must-revalidate");
 		response.setHeader("Pragma", "no-cache");
 		response.setHeader("Expires", "0");
 
-			ForumBO fbo = new ForumBO();    			
-			try 
-			{
-				RequestDispatcher rd;
-				HttpSession session = request.getSession();
-				LoginBEAN lb = (LoginBEAN) session.getAttribute("loginBEAN");
-				if(lb == null){
-					System.out.println("HEllo Error...!!!!! :D :D");
-					rd = request.getRequestDispatcher("index.jsp?validation=2");
-				}else{
-						List<ForumBean> list = fbo.forum(lb.getB_id(),lb.getP_id(),lb.getM_id());    			 
-						request.setAttribute("list", list);
-						rd = request.getRequestDispatcher("forum.jsp");
-				}
-				rd.forward(request, response);
+		ForumBO fbo = new ForumBO();
+		try {
+			RequestDispatcher rd;
+			HttpSession session = request.getSession();
+			LoginBEAN lb = (LoginBEAN) session.getAttribute("loginBEAN");
+			if (lb == null) {
+				System.out.println("HEllo Error...!!!!! :D :D");
+				rd = request.getRequestDispatcher("index.jsp?validation=2");
+			} else {
+				List<ForumBean> list = fbo.forum(lb.getB_id(), lb.getP_id(), lb.getM_id());
+				request.setAttribute("list", list);
+				rd = request.getRequestDispatcher("forum.jsp");
 			}
-			catch (ClassNotFoundException e)
-			{
-				e.printStackTrace();
-			}
-			catch (Exception e)
-			{    			
-				e.printStackTrace();
-			}
+			rd.forward(request, response);
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
 
 }

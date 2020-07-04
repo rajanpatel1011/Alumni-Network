@@ -19,27 +19,30 @@ import com.alumni.bo.CommentBO;
 @WebServlet("/LikeCommentSERVLET")
 public class LikeCommentSERVLET extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public LikeCommentSERVLET() {
-        super();
-        // TODO Auto-generated constructor stub
-    }
 
 	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-	 */@Override
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
+	 * @see HttpServlet#HttpServlet()
+	 */
+	public LikeCommentSERVLET() {
+		super();
 	}
 
 	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */@Override
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
+	 *      response)
+	 */
+	@Override
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+	}
+
+	/**
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
+	 *      response)
+	 */
+	@Override
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		int c_Id = Integer.parseInt(request.getParameter("c_id"));
 		HttpSession session = request.getSession();
 		LoginBEAN lb = (LoginBEAN) session.getAttribute("loginBEAN");
@@ -47,15 +50,13 @@ public class LikeCommentSERVLET extends HttpServlet {
 		session.setAttribute("cmt_Id", cmtID);
 		CommentBO bo = new CommentBO();
 		try {
-			bo.LikeComment(c_Id,lb.getM_id());
+			bo.LikeComment(c_Id, lb.getM_id());
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
+		} finally {
+			response.sendRedirect("Login#" + cmtID);
 		}
-		finally{
-			response.sendRedirect("Login#"+cmtID);
-		}
-		
+
 	}
 
 }

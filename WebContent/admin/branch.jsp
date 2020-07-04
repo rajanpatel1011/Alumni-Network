@@ -1,4 +1,4 @@
-<%@page import="com.mysql.jdbc.StringUtils"%>
+<%@page import="org.apache.commons.lang3.StringUtils"%>
 <% 
 	response.setHeader("Cache-Control", "no-cache,no-store,must-revalidate");
 	response.setHeader("Pragma", "no-cache");
@@ -57,7 +57,7 @@ $(document).ready(function() {
 				<td>
 
 					<div id="msg"></div> <%String resu=request.getParameter("result");
-						if(!StringUtils.isEmptyOrWhitespaceOnly(resu)||!StringUtils.isNullOrEmpty(resu)){
+						if(!StringUtils.isEmpty(resu)){
 							
 						 	if(resu.equals("1")){
 							 	%><%="Branch has been deleted successfully!" %>

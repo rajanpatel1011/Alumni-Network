@@ -21,58 +21,62 @@ import com.alumni.admin.bo.InitModBO;
 @WebServlet("/BecomemInitModSERVLET")
 public class BecomemInitModSERVLET extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public BecomemInitModSERVLET() {
-        super();
-        // TODO Auto-generated constructor stub
-    }
 
 	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-	 */@Override
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-	doPost(request,response);
+	 * @see HttpServlet#HttpServlet()
+	 */
+	public BecomemInitModSERVLET() {
+		super();
 	}
 
 	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */@Override
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
+	 *      response)
+	 */
+	@Override
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		doPost(request, response);
+	}
+
+	/**
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
+	 *      response)
+	 */
+	@Override
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		response.setHeader("Cache-Control", "no-cache,no-store,must-revalidate");
 		response.setHeader("Pragma", "no-cache");
 		response.setHeader("Expires", "0");
 		RequestDispatcher rd;
 		HttpSession session = request.getSession();
 		AdminLoginBEAN bean1 = (AdminLoginBEAN) session.getAttribute("adminloginBEAN");
-		
-		if(bean1 == null){
+
+		if (bean1 == null) {
 			rd = request.getRequestDispatcher("admin/index.jsp?validation=1");
 			rd.forward(request, response);
-		}else{
-		
-		String flsg=request.getParameter("flag");
-		System.out.println("In server"+flsg);
-		InitModBEAN bean;
-		InitModBO bo = new InitModBO();
-		try {
-			
-			bean = new InitModBEAN();
-			//bean.setM_Id(bo.getMemId(Integer.parseInt(flsg)));
-			bean.setM_Id(Integer.parseInt(flsg));
-			bo.BecomeInitMod(bean);
-			response.sendRedirect("admin/initMod.jsp?result=1");
-			
-		} catch (NumberFormatException e) {
-			e.printStackTrace();
-			response.sendRedirect("admin/initMod.jsp?result=2");
-		} catch (SQLException e) {
-			e.printStackTrace();
-			response.sendRedirect("admin/initMod.jsp?result=3");
-		}
+		} else {
+
+			String flsg = request.getParameter("flag");
+			System.out.println("In server" + flsg);
+			InitModBEAN bean;
+			InitModBO bo = new InitModBO();
+			try {
+
+				bean = new InitModBEAN();
+				// bean.setM_Id(bo.getMemId(Integer.parseInt(flsg)));
+				bean.setM_Id(Integer.parseInt(flsg));
+				bo.BecomeInitMod(bean);
+				response.sendRedirect("admin/initMod.jsp?result=1");
+
+			} catch (NumberFormatException e) {
+				e.printStackTrace();
+				response.sendRedirect("admin/initMod.jsp?result=2");
+			} catch (SQLException e) {
+				e.printStackTrace();
+				response.sendRedirect("admin/initMod.jsp?result=3");
+			}
 		}
 	}
 

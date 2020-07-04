@@ -7,16 +7,14 @@ import com.alumni.admin.beans.NewsBEAN;
 import com.alumni.admin.dao.NewsDAO;
 
 public class NewsBO {
-	
-	public List<NewsBEAN> news() throws ClassNotFoundException, SQLException
-	{
-		NewsDAO dao=new NewsDAO();
-		List<NewsBEAN> bean=dao.news();
+
+	public List<NewsBEAN> news() throws ClassNotFoundException, SQLException {
+		NewsDAO dao = new NewsDAO();
+		List<NewsBEAN> bean = dao.news();
 		return bean;
 	}
 
 	public NewsBEAN createNews(NewsBEAN bean) throws SQLException {
-		// TODO Auto-generated method stub
 		NewsDAO dao = new NewsDAO();
 		NewsBEAN bean1 = dao.createNews(bean);
 		return bean1;

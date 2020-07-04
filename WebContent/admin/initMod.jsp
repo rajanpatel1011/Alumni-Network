@@ -1,5 +1,5 @@
-<%@page import="com.mysql.jdbc.StringUtils"%>
-<% 
+<%@page import="org.apache.commons.lang3.StringUtils"%>
+
 	response.setHeader("Cache-Control", "no-cache,no-store,must-revalidate");
 	response.setHeader("Pragma", "no-cache");
 	response.setHeader("Expires", "0");
@@ -21,7 +21,7 @@ $('#ini-mod-btn').addClass('click-btn-css');
 <div class="tab-content">
 	<div id="ini-mod">
 		<%String f=request.getParameter("result");
- 	 			 	if(!StringUtils.isEmptyOrWhitespaceOnly(f)||!StringUtils.isNullOrEmpty(f)){
+ 	 			 	if(!StringUtils.isEmpty(f)){
  						if(f=="1"){
  							%><%="Request Send... " %>
 		<%

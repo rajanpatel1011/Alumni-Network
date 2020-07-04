@@ -31,7 +31,8 @@
 <script src="js/forms.js"></script>
 <script
 	src="http://maps.googleapis.com/maps/api/js?key=AIzaSyD-WKH5rvf-9g1To8OHKqPOoVKZddoFCN8&sensor=false">
-	</script>
+	
+</script>
 <script src="js/gmap.js"></script>
 <script src="js/validation.js"></script>
 
@@ -478,7 +479,7 @@
 				<li><a class="icon-4" href="#"></a></li>
 			</ul>
 			<div class="privacy pull-left">
-				&copy; 2013 | <a href="#">Alumni Association</a>
+				&copy; 2020 | <a href="#">Alumni Association</a>
 			</div>
 	</footer>
 

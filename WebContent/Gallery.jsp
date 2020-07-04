@@ -51,16 +51,7 @@
 	 jQuery('.magnifier').touchTouch();
 		 jQuery('.spinner').animate({'opacity':0},1000,'easeOutCubic',function (){jQuery(this).css('display','none')});	
   		  }); 
-		 
-		 
 		
-		 
-		 
-		 
-		 
-		 
-		 
-		 
 	</script>
 </head>
 <body style="background-color: #F9F5ED">

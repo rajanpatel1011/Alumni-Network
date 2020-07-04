@@ -4,6 +4,20 @@ import java.util.Date;
 
 public class EmailVerificationBEAN {
 
+	private boolean success;
+	private String Fname;
+	private String Lname;
+	private String gender;
+	private Date dob;
+	private String Email;
+	private int PassyrId;
+	private int BranchId;
+	private String Enrno;
+	private String token;
+	private String code;
+	private String mailSent;
+	private boolean network;
+
 	public Date getDob() {
 		return dob;
 	}
@@ -100,21 +114,6 @@ public class EmailVerificationBEAN {
 		this.mailSent = mailSent;
 	}
 
-	
-	private boolean success;
-	
-	private String Fname;
-	private String Lname;
-	private String gender;
-	private Date dob;
-	private String Email;
-	private int PassyrId;
-	private int BranchId;
-	private String Enrno;
-	private String token;
-	private String code;
-	private String mailSent;
-	private boolean network;
 	public boolean isNetwork() {
 		return network;
 	}

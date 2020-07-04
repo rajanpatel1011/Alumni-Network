@@ -1,4 +1,4 @@
-<%@page import="com.mysql.jdbc.StringUtils"%>
+<%@page import="org.apache.commons.lang3.StringUtils"%>
 <jsp:include page="header.jsp" />
 <jsp:include page="sidebar.jsp" />
 <%@ page import="com.alumni.admin.beans.*"%>
@@ -19,7 +19,7 @@ $(document).ready(function() {
 	<div id="usr-app">
 		<label class="tab-title">Members Applications</label><br />
 		<%String resultflag = request.getParameter("flag");
-			if(!StringUtils.isNullOrEmpty(resultflag)||!StringUtils.isEmptyOrWhitespaceOnly(resultflag)){
+			if(!StringUtils.isEmpty(resultflag)){
 			 	if(resultflag.equals("1")){
 			 		%><%="User Application has been deleted!!" %>
 		<%

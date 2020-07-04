@@ -7,18 +7,17 @@ import java.sql.SQLException;
 
 import com.alumni.beans.LoginBEAN;
 
-
 public class LoginDAO {
 	public LoginBEAN login(String userId, String password) throws SQLException {
-		// TODO Auto-generated method stub
 		Connection con = null;
 		try {
 			con = ConnectionDAO.getConnection();
-			PreparedStatement ps = con.prepareStatement("select m_Id,u_Id,f_name,l_name,acc_type,b_Id,p_Id,profile_pic from members where u_Id = ? and pwd = ?;"); 
-			ps.setString(1,userId);
-			ps.setString(2,password);
+			PreparedStatement ps = con.prepareStatement(
+					"select m_Id,u_Id,f_name,l_name,acc_type,b_Id,p_Id,profile_pic from members where u_Id = ? and pwd = ?;");
+			ps.setString(1, userId);
+			ps.setString(2, password);
 			ResultSet rs = ps.executeQuery();
-			if(rs.next()) {
+			if (rs.next()) {
 				LoginBEAN loginBEAN = new LoginBEAN();
 				loginBEAN.setM_id(rs.getInt(1));
 				loginBEAN.setUserName(rs.getString(2));
@@ -28,8 +27,8 @@ public class LoginDAO {
 				loginBEAN.setB_id(rs.getInt(6));
 				loginBEAN.setP_id(rs.getInt(7));
 				loginBEAN.setPic(rs.getString(8));
-				
-				return loginBEAN; 
+
+				return loginBEAN;
 			} else {
 				return null;
 			}

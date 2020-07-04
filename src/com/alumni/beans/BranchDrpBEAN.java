@@ -1,6 +1,10 @@
 package com.alumni.beans;
 
 public class BranchDrpBEAN {
+
+	private String Branch;
+	private int BranchId;
+
 	public int getBranchId() {
 		return BranchId;
 	}
@@ -9,7 +13,6 @@ public class BranchDrpBEAN {
 		BranchId = branchId;
 	}
 
-	//System.out.println("In Branch Bean");
 	public String getBranch() {
 		return Branch;
 	}
@@ -18,7 +21,4 @@ public class BranchDrpBEAN {
 		Branch = branch;
 	}
 
-	private String Branch;
-	
-	private int BranchId;
 }

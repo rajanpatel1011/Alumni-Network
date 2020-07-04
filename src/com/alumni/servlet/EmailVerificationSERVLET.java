@@ -23,34 +23,37 @@ import com.alumni.bo.SignupBO;
 @WebServlet("/EmailVerificationSERVLET")
 public class EmailVerificationSERVLET extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public EmailVerificationSERVLET() {
-        super();
-        // TODO Auto-generated constructor stub
-    }
 
 	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-	 */@Override
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
+	 * @see HttpServlet#HttpServlet()
+	 */
+	public EmailVerificationSERVLET() {
+		super();
+	}
+
+	/**
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
+	 *      response)
+	 */
+	@Override
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		response.setHeader("Cache-Control", "no-cache,no-store,must-revalidate");
 		response.setHeader("Pragma", "no-cache");
 		response.setHeader("Expires", "0");
 	}
 
 	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */@Override
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
+	 *      response)
+	 */
+	@Override
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		response.setHeader("Cache-Control", "no-cache,no-store,must-revalidate");
 		response.setHeader("Pragma", "no-cache");
 		response.setHeader("Expires", "0");
-		
+
 		String Fname = request.getParameter("inputFname");
 		String Lname = request.getParameter("inputLname");
 		String gender = request.getParameter("gender");
@@ -59,23 +62,22 @@ public class EmailVerificationSERVLET extends HttpServlet {
 		String Passyr = request.getParameter("inputPassyr");
 		String branch = request.getParameter("branch");
 		String Enrno = request.getParameter("inputEnrno");
-		
+
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-mm-dd");
 		Date d = null;
-		
+
 		try {
 			d = sdf.parse(dob);
 		} catch (ParseException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
+
 		int PassyrId = Integer.parseInt(Passyr);
 		int BranchId = Integer.parseInt(branch);
-		
+
 		EmailVerificationBO emailVerificationBO = new EmailVerificationBO();
 		EmailVerificationBEAN emailVerificationBEAN = new EmailVerificationBEAN();
-		
+
 		emailVerificationBEAN.setFname(Fname);
 		emailVerificationBEAN.setLname(Lname);
 		emailVerificationBEAN.setGender(gender);
@@ -84,53 +86,44 @@ public class EmailVerificationSERVLET extends HttpServlet {
 		emailVerificationBEAN.setPassyrId(PassyrId);
 		emailVerificationBEAN.setBranchId(BranchId);
 		emailVerificationBEAN.setEnrno(Enrno);
-		
+
 		try {
 			emailVerificationBEAN = EmailVerificationBO.sendCode(emailVerificationBEAN);
 		} catch (ClassNotFoundException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		String msg = null;
-		if(emailVerificationBEAN.getEmail()!=null){
+		if (emailVerificationBEAN.getEmail() != null) {
 			System.out.println("here");
-			msg="" +
-					"Verification Code is send to Your email Id - "+Email+".<br /><br />" +
-					//"<form method='post' id='veryCode' >" +
-					"Enter Verification Code :     <br />" +
-						"<input type='text' name='inputCode' id='code'/>" +
-						"<input type='hidden' name='inputEmail' id='emailId' value='"+emailVerificationBEAN.getEmail()+"'/>" +
-						"<div id='errMsg'></div>" +
-						"<input type='submit' class='btn' id='sub_code' value='Submit'>" +
-						
-					//"</form>" +
+			msg = "" + "Verification Code is send to Your email Id - " + Email + ".<br /><br />" +
+			// "<form method='post' id='veryCode' >" +
+					"Enter Verification Code :     <br />" + "<input type='text' name='inputCode' id='code'/>"
+					+ "<input type='hidden' name='inputEmail' id='emailId' value='" + emailVerificationBEAN.getEmail()
+					+ "'/>" + "<div id='errMsg'></div>"
+					+ "<input type='submit' class='btn' id='sub_code' value='Submit'>" +
+
+					// "</form>" +
 					"";
-		}else{
+		} else {
 			System.out.println("there");
-			msg="" +
-					"Check Your email... <br/> Verification Code is send to Your email Id .<br />" +
-					"<form method='post' id='veryCode'>" +
-					"Email Id :" +
-					"<input type='text' name='emailId' id='emailId'/>" +
-					"Enter Verification Code :       <br />" +
-						"<input type='text' name='code' id='code'/>" +
-						"<input type='submit' class='btn' id='signup_btn' value='Submit'>" +
-					"</form>" +
-					"";
+			msg = "" + "Check Your email... <br/> Verification Code is send to Your email Id .<br />"
+					+ "<form method='post' id='veryCode'>" + "Email Id :"
+					+ "<input type='text' name='emailId' id='emailId'/>" + "Enter Verification Code :       <br />"
+					+ "<input type='text' name='code' id='code'/>"
+					+ "<input type='submit' class='btn' id='signup_btn' value='Submit'>" + "</form>" + "";
 		}
-		if(emailVerificationBEAN.isNetwork()){
-			if(emailVerificationBEAN.isSuccess()){
+		if (emailVerificationBEAN.isNetwork()) {
+			if (emailVerificationBEAN.isSuccess()) {
 				response.getWriter().write(msg);
-			}else{ 
+			} else {
 				response.getWriter().write("Try again server problem...");
 			}
-		}else{
-			response.getWriter().write("Sorry ... Network Problem.<br/> Click <a href='index.jsp'>here</a> and try again....");
+		} else {
+			response.getWriter()
+					.write("Sorry ... Network Problem.<br/> Click <a href='index.jsp'>here</a> and try again....");
 		}
-		
 
 	}
 

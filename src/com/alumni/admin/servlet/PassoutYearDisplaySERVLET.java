@@ -28,7 +28,6 @@ public class PassoutYearDisplaySERVLET extends HttpServlet {
      */
     public PassoutYearDisplaySERVLET() {
         super();
-        // TODO Auto-generated constructor stub
     }
 
 	/**
@@ -42,7 +41,6 @@ public class PassoutYearDisplaySERVLET extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
 		response.setHeader("Cache-Control", "no-cache,no-store,must-revalidate");
 		response.setHeader("Pragma", "no-cache");
 		response.setHeader("Expires", "0");
@@ -73,10 +71,8 @@ public class PassoutYearDisplaySERVLET extends HttpServlet {
 						response.getWriter().write("</table>");
 					}
 				} catch (ClassNotFoundException e) {
-					// TODO Auto-generated catch block
 					response.getWriter().write("null");
 				} catch (SQLException e) {
-					// TODO Auto-generated catch block
 					response.getWriter().write("null");
 				}
 	}

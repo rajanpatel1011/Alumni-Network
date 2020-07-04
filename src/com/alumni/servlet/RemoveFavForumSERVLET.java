@@ -19,40 +19,42 @@ import com.alumni.bo.ForumBO;
 @WebServlet("/RemoveFavForumSERVLET")
 public class RemoveFavForumSERVLET extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public RemoveFavForumSERVLET() {
-        super();
-        // TODO Auto-generated constructor stub
-    }
 
 	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-	 */@Override
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
+	 * @see HttpServlet#HttpServlet()
+	 */
+	public RemoveFavForumSERVLET() {
+		super();
 	}
 
 	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */@Override
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
+	 *      response)
+	 */
+	@Override
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+	}
+
+	/**
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
+	 *      response)
+	 */
+	@Override
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+
 		int f_Id = Integer.parseInt(request.getParameter("f_id"));
 		HttpSession session = request.getSession();
 		LoginBEAN lb = (LoginBEAN) session.getAttribute("loginBEAN");
-		//String cmtID = request.getParameter("cmt_ID");
-		//session.setAttribute("cmt_Id", cmtID);
+		// String cmtID = request.getParameter("cmt_ID");
+		// session.setAttribute("cmt_Id", cmtID);
 		ForumBO bo = new ForumBO();
 		try {
-			bo.remFavForum(f_Id,lb.getM_id());
+			bo.remFavForum(f_Id, lb.getM_id());
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
-		}finally{
+		} finally {
 			response.sendRedirect("Login");
 		}
 	}

@@ -77,7 +77,7 @@ public class SignupBEAN {
 	}
 
 	private boolean success;
-	
+
 	private String Fname;
 	private String Lname;
 	private String gender;
@@ -86,5 +86,5 @@ public class SignupBEAN {
 	private int PassyrId;
 	private int BranchId;
 	private String Enrno;
-	
+
 }

@@ -19,43 +19,43 @@ import com.alumni.bo.CommentBO;
 @WebServlet("/CommentDeleteSERVLET")
 public class CommentDeleteSERVLET extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public CommentDeleteSERVLET() {
-        super();
-        // TODO Auto-generated constructor stub
-    }
 
 	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 * @see HttpServlet#HttpServlet()
 	 */
-	@Override
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
+	public CommentDeleteSERVLET() {
+		super();
 	}
 
 	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
+	 *      response)
 	 */
 	@Override
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+	}
+
+	/**
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
+	 *      response)
+	 */
+	@Override
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		int c_Id = Integer.parseInt(request.getParameter("c_id"));
-		HttpSession session = request.getSession();		
+		HttpSession session = request.getSession();
 		String cmtID = request.getParameter("cmt_ID");
 		session.setAttribute("cmt_Id", cmtID);
 		CommentBO bo = new CommentBO();
 		try {
 			bo.deleteComment(c_Id);
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
-		}finally{
-			response.sendRedirect("Login#"+cmtID);
+		} finally {
+			response.sendRedirect("Login#" + cmtID);
 		}
-		
+
 	}
 
 }

@@ -1,8 +1,7 @@
 package com.alumni.beans;
 
-
 public class EducationBEAN {
-	
+
 	private int educationId;
 	private String Degree;
 	private int DegreeId;
@@ -13,8 +12,7 @@ public class EducationBEAN {
 	private String PassOutYear;
 	private String CollegeName;
 	private String highestdegree;
-	
-	
+
 	public int getTempm_id() {
 		return tempm_id;
 	}
@@ -42,7 +40,7 @@ public class EducationBEAN {
 	public String getDegree() {
 		return Degree;
 	}
-	
+
 	public int getDegreeId() {
 		return DegreeId;
 	}
@@ -70,25 +68,29 @@ public class EducationBEAN {
 	public void setDegree(String degree) {
 		Degree = degree;
 	}
+
 	public String getBranch() {
 		return Branch;
 	}
+
 	public void setBranch(String branch) {
 		Branch = branch;
 	}
+
 	public String getPassOutYear() {
 		return PassOutYear;
 	}
+
 	public void setPassOutYear(String passOutYear) {
 		PassOutYear = passOutYear;
 	}
+
 	public String getCollegeName() {
 		return CollegeName;
 	}
+
 	public void setCollegeName(String collegeName) {
 		CollegeName = collegeName;
 	}
-	
-	
-	
+
 }

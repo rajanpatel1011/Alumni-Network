@@ -22,7 +22,14 @@ response.setHeader("Cache-Control", "no-cache,no-store,must-revalidate");
 </style>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 
-<%@ page import="com.alumni.beans.*"%>
+<%@ page import="com.alumni.beans.ProfileBEAN"%>
+<%@ page import="com.alumni.beans.MemhobbiesBEAN"%>
+<%@ page import="com.alumni.beans.EducationBEAN"%>
+<%@ page import="com.alumni.beans.OtherEducationBean"%>
+<%@ page import="com.alumni.beans.JobBean"%>
+
+
+
 <%@ page import="java.util.List"%>
 <%@ page import="java.text.SimpleDateFormat"%>
 

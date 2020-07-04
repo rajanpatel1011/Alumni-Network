@@ -20,30 +20,32 @@ import com.alumni.bo.DeletePicBO;
 @WebServlet("/DeletePicServlet")
 public class DeletePicServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
-    @Override
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		 doPost(request,response);
+
+	@Override
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		doPost(request, response);
 	}
-		@Override
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
-		int ph_value=Integer.parseInt(request.getParameter("value"));
-		
-		int a_id=Integer.parseInt(request.getParameter("a_id"));	
-		System.out.println("value of album"+a_id);
+
+	@Override
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+
+		int ph_value = Integer.parseInt(request.getParameter("value"));
+
+		int a_id = Integer.parseInt(request.getParameter("a_id"));
+		System.out.println("value of album" + a_id);
 		DeletePicBO bo = new DeletePicBO();
-	    PhotoUploadBean bean = new PhotoUploadBean();
-	    bean.setPhoto_id(ph_value);
-	    try {
-	    	String s=bo.SelectPhoto(bean);
-	    	File file=new File(getServletContext().getRealPath("/")+s);
-	    	file.delete();
-	    	bo.deletePhoto(bean);
-	    	RequestDispatcher dis=request.getRequestDispatcher("PhotoDisplaySERVLET?param="+a_id);
-    		dis.forward(request, response);
-	    	
-			
+		PhotoUploadBean bean = new PhotoUploadBean();
+		bean.setPhoto_id(ph_value);
+		try {
+			String s = bo.SelectPhoto(bean);
+			File file = new File(getServletContext().getRealPath("/") + s);
+			file.delete();
+			bo.deletePhoto(bean);
+			RequestDispatcher dis = request.getRequestDispatcher("PhotoDisplaySERVLET?param=" + a_id);
+			dis.forward(request, response);
+
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}

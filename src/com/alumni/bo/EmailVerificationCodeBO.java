@@ -7,10 +7,11 @@ import com.alumni.dao.EmailVerificationCodeDAO;
 
 public class EmailVerificationCodeBO {
 
-	public EmailVerificationCodeBEAN checkCode(EmailVerificationCodeBEAN emailVerificationCodeBEAN) throws SQLException {
-		// TODO Auto-generated method stub
+	public EmailVerificationCodeBEAN checkCode(EmailVerificationCodeBEAN emailVerificationCodeBEAN)
+			throws SQLException {
 		EmailVerificationCodeDAO emailVerificationCodeDAO = new EmailVerificationCodeDAO();
-		EmailVerificationCodeBEAN emailVerificationCodeBEAN1 = emailVerificationCodeDAO.checkCode(emailVerificationCodeBEAN);
+		EmailVerificationCodeBEAN emailVerificationCodeBEAN1 = emailVerificationCodeDAO
+				.checkCode(emailVerificationCodeBEAN);
 		return emailVerificationCodeBEAN1;
 	}
 

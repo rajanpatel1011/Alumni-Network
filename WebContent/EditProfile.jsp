@@ -1,4 +1,4 @@
-<%@page import="com.mysql.jdbc.StringUtils"%>
+<%@page import="org.apache.commons.lang3.StringUtils"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -21,8 +21,16 @@ response.setHeader("Expires", "0");
 	color: #000;
 }
 </style>
+
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<%@ page import="com.alumni.beans.*"%>
+<%@ page import="com.alumni.beans.ProfileBEAN"%>
+<%@ page import="com.alumni.beans.LoginBEAN"%>
+<%@ page import="com.alumni.beans.MemhobbiesBEAN"%>
+<%@ page import="com.alumni.beans.EducationBEAN"%>
+<%@ page import="com.alumni.beans.OtherEducationBean"%>
+<%@ page import="com.alumni.beans.JobBean"%>
+
+
 <%@ page import="java.util.List"%>
 <%@ page import="java.text.SimpleDateFormat"%>
 
@@ -918,7 +926,7 @@ response.setHeader("Expires", "0");
 									<td width="83"><a href="AddJobInProfile" id="1"><button
 												type="button" value="Add Job" class="btn" id="update_btn">Add
 												Job</button></a> <% String resultFlag2= request.getParameter("add");%>
-										<% if(!StringUtils.isEmptyOrWhitespaceOnly(resultFlag2)||!StringUtils.isNullOrEmpty(resultFlag2)){ %>
+										<% if(!StringUtils.isEmpty(resultFlag2)){ %>
 										<%if(resultFlag2.equals("notadd")){ %> <label>Not added
 											job </label> <%} %> <%if(resultFlag2.equals("deladd")){ %> <label>Not
 											able to delete </label> <%} %> <%if(resultFlag2.equals("cantdel")){ %> <label>can
