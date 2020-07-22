@@ -95,6 +95,7 @@ public class UpdateProfileSERVLET extends HttpServlet {
 			String middlename = request.getParameter("mname");
 			String lastname = request.getParameter("lname");
 			String Gen = request.getParameter("gender");
+			System.out.println("EditProfileGen before "+Gen);
 			String Gender = null;
 
 			if (Gen.equals("Male")) {

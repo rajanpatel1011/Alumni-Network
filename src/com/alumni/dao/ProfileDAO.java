@@ -180,7 +180,7 @@ public class ProfileDAO {
 
 			connectionhobbies = ConnectionDAO.getConnection();
 			PreparedStatement memjob = connectionhobbies.prepareStatement(
-					"SELECT designation,start_month,start_year,end_month,end_year,industry_name,fun_Area,pr_Id FROM heroku_9915491d71b4e71.proff_details WHERE m_Id=?");
+					"SELECT designation,start_month,start_year,end_month,end_year,industry_name,fun_Area,pr_Id FROM proff_details WHERE m_Id=?");
 			memjob.setInt(1, m_Id);
 			ResultSet jobs = memjob.executeQuery();
 

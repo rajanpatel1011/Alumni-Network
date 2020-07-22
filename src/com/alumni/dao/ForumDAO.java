@@ -233,7 +233,7 @@ public class ForumDAO {
 		try {
 			con = ConnectionDAO.getConnection();
 
-			String s = "SELECT forum.*,members.f_name,members.l_name,permision.perm_Name FROM heroku_9915491d71b4e71.forum,heroku_9915491d71b4e71.members,heroku_9915491d71b4e71.permision where (forum.creator_id=members.m_id) and (forum.perm_Id=permision.perm_Id) and (forum.delete_flag=0) and (forum.f_id=?) and ((forum.perm_Id=1) or (forum.perm_Id=2 and p_Id=? and b_Id=?) or (forum.perm_Id=3 and p_Id=?) or (forum.perm_Id=4 and b_Id=?));";
+			String s = "SELECT forum.*,members.f_name,members.l_name,permision.perm_Name FROM forum, members, permision where (forum.creator_id=members.m_id) and (forum.perm_Id=permision.perm_Id) and (forum.delete_flag=0) and (forum.f_id=?) and ((forum.perm_Id=1) or (forum.perm_Id=2 and p_Id=? and b_Id=?) or (forum.perm_Id=3 and p_Id=?) or (forum.perm_Id=4 and b_Id=?));";
 
 			PreparedStatement ps = con.prepareStatement(s);
 			ps.setInt(1, forum_id);

@@ -409,7 +409,7 @@ response.setHeader("Expires", "0");
 											</div>
 											<div id="Caplname" class="bubble">
 												<span style="color: red;"> *First letter must be
-													Captial in Last Name. </span>
+													Capital in Last Name. </span>
 											</div>
 											<div id="nolname" class="bubble">
 												<span style="color: red;"> *Numbers Not Allowed in
@@ -421,7 +421,7 @@ response.setHeader("Expires", "0");
 											</div>
 											<div id="Capmname" class="bubble">
 												<span style="color: red;"> *First letter must be
-													Captial in Middle Name. </span>
+													Capital in Middle Name. </span>
 											</div>
 											<div id="nomname" class="bubble">
 												<span style="color: red;"> *Numbers Not Allowed in
@@ -433,7 +433,7 @@ response.setHeader("Expires", "0");
 											</div>
 											<div id="Capfname" class="bubble">
 												<span style="color: red;"> *First letter must be
-													Captial in First name. </span>
+													Capital in First name. </span>
 											</div>
 											<div id="nofname" class="bubble">
 												<span style="color: red;"> *Numbers Not Allowed in
@@ -469,7 +469,7 @@ response.setHeader("Expires", "0");
 										<td><input type="text" id="mobno" value="<%= mobileno%>"
 											name="mobno" />
 											<div id="emptymobno" class="bubble">
-												<span style="color: red;"> *Moblie number is
+												<span style="color: red;"> *Mobile number is
 													required. </span>
 											</div>
 											<div id="nomobno" class="bubble">
@@ -535,12 +535,12 @@ response.setHeader("Expires", "0");
 											value="<%=otherhobbies %>" />
 											<%} %>
 											<div id="notcheck" class="bubble">
-												<span style="color: red;"> *Checkbox must be checked.
+												<span style="color: red;"> *Check box must be checked.
 												</span>
 											</div>
 											<div id="emptyohob" class="bubble">
-												<span style="color: red;"> *Other hobbie is
-													reqquired. </span>
+												<span style="color: red;"> *Other hobbies is
+													required. </span>
 											</div></td>
 									</tr>
 									<tr>
