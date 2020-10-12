@@ -5,10 +5,10 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 
 public class ConnectionDAO {
-
-	private static final String JDBC_DRIVER_CLASS ="";
-	private static final String JDBC_USERNAME = "";
-	private static final String JDBC_PWD = "";
+	private static final String DB_CLASS = "com.mysql.cj.jdbc.Driver";
+	private static final String DB_DRIVER_CLASS ="jdbc:mysql://mkorvuw3sl6cu9ms.cbetxkdyhwsb.us-east-1.rds.amazonaws.com/qtgw3fawiicu6ueb";
+	private static final String DB_USERNAME = "fivvwerod3jmhr3h";
+	private static final String DB_PWD = "zzbuda79xnj5uwuc";
 	private ConnectionDAO() {
 
 	}
@@ -19,8 +19,9 @@ public class ConnectionDAO {
 	public static Connection getConnection() throws SQLException {
 		Connection connection = null;
 		try {
-			Class.forName("com.mysql.cj.jdbc.Driver");
+			Class.forName(DB_CLASS);
 			/*
+			 * Cleaer
 			 * connection = DriverManager.getConnection(
 			 * "jdbc:mysql://us-cdbr-iron-east-03.cleardb.net:3306/heroku_9915491d71b4e71",
 			 * "b644aae84597ea", "66000fbb");
@@ -31,10 +32,9 @@ public class ConnectionDAO {
 			 * "jdbc:mysql://localhost:3306/aumninw", "root", "Rads$1443");
 			 */
 			
-			connection = DriverManager.getConnection(
-					"jdbc:mysql://	mkorvuw3sl6cu9ms.cbetxkdyhwsb.us-east-1.rds.amazonaws.com/qtgw3fawiicu6ueb",
-					"fivvwerod3jmhr3h",
-					"zzbuda79xnj5uwuc");
+			connection = DriverManager.getConnection(DB_DRIVER_CLASS,
+					DB_USERNAME,
+					DB_PWD);
 
 		} catch (ClassNotFoundException e) {
 			throw new SQLException();
