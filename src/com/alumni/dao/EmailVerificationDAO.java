@@ -6,32 +6,28 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.text.SimpleDateFormat;
-import java.util.Properties;
 import java.util.Random;
 
-import javax.mail.Message;
-import javax.mail.MessagingException;
-import javax.mail.PasswordAuthentication;
-import javax.mail.Session;
-import javax.mail.Transport;
-import javax.mail.internet.InternetAddress;
-import javax.mail.internet.MimeMessage;
+import org.springframework.stereotype.Repository;
 
 import com.alumni.beans.EmailVerificationBEAN;
+import com.alumni.service.EmailDeliveryService;
 
+@Repository
 public class EmailVerificationDAO {
+	private final EmailDeliveryService emailDeliveryService;
+
+	public EmailVerificationDAO(EmailDeliveryService emailDeliveryService) {
+		this.emailDeliveryService = emailDeliveryService;
+	}
 
 	public EmailVerificationBEAN sendCode(EmailVerificationBEAN emailVerificationBEAN)
-			throws ClassNotFoundException, SQLException, MessagingException {
+			throws ClassNotFoundException, SQLException {
 		emailVerificationBEAN = setCode(emailVerificationBEAN);
 		emailVerificationBEAN = setToken(emailVerificationBEAN);
-		emailVerificationBEAN = Email(emailVerificationBEAN);
-
-		if (emailVerificationBEAN.isNetwork()) {
-			emailVerificationBEAN = insertData(emailVerificationBEAN);
-		}
-
-		return emailVerificationBEAN;
+		emailDeliveryService.sendVerificationCode(emailVerificationBEAN.getEmail(), emailVerificationBEAN.getCode());
+		emailVerificationBEAN.setNetwork(true);
+		return insertData(emailVerificationBEAN);
 	}
 
 	private EmailVerificationBEAN insertData(EmailVerificationBEAN emailVerificationBEAN)
@@ -117,41 +113,4 @@ public class EmailVerificationDAO {
 		return emailVerificationBEAN;
 	}
 
-	public EmailVerificationBEAN Email(EmailVerificationBEAN emailVerificationBEAN) throws MessagingException {
-		String username = System.getenv("SMTP_USERNAME");
-		String password = System.getenv("SMTP_PASSWORD");
-		if (username == null || username.isBlank() || password == null || password.isBlank()) {
-			throw new MessagingException("SMTP_USERNAME and SMTP_PASSWORD must be configured");
-		}
-		String from = System.getenv().getOrDefault("SMTP_FROM", username);
-		Properties props = new Properties();
-		props.put("mail.smtp.auth", "true");
-		props.put("mail.smtp.starttls.enable", "true");
-		props.put("mail.smtp.host", System.getenv().getOrDefault("SMTP_HOST", "smtp.gmail.com"));
-		props.put("mail.smtp.port", System.getenv().getOrDefault("SMTP_PORT", "587"));
-		Session session = Session.getInstance(props, new javax.mail.Authenticator() {
-			protected PasswordAuthentication getPasswordAuthentication() {
-				return new PasswordAuthentication(username, password);
-			}
-		});
-		try {
-
-			Message message = new MimeMessage(session);
-			message.setFrom(new InternetAddress(from));
-			message.setRecipients(Message.RecipientType.TO, InternetAddress.parse(emailVerificationBEAN.getEmail()));
-			message.setSubject("Alumni Network");
-			message.setText("Your Alumni Network email verification code is: " + emailVerificationBEAN.getCode());
-			Transport.send(message);
-			emailVerificationBEAN.setNetwork(true);
-			// return "message Sent successfully!";
-			emailVerificationBEAN.setMailSent("message Sent successfully!");
-
-		} catch (MessagingException e) {
-			emailVerificationBEAN.setNetwork(false);
-			throw e;
-
-		}
-
-		return emailVerificationBEAN;
-	}
 }

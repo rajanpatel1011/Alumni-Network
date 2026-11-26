@@ -3,7 +3,7 @@ package com.alumni.web;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.ArgumentMatchers.anyString;
 import static org.mockito.Mockito.mockConstruction;
-import static org.mockito.Mockito.mockStatic;
+import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
@@ -20,6 +20,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.webmvc.test.autoconfigure.AutoConfigureMockMvc;
 import org.springframework.mock.web.MockHttpSession;
+import org.springframework.mail.MailSendException;
+import org.springframework.test.context.bean.override.mockito.MockitoBean;
 import org.springframework.test.web.servlet.MockMvc;
 
 import com.alumni.beans.EmailVerificationBEAN;
@@ -36,6 +38,8 @@ import com.alumni.bo.PassoutYrDrpBO;
 class PublicAuthenticationFlowTests {
 	@Autowired
 	private MockMvc mockMvc;
+	@MockitoBean
+	private EmailVerificationBO emailVerificationBO;
 
 	@Test
 	void publicTemplatesRender() throws Exception {
@@ -113,21 +117,19 @@ class PublicAuthenticationFlowTests {
 
 	@Test
 	void invalidRegistrationDetailsAreRejectedWithoutSendingEmail() throws Exception {
-		try (var verification = mockStatic(EmailVerificationBO.class)) {
-			mockMvc.perform(post("/EmailVerificationSERVLET")
-					.param("inputFname", "A")
-					.param("inputLname", "User")
-					.param("gender", "invalid")
-					.param("dob", "2000-01-01")
-					.param("inputEmail", "a@example.com")
-					.param("inputPassyr", "1")
-					.param("branch", "1")
-					.param("inputEnrno", "123"))
-					.andExpect(status().isBadRequest())
-					.andExpect(content().string(org.hamcrest.Matchers.containsString("Enter valid registration details.")));
+		mockMvc.perform(post("/EmailVerificationSERVLET")
+				.param("inputFname", "A")
+				.param("inputLname", "User")
+				.param("gender", "invalid")
+				.param("dob", "2000-01-01")
+				.param("inputEmail", "a@example.com")
+				.param("inputPassyr", "1")
+				.param("branch", "1")
+				.param("inputEnrno", "123"))
+				.andExpect(status().isBadRequest())
+				.andExpect(content().string(org.hamcrest.Matchers.containsString("Enter valid registration details.")));
 
-			verification.verifyNoInteractions();
-		}
+		verify(emailVerificationBO, org.mockito.Mockito.never()).sendCode(any(EmailVerificationBEAN.class));
 	}
 
 	@Test
@@ -151,21 +153,37 @@ class PublicAuthenticationFlowTests {
 		sent.setSuccess(true);
 		sent.setNetwork(true);
 
-		try (var verification = mockStatic(EmailVerificationBO.class)) {
-			verification.when(() -> EmailVerificationBO.sendCode(any(EmailVerificationBEAN.class))).thenReturn(sent);
+		when(emailVerificationBO.sendCode(any(EmailVerificationBEAN.class))).thenReturn(sent);
 
-			mockMvc.perform(post("/EmailVerificationSERVLET")
-					.param("inputFname", "A")
-					.param("inputLname", "User")
-					.param("gender", "m")
-					.param("dob", "2000-01-01")
-					.param("inputEmail", "a@example.com")
-					.param("inputPassyr", "1")
-					.param("branch", "1")
-					.param("inputEnrno", "123"))
-					.andExpect(status().isOk())
-					.andExpect(content().string(org.hamcrest.Matchers.containsString("A verification code has been sent")));
-		}
+		mockMvc.perform(post("/EmailVerificationSERVLET")
+				.param("inputFname", "A")
+				.param("inputLname", "User")
+				.param("gender", "m")
+				.param("dob", "2000-01-01")
+				.param("inputEmail", "a@example.com")
+				.param("inputPassyr", "1")
+				.param("branch", "1")
+				.param("inputEnrno", "123"))
+				.andExpect(status().isOk())
+				.andExpect(content().string(org.hamcrest.Matchers.containsString("A verification code has been sent")));
+	}
+
+	@Test
+	void mailDeliveryFailureReturnsServiceUnavailable() throws Exception {
+		when(emailVerificationBO.sendCode(any(EmailVerificationBEAN.class)))
+				.thenThrow(new MailSendException("mail service unavailable"));
+
+		mockMvc.perform(post("/EmailVerificationSERVLET")
+				.param("inputFname", "A")
+				.param("inputLname", "User")
+				.param("gender", "m")
+				.param("dob", "2000-01-01")
+				.param("inputEmail", "a@example.com")
+				.param("inputPassyr", "1")
+				.param("branch", "1")
+				.param("inputEnrno", "123"))
+				.andExpect(status().isServiceUnavailable())
+				.andExpect(content().string(org.hamcrest.Matchers.containsString("Email verification is temporarily unavailable.")));
 	}
 
 	@Test

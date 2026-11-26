@@ -1,0 +1,23 @@
+services:
+  database:
+    image: mariadb:10.11
+    environment:
+      MARIADB_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD:-local-root-only}
+      MARIADB_DATABASE: aumninw
+      MARIADB_USER: ${DB_USERNAME:-alumni_local}
+      MARIADB_PASSWORD: ${DB_PASSWORD:-alumni-local-only}
+    ports:
+      - "3307:3306"
+    command: --sql-mode=NO_ENGINE_SUBSTITUTION
+    volumes:
+      - alumni-database:/var/lib/mysql
+      - ./src/database/aumninw.sql:/docker-entrypoint-initdb.d/01-aumninw.sql:ro
+      - ./database/migrations/001-phase1-email-verification.sql:/docker-entrypoint-initdb.d/02-phase1-email-verification.sql:ro
+    healthcheck:
+      test: ["CMD", "healthcheck.sh", "--connect", "--innodb_initialized"]
+      interval: 5s
+      timeout: 5s
+      retries: 20
+
+volumes:
+  alumni-database:

@@ -2,18 +2,21 @@ package com.alumni.bo;
 
 import java.sql.SQLException;
 
-import javax.mail.MessagingException;
-
-import javax.mail.MessagingException;
+import org.springframework.stereotype.Service;
 
 import com.alumni.beans.EmailVerificationBEAN;
 import com.alumni.dao.EmailVerificationDAO;
 
+@Service
 public class EmailVerificationBO {
+	private final EmailVerificationDAO emailVerificationDAO;
 
-	public static EmailVerificationBEAN sendCode(EmailVerificationBEAN emailVerificationBEAN)
-			throws ClassNotFoundException, SQLException, MessagingException {
-		EmailVerificationDAO emailVerificationDAO = new EmailVerificationDAO();
+	public EmailVerificationBO(EmailVerificationDAO emailVerificationDAO) {
+		this.emailVerificationDAO = emailVerificationDAO;
+	}
+
+	public EmailVerificationBEAN sendCode(EmailVerificationBEAN emailVerificationBEAN)
+			throws ClassNotFoundException, SQLException {
 		return emailVerificationDAO.sendCode(emailVerificationBEAN);
 	}
 

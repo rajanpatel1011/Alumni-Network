@@ -7,13 +7,12 @@ import java.time.format.DateTimeParseException;
 import java.util.List;
 import java.util.Map;
 
-import javax.mail.MessagingException;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
+import org.springframework.mail.MailException;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -33,6 +32,11 @@ import com.alumni.bo.PassoutYrDrpBO;
 @Controller
 public class RegistrationController {
 	private static final Logger logger = LoggerFactory.getLogger(RegistrationController.class);
+	private final EmailVerificationBO emailVerificationBO;
+
+	public RegistrationController(EmailVerificationBO emailVerificationBO) {
+		this.emailVerificationBO = emailVerificationBO;
+	}
 
 	@GetMapping({"/signup", "/signup.jsp"})
 	public String signup(Model model) {
@@ -106,13 +110,13 @@ public class RegistrationController {
 		}
 
 		try {
-			EmailVerificationBEAN result = EmailVerificationBO.sendCode(request);
+			EmailVerificationBEAN result = emailVerificationBO.sendCode(request);
 			if (result == null || !result.isSuccess() || !result.isNetwork()) {
 				return ResponseEntity.status(HttpStatus.SERVICE_UNAVAILABLE)
 						.body(Map.of("message", "A verification email could not be sent. Please try again later."));
 			}
 			return ResponseEntity.ok(Map.of("message", "A verification code has been sent to your email address."));
-		} catch (ClassNotFoundException | SQLException | MessagingException exception) {
+		} catch (ClassNotFoundException | SQLException | MailException exception) {
 			logger.error("Email verification could not be started", exception);
 			return ResponseEntity.status(HttpStatus.SERVICE_UNAVAILABLE)
 					.body(Map.of("message", "Email verification is temporarily unavailable."));
