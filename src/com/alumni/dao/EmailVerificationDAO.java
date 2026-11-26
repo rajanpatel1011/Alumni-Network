@@ -37,7 +37,7 @@ public class EmailVerificationDAO {
 	private EmailVerificationBEAN insertData(EmailVerificationBEAN emailVerificationBEAN)
 			throws ClassNotFoundException, SQLException {
 		Connection con = null;
-		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-mm-dd hh:mm:ss");
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 		String st = sdf.format(emailVerificationBEAN.getDob());
 		try {
 			con = ConnectionDAO.getConnection();
@@ -118,41 +118,37 @@ public class EmailVerificationDAO {
 	}
 
 	public EmailVerificationBEAN Email(EmailVerificationBEAN emailVerificationBEAN) throws MessagingException {
-
-		final String Username = "alumninetwork83@gmail.com";
-		final String Password = "cgpit@123";
+		String username = System.getenv("SMTP_USERNAME");
+		String password = System.getenv("SMTP_PASSWORD");
+		if (username == null || username.isBlank() || password == null || password.isBlank()) {
+			throw new MessagingException("SMTP_USERNAME and SMTP_PASSWORD must be configured");
+		}
+		String from = System.getenv().getOrDefault("SMTP_FROM", username);
 		Properties props = new Properties();
 		props.put("mail.smtp.auth", "true");
 		props.put("mail.smtp.starttls.enable", "true");
-		props.put("mail.smtp.host", "smtp.gmail.com");
-		// props.put("mail.smtp.port", "587");
+		props.put("mail.smtp.host", System.getenv().getOrDefault("SMTP_HOST", "smtp.gmail.com"));
+		props.put("mail.smtp.port", System.getenv().getOrDefault("SMTP_PORT", "587"));
 		Session session = Session.getInstance(props, new javax.mail.Authenticator() {
 			protected PasswordAuthentication getPasswordAuthentication() {
-				return new PasswordAuthentication(Username, Password);
+				return new PasswordAuthentication(username, password);
 			}
 		});
 		try {
 
 			Message message = new MimeMessage(session);
-			message.setFrom(new InternetAddress("alumninetwork83@gmail.com"));
+			message.setFrom(new InternetAddress(from));
 			message.setRecipients(Message.RecipientType.TO, InternetAddress.parse(emailVerificationBEAN.getEmail()));
 			message.setSubject("Alumni Network");
-			message.setText("Dear User please verify your email id with this verification code :"
-					+ emailVerificationBEAN.getCode() + "<br/> "
-					+ "Click <a href='http://localhost:7181/Alumni/index.jsp?token=" + emailVerificationBEAN.getToken()
-					+ "'>here</a> to verify email..");
-			System.out.println("Dear User please verify your email id with this verification code :"
-					+ emailVerificationBEAN.getCode() + "<br/> "
-					+ "Click <a href='http://localhost:7181/Alumni/index.jsp?token=" + emailVerificationBEAN.getToken()
-					+ "'>here</a> to verify email..");
+			message.setText("Your Alumni Network email verification code is: " + emailVerificationBEAN.getCode());
 			Transport.send(message);
 			emailVerificationBEAN.setNetwork(true);
 			// return "message Sent successfully!";
 			emailVerificationBEAN.setMailSent("message Sent successfully!");
 
-		} catch (Exception e) {
+		} catch (MessagingException e) {
 			emailVerificationBEAN.setNetwork(false);
-			System.out.println(e);
+			throw e;
 
 		}
 

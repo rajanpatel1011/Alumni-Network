@@ -1,25 +1,27 @@
-# Alumni-Network
-using Java servlet, Jsp, Ajax, Jquary, SQL
+# Alumni Network
 
-https://netwrk.herokuapp.com/
+Alumni Network is being migrated from a Java Servlet/JSP application to Spring Boot 4 and Thymeleaf in incremental phases. The first migrated flow includes the landing page, login/logout, registration, and registration email verification. Other servlet-backed pages are not yet part of the Spring Boot application.
 
-## Database configuration
+## Requirements
 
-Set these environment variables for deployments:
+- Java 17 or newer
+- Maven 3.6 or newer
+- MySQL compatible with the existing schema
 
-- `DB_URL`: MySQL JDBC URL, for example `jdbc:mysql://host:3306/database`
-- `DB_USERNAME`: database username
-- `DB_PASSWORD`: database password
+## Run locally
 
-The connection also recognizes Heroku-style `JDBC_DATABASE_URL`,
-`JDBC_DATABASE_USERNAME`, and `JDBC_DATABASE_PASSWORD` variables. When no
-variables are configured, it uses `jdbc:mysql://localhost:3306/aumninw` with
-the local `root` user and an empty password.
+Configure the existing JDBC layer with `DB_URL`, `DB_USERNAME`, and `DB_PASSWORD` environment variables, or supply the local `config/database.properties` file. The database schema and DAOs are intentionally unchanged in this phase.
 
-For local use, create the git-ignored `config/database.properties` file:
+Registration email verification also needs `SMTP_USERNAME` and `SMTP_PASSWORD`. Optional settings are `SMTP_HOST` (defaults to `smtp.gmail.com`), `SMTP_PORT` (defaults to `587`), and `SMTP_FROM` (defaults to `SMTP_USERNAME`).
 
-```properties
-db.url=jdbc:mysql://host:3306/database
-db.username=database-user
-db.password=database-password
+Run the application with:
+
+```sh
+mvn spring-boot:run
 ```
+
+The packaged application can be built with `mvn package` and started with `java -jar target/Alumni-Network-1.0.3.jar`. The server port defaults to 8080 and can be overridden with `SERVER_PORT`.
+
+## Migration status
+
+The legacy source is still under `src/com/alumni` and `WebContent`. Existing business objects and JDBC DAOs remain in use. Legacy servlet classes and JSP files are retained as migration references but are excluded from the Spring Boot runtime; the current Thymeleaf views are under `src/main/resources/templates`, and the existing static assets are packaged from `WebContent`.

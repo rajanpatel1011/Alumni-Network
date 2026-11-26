@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Alumni Network</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+<header class="header">
+    <div class="title">C.G. Patel Institute of Technology</div>
+    <nav class="nav">
+        <a th:href="@{/}">Home</a>
+        <a th:href="@{/signup}">Sign up</a>
+        <a th:href="@{/login}">Log in</a>
+    </nav>
+</header>
+<main class="content">
+    <section>
+        <h1>Alumni Network</h1>
+        <p>Stay connected with your classmates and the CGPIT alumni community.</p>
+        <div th:if="${session.loginBEAN != null}">
+            <p>Signed in as <strong th:text="${session.loginBEAN.userName}">alumnus</strong>.</p>
+            <form th:action="@{/logout}" method="post"><button type="submit">Log out</button></form>
+        </div>
+        <div th:unless="${session.loginBEAN != null}">
+            <a th:href="@{/signup}">Create an alumni account</a>
+            <span>or</span>
+            <a th:href="@{/login}">log in</a>
+        </div>
+    </section>
+    <div class="photoslide">
+        <object th:data="@{/photoslide.html}" type="text/html" aria-label="Alumni photo slideshow"></object>
+    </div>
+</main>
+<footer class="footer"></footer>
+</body>
+</html>

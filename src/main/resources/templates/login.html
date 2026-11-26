@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Log in | Alumni Network</title>
+    <link rel="stylesheet" th:href="@{/css/login.css}">
+</head>
+<body>
+<main>
+    <h1>Log in</h1>
+    <p class="error" role="alert" th:if="${error != null}" th:text="${error}"></p>
+    <form th:action="@{/Login}" method="post">
+        <label for="inputUname">Username</label>
+        <input id="inputUname" name="uid" type="text" autocomplete="username" required>
+        <label for="inputPWD">Password</label>
+        <input id="inputPWD" name="pwd" type="password" autocomplete="current-password" required>
+        <button type="submit">Log in</button>
+    </form>
+    <p><a th:href="@{/}">Home</a> · <a th:href="@{/signup}">Create an account</a></p>
+</main>
+</body>
+</html>

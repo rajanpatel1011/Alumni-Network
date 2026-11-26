@@ -77,7 +77,6 @@ public class LoginSERVLET extends HttpServlet {
 			String password = request.getParameter("pwd");
 
 			String check = request.getParameter("check");
-			System.out.println("uid :" + userId + "      pwd :" + password + "    check=" + check);
 
 			if (check == null || "".equals(check)) {
 				rd = request.getRequestDispatcher("index.jsp?validation=2");

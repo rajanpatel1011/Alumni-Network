@@ -11,48 +11,32 @@ public class EmailVerificationCodeDAO {
 
 	public EmailVerificationCodeBEAN checkCode(EmailVerificationCodeBEAN emailVerificationCodeBEAN)
 			throws SQLException {
-		System.out.print("\nEmail IN DAO =" + emailVerificationCodeBEAN.getEmail() + "\nCodeINDAO ="
-				+ emailVerificationCodeBEAN.getCode());
-		Connection con = null;
-		try {
-			con = ConnectionDAO.getConnection();
-			PreparedStatement ps = con.prepareStatement(
-					"select * from tempuserdata t,emailverify e where email_Id = ? and code = ? and t.very_codeId=e.very_id;");
+		try (Connection con = ConnectionDAO.getConnection();
+				PreparedStatement ps = con.prepareStatement(
+						"select e.token, e.very_id from tempuserdata t join emailverify e on t.very_codeId = e.very_id where t.email_Id = ? and e.code = ?")) {
 			ps.setString(1, emailVerificationCodeBEAN.getEmail());
 			ps.setString(2, emailVerificationCodeBEAN.getCode());
-			ResultSet rs = ps.executeQuery();
-			if (rs.next()) {
+			try (ResultSet rs = ps.executeQuery()) {
+				if (!rs.next()) {
+					return emailVerificationCodeBEAN;
+				}
 				emailVerificationCodeBEAN.setSuccess(true);
 				emailVerificationCodeBEAN.setToken(rs.getString("token"));
 				emailVerificationCodeBEAN.setId(rs.getInt("very_id"));
-				return emailVerificationCodeBEAN;
-			} else {
-				return null;
-			}
-		} finally {
-			try {
-				verifiedCode(emailVerificationCodeBEAN);
-				ConnectionDAO.closeConnection(con);
-				return emailVerificationCodeBEAN;
-			} catch (Exception e) {
-				System.out.println(e);
 			}
 		}
+		verifiedCode(emailVerificationCodeBEAN);
+		return emailVerificationCodeBEAN;
 	}
 
-	private void verifiedCode(EmailVerificationCodeBEAN emailVerificationCodeBEAN) {
-		Connection con = null;
-		try {
-			con = ConnectionDAO.getConnection();
-			PreparedStatement ps = con
-					.prepareStatement("UPDATE tempuserdata set email_verify=?,verify_flag=? where very_codeId = ?");
+	private void verifiedCode(EmailVerificationCodeBEAN emailVerificationCodeBEAN) throws SQLException {
+		try (Connection con = ConnectionDAO.getConnection();
+				PreparedStatement ps = con.prepareStatement(
+						"UPDATE tempuserdata set email_verify=?,verify_flag=? where very_codeId = ?")) {
 			ps.setInt(1, 1);
 			ps.setInt(2, 1);
 			ps.setInt(3, emailVerificationCodeBEAN.getId());
-
 			ps.executeUpdate();
-		} catch (Exception e) {
-			System.out.println(e);
 		}
 	}
 

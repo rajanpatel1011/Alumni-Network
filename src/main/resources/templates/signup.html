@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Sign up | Alumni Network</title>
+    <link rel="stylesheet" th:href="@{/css/signup.css}">
+    <script th:src="@{/js/registration.js}" defer></script>
+</head>
+<body>
+<main>
+    <h1>Join the Alumni Network</h1>
+    <p class="error" role="alert" th:if="${loadError != null}" th:text="${loadError}"></p>
+    <form id="signupForm" th:action="@{/EmailVerificationSERVLET}" method="post">
+        <label for="inputFname">First name</label>
+        <input id="inputFname" name="inputFname" type="text" autocomplete="given-name" required>
+        <label for="inputLname">Last name</label>
+        <input id="inputLname" name="inputLname" type="text" autocomplete="family-name" required>
+        <fieldset>
+            <legend>Gender</legend>
+            <label><input type="radio" name="gender" value="m" checked> Male</label>
+            <label><input type="radio" name="gender" value="f"> Female</label>
+        </fieldset>
+        <label for="inputDob">Date of birth</label>
+        <input id="inputDob" name="dob" type="date" required>
+        <label for="inputEmail">Email address</label>
+        <input id="inputEmail" name="inputEmail" type="email" autocomplete="email" required>
+        <label for="inputPassyr">Pass-out year</label>
+        <select id="inputPassyr" name="inputPassyr" required>
+            <option value="">Select a year</option>
+            <option th:each="year : ${passoutYears}" th:value="${year.passOutYearId}"
+                    th:text="${year.passOutYear}">Year</option>
+        </select>
+        <label for="selectBranch">Branch</label>
+        <select id="selectBranch" name="branch" required>
+            <option value="">Select a branch</option>
+            <option th:each="branch : ${branches}" th:value="${branch.branchId}"
+                    th:text="${branch.branch}">Branch</option>
+        </select>
+        <label for="inputEnrno">Enrollment ID</label>
+        <input id="inputEnrno" name="inputEnrno" type="text" required>
+        <button id="signupButton" type="submit" th:disabled="${loadError != null}">Send verification code</button>
+    </form>
+    <form id="verificationForm" hidden>
+        <label for="verificationCode">Verification code</label>
+        <input id="verificationCode" name="inputCode" type="text" autocomplete="one-time-code" required>
+        <input id="verificationEmail" name="inputEmail" type="hidden">
+        <button type="submit">Verify email</button>
+    </form>
+    <p id="statusMessage" role="status" aria-live="polite"></p>
+    <p><a th:href="@{/}">Home</a> · <a th:href="@{/login}">Log in</a></p>
+</main>
+</body>
+</html>
