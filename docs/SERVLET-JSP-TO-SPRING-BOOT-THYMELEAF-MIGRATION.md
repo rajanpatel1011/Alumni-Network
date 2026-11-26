@@ -44,14 +44,17 @@ Record future database work separately after the application migration is stable
 - [x] Added configurable SMTP settings (`SMTP_USERNAME`, `SMTP_PASSWORD`, optional host/port/from) rather than embedding mail credentials in Java.
 - [x] Updated the deployment `Procfile`, README, and signup date handling for this phase.
 - [x] Built the executable JAR, ran the Maven test lifecycle, and smoke-tested the migrated pages and static resources over HTTP.
+- [x] Added automated MVC coverage for public template rendering, login success/failure, registration validation and verification, and session behavior.
 
 ### Known migration gaps
 
 - [ ] Most authenticated member, moderator, and admin workflows are not migrated; their JSPs and servlets are excluded from the Boot runtime.
 - [ ] The JSP inventory below is retained in `WebContent` as source/reference; it is not a set of runnable Boot views.
-- [ ] Existing migration smoke checks do not replace automated controller, template, JDBC integration, and end-to-end tests.
+- [ ] Automated controller/template coverage does not replace JDBC integration and end-to-end tests.
 - [ ] Validate the complete legacy registration lifecycle and exact account approval/activation behavior before declaring signup fully migrated.
 - [ ] Existing DAO patterns, connection management, and SQL remain legacy implementation details for now; address database/persistence separately.
+- [ ] Authentication and registration have not been verified against a representative database: the local database rejected the read-only connectivity check, and no seeded test database is configured.
+- [ ] SMTP delivery has not been integration-tested because SMTP credentials/service configuration are unavailable.
 - [ ] Review and replace legacy static assets/dependencies only where needed as pages migrate.
 - [ ] Ensure secrets and local configuration files remain excluded from version control.
 
@@ -65,7 +68,7 @@ Record future database work separately after the application migration is stable
 - Do not include unrelated workspace files or local IDE settings in a phase commit.
 - If a phase is incomplete, blocked, or fails verification, record that status here and do not describe it as a completed migration checkpoint.
 
-The initial Spring Boot foundation and public/authentication work is the first repository checkpoint; its configured-database and mail integration tests remain tracked as follow-up verification under Phase 1.
+The initial Spring Boot foundation and public/authentication work is the first repository checkpoint. Automated MVC coverage is in place, but Phase 1 remains in progress until a representative database and SMTP service are available for integration verification.
 
 ### Phase 1 — Runtime and public/authentication foundation
 
@@ -73,8 +76,8 @@ The initial Spring Boot foundation and public/authentication work is the first r
 - [x] Package static assets from `WebContent` without packaging JSPs.
 - [x] Migrate home, login, logout, signup form, and email verification endpoints.
 - [x] Preserve the current JDBC business-object/DAO path for this phase.
-- [ ] Add automated tests for login success/failure, registration validation, verification success/failure, session behavior, and template rendering.
-- [ ] Confirm authentication and registration behavior against a representative database without changing the schema.
+- [x] Add automated tests for login success/failure, registration validation, verification success/failure, session behavior, and template rendering.
+- [ ] Confirm authentication and registration behavior against a representative database without changing the schema. Blocked until a seeded test database is available.
 
 ### Phase 2 — Member and community workflows
 
@@ -228,3 +231,4 @@ The entries below are legacy `@WebServlet` mappings, grouped by source package. 
 | Date | Update |
 |---|---|
 | 2026-11-25 | Created the migration specification and recorded the initial Boot 4/Thymeleaf foundation and public/authentication implementation. |
+| 2026-11-25 | Added automated Phase 1 MVC tests; database authentication and SMTP integration verification remain outstanding. |

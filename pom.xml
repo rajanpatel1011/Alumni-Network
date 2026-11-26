@@ -46,6 +46,16 @@
 			<artifactId>activation</artifactId>
 			<version>1.1.1</version>
 		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-test</artifactId>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-webmvc-test</artifactId>
+			<scope>test</scope>
+		</dependency>
 	</dependencies>
 
 	<build>
@@ -80,6 +90,7 @@
 					<excludes>
 						<exclude>com/alumni/servlet/**/*.java</exclude>
 						<exclude>com/alumni/admin/servlet/**/*.java</exclude>
+						<exclude>test/**</exclude>
 					</excludes>
 				</configuration>
 			</plugin>
