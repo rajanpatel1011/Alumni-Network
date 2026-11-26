@@ -44,8 +44,10 @@ Record future database work separately after the application migration is stable
 - [x] Added Spring Boot `JavaMailSender` integration with external `SPRING_MAIL_*` and `EMAIL_FROM` configuration.
 - [x] Added a local MariaDB Compose setup that restores `src/database/aumninw.sql` and applies the Phase 1 email-verification schema patch.
 - [x] Updated the deployment `Procfile`, README, and signup date handling for this phase.
-- [x] Built the executable JAR, ran the Maven test lifecycle, and smoke-tested the migrated pages and static resources over HTTP.
-- [x] Added automated MVC coverage for public template rendering, login success/failure, registration validation and verification, and session behavior.
+- [x] Built and packaged the executable JAR and smoke-tested the migrated pages and static resources over HTTP.
+- [x] Added 10 automated MVC tests for public template rendering, login success/failure, registration validation and verification, mail failure handling, and session behavior.
+- [x] Added 2 mail-service unit tests for message construction and missing sender configuration.
+- [x] Verified the clean Maven build and test lifecycle with `mvn clean verify` (12 tests, no failures).
 
 ### Known migration gaps
 
@@ -55,7 +57,7 @@ Record future database work separately after the application migration is stable
 - [ ] Validate the complete legacy registration lifecycle and exact account approval/activation behavior before declaring signup fully migrated.
 - [ ] Existing DAO patterns, connection management, and SQL remain legacy implementation details for now; address database/persistence separately.
 - [ ] Authentication and registration have not been verified against the restored local database; Docker is not installed in the current environment.
-- [ ] SMTP delivery has not been integration-tested because SMTP credentials/service configuration are unavailable; mail formatting and sender validation have unit coverage.
+- [ ] Mail delivery has not been integration-tested because a configured SMTP service is unavailable; message formatting, sender validation, and controller failure handling have automated coverage.
 - [ ] Review and replace legacy static assets/dependencies only where needed as pages migrate.
 - [ ] Ensure secrets and local configuration files remain excluded from version control.
 
@@ -69,7 +71,7 @@ Record future database work separately after the application migration is stable
 - Do not include unrelated workspace files or local IDE settings in a phase commit.
 - If a phase is incomplete, blocked, or fails verification, record that status here and do not describe it as a completed migration checkpoint.
 
-The initial Spring Boot foundation and public/authentication work is the first repository checkpoint. Automated MVC and mail-service tests are in place, but Phase 1 remains in progress until database integration can run and an SMTP service is configured for delivery verification.
+The initial Spring Boot foundation and public/authentication work is the first repository checkpoint. Automated MVC and mail-service tests are in place, but Phase 1 remains in progress until database integration can run and a mail transport is configured for delivery verification.
 
 ### Phase 1 — Runtime and public/authentication foundation
 
@@ -77,9 +79,10 @@ The initial Spring Boot foundation and public/authentication work is the first r
 - [x] Package static assets from `WebContent` without packaging JSPs.
 - [x] Migrate home, login, logout, signup form, and email verification endpoints.
 - [x] Preserve the current JDBC business-object/DAO path for this phase.
-- [x] Add automated tests for login success/failure, registration validation, verification success/failure, session behavior, and template rendering.
+- [x] Add automated tests for login success/failure, registration validation, verification success/failure, mail delivery errors, session behavior, and template rendering.
 - [x] Add a local restore path from the existing MySQL dump and a targeted patch for the email-verification fields required by registration.
 - [ ] Confirm authentication and registration behavior against the restored representative database without changing its existing business schema. Blocked until Docker is available to run the local database.
+- [ ] Verify actual email delivery with a configured mail transport.
 
 ### Phase 2 — Member and community workflows
 
@@ -234,4 +237,5 @@ The entries below are legacy `@WebServlet` mappings, grouped by source package. 
 |---|---|
 | 2026-11-25 | Created the migration specification and recorded the initial Boot 4/Thymeleaf foundation and public/authentication implementation. |
 | 2026-11-25 | Added automated Phase 1 MVC tests; database authentication and mail-delivery integration verification remain outstanding. |
-| 2026-11-25 | Added local MariaDB restore/verification schema setup and moved verification email delivery to configurable Spring Mail; external database and mail integration checks remain outstanding. |
+| 2026-11-25 | Added local MariaDB restore/verification schema setup and moved verification email delivery to configurable Spring Mail. |
+| 2026-11-25 | Updated progress after `mvn clean verify`: all 12 automated MVC and mail-service tests pass; live database and mail transport checks remain blocked on local services/configuration. |
