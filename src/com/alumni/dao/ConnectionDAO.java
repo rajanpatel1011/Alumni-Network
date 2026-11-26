@@ -3,70 +3,89 @@ package com.alumni.dao;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
+import java.io.IOException;
+import java.io.InputStream;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.util.Properties;
 
 public class ConnectionDAO {
 	private static final String DB_CLASS = "com.mysql.cj.jdbc.Driver";
-	private static final String DB_DRIVER_CLASS ="jdbc:mysql://mkorvuw3sl6cu9ms.cbetxkdyhwsb.us-east-1.rds.amazonaws.com/qtgw3fawiicu6ueb";
-	private static final String DB_USERNAME = "fivvwerod3jmhr3h";
-	private static final String DB_PWD = "zzbuda79xnj5uwuc";
-	private ConnectionDAO() {
+	private static final String DEFAULT_DB_URL = "jdbc:mysql://localhost:3306/aumninw";
+	private static final String DEFAULT_DB_USERNAME = "root";
+	private static final String DEFAULT_DB_PASSWORD = "";
+	private static final String PROPERTIES_FILE = "config/database.properties";
 
+	private ConnectionDAO() {
 	}
 
-	/**
-	 * @param args
-	 */
 	public static Connection getConnection() throws SQLException {
-		Connection connection = null;
 		try {
 			Class.forName(DB_CLASS);
-			/*
-			 * Cleaer
-			 * connection = DriverManager.getConnection(
-			 * "jdbc:mysql://us-cdbr-iron-east-03.cleardb.net:3306/heroku_9915491d71b4e71",
-			 * "b644aae84597ea", "66000fbb");
-			 */
-			
-			/*
-			 * connection = DriverManager.getConnection(
-			 * "jdbc:mysql://localhost:3306/aumninw", "root", "Rads$1443");
-			 */
-			
-			connection = DriverManager.getConnection(DB_DRIVER_CLASS,
-					DB_USERNAME,
-					DB_PWD);
+			Properties properties = loadProperties();
+			String url = firstConfiguredValue("DB_URL", "JDBC_DATABASE_URL");
+			String username = firstConfiguredValue("DB_USERNAME", "JDBC_DATABASE_USERNAME");
+			String password = firstConfiguredValue("DB_PASSWORD", "JDBC_DATABASE_PASSWORD");
 
+			if (url == null) {
+				url = properties.getProperty("db.url", DEFAULT_DB_URL);
+			}
+			if (username == null) {
+				username = properties.getProperty("db.username", DEFAULT_DB_USERNAME);
+			}
+			if (password == null) {
+				password = properties.getProperty("db.password", DEFAULT_DB_PASSWORD);
+			}
+
+			Connection connection = DriverManager.getConnection(url, username, password);
+			System.out.println("Database connection established");
+			return connection;
 		} catch (ClassNotFoundException e) {
-			throw new SQLException();
-		} catch (Exception e1) {
-			System.out.println(e1);
+			throw new SQLException("MySQL JDBC driver is not available", e);
 		}
-
-		// connection =
-		// DriverManager.getConnection("jdbc:mysql://localhost:3306/aumninw?user=root&password=rads1443");
-
-		// connection =
-		// DriverManager.getConnection("jdbc:mysql://182.50.133.170:3306/aumninw","aumninw","Admin@123");
-
-		System.out.println("Connection Successfully");
-		return connection;
 	}
 
-	/**
-	 * This method will close the connection
-	 * 
-	 * @param connection : Connection to be closed.
-	 */
+	private static Properties loadProperties() {
+		Properties properties = new Properties();
+		Path propertiesPath = Paths.get(PROPERTIES_FILE);
+
+		if (Files.isRegularFile(propertiesPath)) {
+			try (InputStream input = Files.newInputStream(propertiesPath)) {
+				properties.load(input);
+			} catch (IOException e) {
+				throw new IllegalStateException("Could not read " + PROPERTIES_FILE, e);
+			}
+		} else {
+			try (InputStream input = ConnectionDAO.class.getClassLoader().getResourceAsStream("database.properties")) {
+				if (input != null) {
+					properties.load(input);
+				}
+			} catch (IOException e) {
+				throw new IllegalStateException("Could not read database.properties", e);
+			}
+		}
+		return properties;
+	}
+
+	private static String firstConfiguredValue(String... names) {
+		for (String name : names) {
+			String value = System.getenv(name);
+			if (value != null && !value.trim().isEmpty()) {
+				return value.trim();
+			}
+		}
+		return null;
+	}
 
 	public static void closeConnection(Connection connection) {
 		try {
 			if (connection != null && !connection.isClosed()) {
 				connection.close();
-				System.out.println(" Connection Close");
+				System.out.println("Database connection closed");
 			}
-		} catch (Exception e) {
-			System.out.println("CLOSE CON : " + e);
+		} catch (SQLException e) {
+			System.err.println("Failed to close database connection: " + e.getMessage());
 		}
 	}
-
 }

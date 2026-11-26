@@ -1,5 +1,6 @@
 /bin/
 /target/
+config/database.properties
 .classpath
 .settings
 /Alumni-Network.iml
